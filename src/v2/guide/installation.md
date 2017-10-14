@@ -45,10 +45,11 @@ De asemenea, Vue este disponibil pe [unpkg](https://unpkg.com/vue) și pe [cdnjs
 
 ## NPM
 
-NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). Vue also provides accompanying tools for authoring [Single File Components](single-file-components.html).
+Recomandăm să utilizați metoda de instalare NPM atunci când creați aplicații de scală largă cu Vue. Această opțiune funcționează perfect în pereche cu instrumentele de asamblare, cum ar fi [Webpack](https://webpack.js.org/) sau [Browserify](http://browserify.org/). Vue are, de asemenea, instrumente compatibile pentru utilizarea [componentelor cu un singur fișier](single-file-components.html).
+
 
 ``` bash
-# latest stable
+# ultima versiune stabilă
 $ npm install vue
 ```
 
