@@ -45,7 +45,7 @@ De asemenea, Vue este disponibil pe [unpkg](https://unpkg.com/vue) și pe [cdnjs
 
 ## NPM
 
-Recomandăm să utilizați metoda de instalare NPM atunci când creați aplicații de scală largă cu Vue. Această opțiune funcționează perfect în pereche cu instrumentele de asamblare, cum ar fi [Webpack](https://webpack.js.org/) sau [Browserify](http://browserify.org/). Vue are, de asemenea, instrumente compatibile pentru utilizarea [componentelor cu un singur fișier](single-file-components.html).
+Recomandăm să utilizați metoda de instalare NPM atunci când creați aplicații de scală largă folosind Vue. Această opțiune funcționează perfect în pereche cu instrumentele de asamblare, cum ar fi [Webpack](https://webpack.js.org/) sau [Browserify](http://browserify.org/). Vue are, de asemenea, instrumente compatibile pentru utilizarea [componentelor cu un singur fișier](single-file-components.html).
 
 
 ``` bash
@@ -55,20 +55,22 @@ $ npm install vue
 
 ## CLI
 
-Vue.js provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds:
+Vue.js oferă un [CLI oficial](https://github.com/vuejs/vue-cli) pentru crearea rapidă a unei schele pentru aplicațiile ambițioase pe o singură pagină. Șablonurile propuse conțin tot ce este necesar pentru organizarea unei dezvoltări moderne Front-end. Durează doar câteva minute pentru a primi build-urile gata de producție, pregătite și funcționale cu hot-reload și lint-on-save:
+
 
 ``` bash
-# install vue-cli
+# instalăm vue-cli
 $ npm install --global vue-cli
-# create a new project using the "webpack" template
+# creăm un proiect nou utilizând template-ul "webpack"
 $ vue init webpack my-project
-# install dependencies and go!
+# instalăm dependențele 
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
 
-<p class="tip">The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="./">the guide</a> without any build tools before using the CLI.</p>
+<p class="tip">CLI presupune cunoașterea prealabilă a Node.js și a instrumentelor de ansamblare corespunzătoare. Dacă sunteți începător în Vue sau în instrumente de asamblare front-end, vă sugerăm să treceți prin <a href="./"> ghid </a>, fără folosirea instrumentelor de ansamblare, înainte de a utiliza CLI.
+
 
 ## Explanation of Different Builds
 
