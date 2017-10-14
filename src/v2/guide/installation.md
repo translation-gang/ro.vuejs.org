@@ -13,31 +13,35 @@ ro_gz_size: "21.04"
 
 Vue **nu** acceptă IE8 şi mai jos, deoarece utilizează caracteristicile ECMAScript 5 care nu pot fi schimbate în IE8. Cu toate acestea, Vue acceptă toate [browserele compatibile cu ECMAScript 5](http://caniuse.com/#feat=es5).
 
+
 ### Note de Lansare
 
 Informaţiile detaliate despre lansarea versiunilor sunt disponibile pe [GitHub](https://github.com/vuejs/vue/releases).
 
+
 ## Vue Devtools
 
-When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+Atunci când utilizați Vue, vă recomandăm să instalați [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) în browser-ul dvs., aceasta o să vă permită să inspectați și să depanați aplicațiile dvs. într-o interfață ușor de utilizat.
 
-## Direct `<script>` Include
 
-Simply download and include with a script tag. `Vue` will be registered as a global variable.
+## Conectarea prin `<script>`
 
-<p class="tip">Don't use the minified version during development. You will miss out on all the nice warnings for common mistakes!</p>
+Pur și simplu descărcați fișierul js și conectați-l prin tag-ul `<script>`. `Vue` va fi înregistrat ca variabilă globală.
+
+<p class="tip">Nu utilizați versiunea minimizată în timpul dezvoltării. În caz contrar dvs. nu veți primi avertismente despre greșelile comune!</p>
 
 <div id="downloads">
-<a class="button" href="/js/vue.js" download>Development Version</a><span class="light info">With full warnings and debug mode</span>
+<a class="button" href="/js/vue.js" download>Versiunea pentru Dezvoltare</a><span class="light info">Cu avertismente și regim de depanare.</span>
 
-<a class="button" href="/js/vue.min.js" download>Production Version</a><span class="light info">Warnings stripped, {{gz_size}}KB min+gzip</span>
+<a class="button" href="/js/vue.min.js" download>Versiunea pentru Producție</a><span class="light info">Fără avertismente, {{gz_size}}KB min+gzip</span>
 </div>
 
 ### CDN
 
-Recommended: [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue), which will reflect the latest version as soon as it is published to npm. You can also browse the source of the npm package at [https://cdn.jsdelivr.net/npm/vue/](https://cdn.jsdelivr.net/npm/vue/).
+Recomandăm: [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue), aici găsiți cea mai recentă versiune imediat după ce va fi publicată la **npm**. De asemenea, puteți naviga în sursa package-ului npm la adresa [https://cdn.jsdelivr.net/npm/vue/](https://cdn.jsdelivr.net/npm/vue/).
 
-Also available on [unpkg](https://unpkg.com/vue) and [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/{{vue_version}}/vue.js) (cdnjs takes some time to sync so the latest release may not be available yet).
+De asemenea, Vue este disponibil pe [unpkg](https://unpkg.com/vue) și pe [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/ {{vue_version}} /vue.js) (sincronizarea cdnjs durează ceva timp, astfel încât cea mai recentă versiune poate să nu fie disponibilă permanent).
+
 
 ## NPM
 
