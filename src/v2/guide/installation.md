@@ -38,7 +38,7 @@ Pur și simplu descărcați fișierul js și conectați-l prin tag-ul `<script>`
 
 ### CDN
 
-Recomandăm: [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue), aici găsiți cea mai recentă versiune imediat după ce va fi publicată la **npm**. De asemenea, puteți naviga în sursa package-ului npm la adresa [https://cdn.jsdelivr.net/npm/vue/](https://cdn.jsdelivr.net/npm/vue/).
+Recomandăm: [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue), aici găsiți cea mai recentă versiune imediat după ce va fi publicată pe **npm**. De asemenea, puteți naviga în sursa package-ului npm la adresa [https://cdn.jsdelivr.net/npm/vue/](https://cdn.jsdelivr.net/npm/vue/).
 
 De asemenea, Vue este disponibil pe [unpkg](https://unpkg.com/vue) și pe [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/{{vue_version}}/vue.js) (sincronizarea cdnjs durează ceva timp, astfel încât cea mai recentă versiune poate să nu fie disponibilă permanent).
 
