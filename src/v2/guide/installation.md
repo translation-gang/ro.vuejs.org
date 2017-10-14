@@ -1,5 +1,5 @@
 ---
-title: Installation
+title: Instalarea
 type: guide
 order: 1
 vue_version: 2.5.1
@@ -9,13 +9,13 @@ gz_size: "30.33"
 ro_gz_size: "21.04"
 ---
 
-### Compatibility Note
+### Nota privind Compatibilitatea
 
-Vue does **not** support IE8 and below, because it uses ECMAScript 5 features that are un-shimmable in IE8. However it supports all [ECMAScript 5 compliant browsers](http://caniuse.com/#feat=es5).
+Vue **nu** acceptă IE8 şi mai jos, deoarece utilizează caracteristicile ECMAScript 5 care nu pot fi schimbate în IE8. Cu toate acestea, Vue acceptă toate [browserele compatibile cu ECMAScript 5](http://caniuse.com/#feat=es5).
 
-### Release Notes
+### Note de Lansare
 
-Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue/releases).
+Informaţiile detaliate despre lansarea versiunilor sunt disponibile pe [GitHub](https://github.com/vuejs/vue/releases).
 
 ## Vue Devtools
 
