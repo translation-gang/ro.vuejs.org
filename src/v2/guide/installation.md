@@ -72,9 +72,9 @@ $ npm run dev
 <p class="tip">CLI presupune cunoașterea prealabilă a Node.js și a instrumentelor de ansamblare corespunzătoare. Dacă sunteți începător în Vue sau în instrumente de asamblare front-end, vă sugerăm să treceți prin <a href="./"> ghid </a>, fără folosirea instrumentelor de ansamblare, înainte de a utiliza CLI.
 
 
-## Explanation of Different Builds
+## Explicarea diferitelor build-uri
 
-In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue/dist/) you will find many different builds of Vue.js. Here's an overview of the difference between them:
+În  [`dist /` directoriul din pachetul NPM](https://cdn.jsdelivr.net/npm/vue/dist/) veți găsi diverse versiuni ale Vue.js. Iată o prezentare generală a diferenței dintre ele:
 
 | | UMD | CommonJS | ES Module |
 | --- | --- | --- | --- |
@@ -83,41 +83,40 @@ In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue/d
 | **Full (production)** | vue.min.js | - | - |
 | **Runtime-only (production)** | vue.runtime.min.js | - | - |
 
-### Terms
+### Termeni
 
-- **Full**: builds that contains both the compiler and the runtime.
+- **Full**: build-uri care conțin atât compilator, cât și runtime.
 
-- **Compiler**: code that is responsible for compiling template strings into JavaScript render functions.
+- **Compiler**: Cod responsabil de compilarea șablonurilor de tip string în funcții de redare JavaScript.
 
-- **Runtime**: code that is responsible for creating Vue instances, rendering and patching virtual DOM, etc. Basically everything minus the compiler.
+- **Runtime**: Cod responsabil de crearea instanțelor Vue, de redarea și patching-ul DOM-ului virtual, etc. Practic totul înafara compilatorului.
 
-- **[UMD](https://github.com/umdjs/umd)**: UMD builds can be used directly in the browser via a `<script>` tag. The default file from jsDelivr CDN at [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) is the Runtime + Compiler UMD build (`vue.js`).
+- **[UMD](https://github.com/umdjs/umd)**: Build-urile UMD pot fi folosite direct în browser printr-o `<script>` etichetă. Fișierul default din jsDelivr CDN din [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) conține Runtime + Compilatorul UMD build (`vue.js`).
 
-- **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: CommonJS builds are intended for use with older bundlers like [browserify](http://browserify.org/) or [webpack 1](https://webpack.github.io). The default file for these bundlers (`pkg.main`) is the Runtime only CommonJS build (`vue.runtime.common.js`).
+- **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: Build-urile comune JS sunt destinate pentru utilizare cu pachete mai vechi, cum ar fi [browserify](http://browserify.org/) sau [webpack 1](https://webpack.github.io). Fișierul default pentru aceste pachete (`pkg.main`) este doar Runtime buildul comun JS (`vue.runtime.common.js`).
 
-- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: ES module builds are intended for use with modern bundlers like [webpack 2](https://webpack.js.org) or [rollup](https://rollupjs.org/). The default file for these bundlers (`pkg.module`) is the Runtime only ES Module build (`vue.runtime.esm.js`).
+- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: Modulele ES sunt destinate utilizării cu pachete moderne cum ar fi [webpack 2] (https://webpack.js.org) sau [rollup] (https://rollupjs.org/). Fișierul implicit pentru aceste pachete ("pkg.module") este construirea modulelor ES numai pentru Runtime (`vue.runtime.esm.js`).
 
-### Runtime + Compiler vs. Runtime-only
+### Runtime + Compilator vs. Runtime-only
 
-If you need to compile templates on the client (e.g. passing a string to the `template` option, or mounting to an element using its in-DOM HTML as the template), you will need the compiler and thus the full build:
+Dacă aveți nevoie să compilați șabloane pe client (de exemplu, trecerea unui șir la opțiunea `template` sau montarea într-un element folosindu-l în DOM HTML ca șablon), veți avea nevoie de compilator și prin urmare, construirea completă:
 
 ``` js
-// this requires the compiler
+// aceasta compilatorul cere
 new Vue({
   template: '<div>{{ hi }}</div>'
 })
 
-// this does not
+// aceasta nu
 new Vue({
   render (h) {
     return h('div', this.hi)
   }
 })
 ```
+Când se utilizează `vue-loader` sau `vueify`, șabloanele din interiorul fișierelor `* .vue` sunt precompilate în JavaScript la momentul construirii. Nu aveți nevoie de compilatorul din pachetul final și prin urmare, puteți utiliza construirea pentru runtime-only.
 
-When using `vue-loader` or `vueify`, templates inside `*.vue` files are pre-compiled into JavaScript at build time. You don't really need the compiler in the final bundle, and can therefore use the runtime-only build.
-
-Since the runtime-only builds are roughly 30% lighter-weight than their full-build counterparts, you should use it whenever you can. If you still wish to use the full build instead, you need to configure an alias in your bundler:
+Întrucât build-urile runtime-only sunt cu aproximativ 30% mai ușoare decât cele construite complet, ar trebui să le folosiți ori de câte ori este posibil. Dacă totuși doriți să utilizați ansamblul complet, trebuie să configurați aliasul din colector:
 
 #### Webpack
 
@@ -149,7 +148,7 @@ rollup({
 
 #### Browserify
 
-Add to your project's `package.json`:
+Adaugați în `package.json` în proiectul dvs.:
 
 ``` js
 {
