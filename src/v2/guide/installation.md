@@ -95,7 +95,7 @@ $ npm run dev
 
 - **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: Build-urile comune JS sunt destinate pentru utilizare cu pachete mai vechi, cum ar fi [browserify](http://browserify.org/) sau [webpack 1](https://webpack.github.io). Fișierul default pentru aceste pachete (`pkg.main`) este doar Runtime buildul comun JS (`vue.runtime.common.js`).
 
-- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: Modulele ES sunt destinate utilizării cu pachete moderne cum ar fi [webpack 2] (https://webpack.js.org) sau [rollup] (https://rollupjs.org/). Fișierul implicit pentru aceste pachete ("pkg.module") este construirea modulelor ES numai pentru Runtime (`vue.runtime.esm.js`).
+- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: Modulele ES sunt destinate utilizării cu pachete moderne cum ar fi [webpack 2](https://webpack.js.org) sau [rollup](https://rollupjs.org/). Fișierul implicit pentru aceste pachete (`pkg.module`) este construirea modulelor ES numai pentru Runtime (`vue.runtime.esm.js`).
 
 ### Runtime + Compilator vs. Runtime-only
 
