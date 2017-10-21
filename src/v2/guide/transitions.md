@@ -1,12 +1,12 @@
 ---
-title: Enter/Leave & List Transitions
+title: Animarea Listelor și a Vizibilității
 type: guide
 order: 201
 ---
 
-## Overview
+## Prezentare generală
 
-Vue provides a variety of ways to apply transition effects when items are inserted, updated, or removed from the DOM. This includes tools to:
+Vue oferă o mare varietate de metode pentru a aplica efecte de animație când itemii sunt inserați, actualizați sau eliminați din DOM. Acesta include instrumente pentru:
 
 - automatically apply classes for CSS transitions and animations
 - integrate 3rd-party CSS animation libraries, such as Animate.css
