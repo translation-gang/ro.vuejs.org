@@ -1,19 +1,19 @@
 ---
-title: Animarea Listelor și a Vizibilității
+title: Animația Listelor și a Vizibilității
 type: guide
 order: 201
 ---
 
 ## Prezentare generală
 
-Vue oferă o mare varietate de metode pentru a aplica efecte de animație când itemii sunt inserați, actualizați sau eliminați din DOM. Acesta include instrumente pentru:
+Vue oferă o mare varietate de metode pentru a aplica efecte de animație când elementele sunt inserate, actualizate sau eliminate din DOM. Acesta include instrumente pentru:
 
-- automatically apply classes for CSS transitions and animations
-- integrate 3rd-party CSS animation libraries, such as Animate.css
-- use JavaScript to directly manipulate the DOM during transition hooks
-- integrate 3rd-party JavaScript animation libraries, such as Velocity.js
+- aplicarea automată a claselor pentru tranziții și animare CSS
+- integrarea bibliotecilor terțe pentru animație CSS, precum Animate.css
+- folosirea JavaScript pentru manipularea directă a DOM-ului în timpul hook-urilor de tranziție
+- integrarea bibliotecilor JavaScript terțe de animație, cum ar fi Velocity.js
 
-On this page, we'll only cover entering, leaving, and list transitions, but you can see the next section for [managing state transitions](transitioning-state.html).
+Pe această pagină ne vom referi doar la animația apariției, dispariției elementelor și la tranziția listelor, dar puteți analiza următoarea secțiune pentru [tranzițiile stărilor](transitioning-state.html).
 
 ## Transitioning Single Elements/Components
 
