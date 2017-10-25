@@ -159,17 +159,17 @@ Adaugați în `package.json` în proiectul dvs.:
 }
 ```
 
-### Development vs. Production Mode
+### Dezvoltare vs. Modul de Producție
 
-Development/production modes are hard-coded for the UMD builds: the un-minified files are for development, and the minified files are for production.
+Dezvoltare/modurile de producție sunt greu codificate pentru build-urile UMD: fișierele nefinalizate sunt pentru dezvoltare, iar fișierele miniaturate sunt pentru producție.
 
-CommonJS and ES Module builds are intended for bundlers, therefore we don't provide minified versions for them. You will be responsible for minifying the final bundle yourself.
+CommonJS și build-urile de module ES sunt destinate pentru pachete, prin urmare noi nu le oferim versiuni minifiate. Veți fi responsabil să vă minificați singur pachetul final.
 
-CommonJS and ES Module builds also preserve raw checks for `process.env.NODE_ENV` to determine the mode they should run in. You should use appropriate bundler configurations to replace these environment variables in order to control which mode Vue will run in. Replacing `process.env.NODE_ENV` with string literals also allows minifiers like UglifyJS to completely drop the development-only code blocks, reducing final file size.
+CommonJS și build-urile de module ES, de asemenea, păstrează verificările brute pentru `process.env.NODE_ENV` pentru a determina modul în care ar trebui să ruleze. Ar trebui să utilizați configurațiile corespunzătoare bundler-ului pentru a înlocui aceste variabile de mediu, pentru a controla modul în care funcționa Vue. Înlocuirea procedeului `process.env.NODE_ENV` cu literali de șir permite de asemenea minifierelor, cum ar fi UglifyJS, să renunțe complet la blocurile de cod numai pentru dezvoltare,reducând dimensiunea finală a fișierului.
 
 #### Webpack
 
-Use Webpack's [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
+Utilizează Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
 ``` js
 var webpack = require('webpack')
@@ -189,7 +189,7 @@ module.exports = {
 
 #### Rollup
 
-Use [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
+Utilizează [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
 
 ``` js
 const replace = require('rollup-plugin-replace')
@@ -206,19 +206,19 @@ rollup({
 
 #### Browserify
 
-Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle.
+Aplică o transformare globală [envify](https://github.com/hughsk/envify) în pachetul dvs.
 
 ``` bash
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-Also see [Production Deployment Tips](deployment.html).
+De asemenea priviți [Production Deployment Tips](deployment.html).
 
-### CSP environments
+### Medii CSP
 
-Some environments, such as Google Chrome Apps, enforce Content Security Policy (CSP), which prohibits the use of `new Function()` for evaluating expressions. The full build depends on this feature to compile templates, so is unusable in these environments.
+Unele medii, cum ar fi Google Chrome Apps, aplică Politica de securitate a conținutului (CSP), care interzice utilizarea `new Function()` pentru evaluarea expresiilor. Construcția completă depinde de această caracteristică pentru a compila șabloanele, deci este inutilizabilă în aceste medii.
 
-On the other hand, the runtime-only build is fully CSP-compliant. When using the runtime-only build with [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) or [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple), your templates will be precompiled into `render` functions which work perfectly in CSP environments.
+Pe de altă parte, construirea runtime-only este deplin compatibilă cu CSP. Când se utilizează construirea runtime-only cu [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) sau [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple), șabloanele dvs. vor fi precompilate în funcțiile `render` care funcționează perfect în mediile CSP.
 
 ## Dev Build
 
