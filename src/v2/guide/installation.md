@@ -214,11 +214,11 @@ NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 
 De asemenea priviți [Production Deployment Tips](deployment.html).
 
-### Medii CSP
+### CSP environments
 
-Unele medii, cum ar fi Google Chrome Apps, aplică Politica de securitate a conținutului (CSP), care interzice utilizarea `new Function()` pentru evaluarea expresiilor. Construcția completă depinde de această caracteristică pentru a compila șabloanele, deci este inutilizabilă în aceste medii.
+Some environments, such as Google Chrome Apps, enforce Content Security Policy (CSP), which prohibits the use of `new Function()` for evaluating expressions. The full build depends on this feature to compile templates, so is unusable in these environments.
 
-Pe de altă parte, construirea runtime-only este deplin compatibilă cu CSP. Când se utilizează construirea runtime-only cu [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) sau [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple), șabloanele dvs. vor fi precompilate în funcțiile `render` care funcționează perfect în mediile CSP.
+On the other hand, the runtime-only build is fully CSP-compliant. When using the runtime-only build with [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) or [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple), your templates will be precompiled into `render` functions which work perfectly in CSP environments.
 
 ## Dev Build
 
