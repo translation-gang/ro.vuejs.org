@@ -15,16 +15,16 @@ Vue oferă o mare varietate de metode pentru a aplica efecte de animație când 
 
 Pe această pagină ne vom referi doar la animația apariției, dispariției elementelor și la tranziția listelor, dar puteți analiza următoarea secțiune pentru [tranzițiile stărilor](transitioning-state.html).
 
-## Transitioning Single Elements/Components
+## Tranziția Elementelor/Componentelor unice
 
-Vue provides a `transition` wrapper component, allowing you to add entering/leaving transitions for any element or component in the following contexts:
+Vue oferă un component învelitoare `transition`, care permite adăugarea tranzițiilor de apariție/dispariție pentru orice element sau componentă în următoarele contexte:
 
-- Conditional rendering (using `v-if`)
-- Conditional display (using `v-show`)
-- Dynamic components
-- Component root nodes
+- Rendarea condiționată (folosind `v-if`)
+- Afișarea condiționată (folosind `v-show`)
+- Componente dinamice
+- Elementele rădăcină ale unei componente
 
-This is what an example looks like in action:
+Astfel arată un exemplu simplu în acțiune:
 
 ``` html
 <div id="demo">
