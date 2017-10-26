@@ -222,7 +222,7 @@ Pe de altă parte, construirea runtime-only este deplin compatibilă cu CSP. Câ
 
 ## Dev Build
 
-**Important**: the built files in GitHub's `/dist` folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!
+**Important**: fișierele construite în folderul `/dist` GitHub sunt verificate doar în momentul lansărilor. Pentru a folosi Vue din ultima sursă de cod pe GitHub, va trebui să-l construiți singur!
 
 ``` bash
 git clone https://github.com/vuejs/vue.git node_modules/vue
@@ -233,13 +233,13 @@ npm run build
 
 ## Bower
 
-Only UMD builds are available from Bower.
+Doar build-urile UMD sunt disponibile în Bower.
 
 ``` bash
-# latest stable
+# ultima versiune stabilă
 $ bower install vue
 ```
 
-## AMD Module Loaders
+## Module de încarcare AMD
 
-All UMD builds can be used directly as an AMD module.
+Toate build-urile UMD pot fi utilizate direct ca un modul AMD.
