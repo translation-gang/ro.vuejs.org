@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Introducere
 type: guide
 order: 2
 ---
