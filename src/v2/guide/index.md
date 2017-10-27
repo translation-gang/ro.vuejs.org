@@ -4,11 +4,11 @@ type: guide
 order: 2
 ---
 
-## What is Vue.js?
+## Ce este Vue.js?
 
-Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](single-file-components.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (pronunțat /vjuː/, ca **view**) este un **framework progresiv** pentru construirea interfețelor de utilizator. Spre deosebire de alte framework-uri monolitice, Vue este conceput pentru o implementare treptată. Biblioteca centrală se concentrează numai asupra stratului de vizualizare și este ușor de preluat și integrat cu alte biblioteci sau proiecte existente. Pe de o altă parte, Vue este, de asemenea, perfect capabil să alimenteze aplicații sofisticate cu o singură pagină, atunci când sunt utilizate în combinație cu [unelte moderne](single-file-components.html) și [biblioteci de suport](https://github.com/vuejs/awesome-vue#components--libraries).
 
-If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](comparison.html).
+Dacă sunteți un dezvoltator frontend cu experiență și doriți să știți cum se compară Vue cu alte biblioteci/framework-uri, consultați [Comparația cu alte Framework-uri](comparison.html).
 
 ## Getting Started
 
