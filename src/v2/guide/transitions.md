@@ -29,7 +29,7 @@ Astfel arată un exemplu simplu în acțiune:
 ``` html
 <div id="demo">
   <button v-on:click="show = !show">
-    Toggle
+    Comutare
   </button>
   <transition name="fade">
     <p v-if="show">hello</p>
@@ -50,7 +50,7 @@ new Vue({
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to /* .fade-leave-active până la versiunea 2.1.8 */ {
   opacity: 0
 }
 ```
@@ -58,7 +58,7 @@ new Vue({
 {% raw %}
 <div id="demo">
   <button v-on:click="show = !show">
-    Toggle
+    Comutare
   </button>
   <transition name="demo-transition">
     <p v-if="show">hello</p>
@@ -82,9 +82,9 @@ new Vue({
 </style>
 {% endraw %}
 
-When an element wrapped in a `transition` component is inserted or removed, this is what happens:
+Atunci când un element înfășurat într-o componentă `transition` este inserat sau eliminat, se petrec următoarele:
 
-1. Vue will automatically sniff whether the target element has CSS transitions or animations applied. If it does, CSS transition classes will be added/removed at appropriate timings.
+1. Vue v-a căuta automat dacă elementul țintă are tranziții CSS sau animații aplicate. În caz că detectează, vor fi adăugate/eliminate clasele de tranziție CSS în momente corespunzătoare.
 
 2. If the transition component provided [JavaScript hooks](#JavaScript-Hooks), these hooks will be called at appropriate timings.
 
