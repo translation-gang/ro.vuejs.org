@@ -10,17 +10,18 @@ Vue (pronunțat /vjuː/, ca **view**) este un **framework progresiv** pentru con
 
 Dacă sunteți un dezvoltator frontend cu experiență și doriți să știți cum se compară Vue cu alte biblioteci/framework-uri, consultați [Comparația cu alte Framework-uri](comparison.html).
 
-## Getting Started
+## Să începem
 
-<p class="tip">The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.</p>
+<p class="tip">Ghidul oficial presupune că deja sunteți familiarizați cu HTML, CSS și JavaScript la un nivel de bază. Dacă sunteți începător în dezvoltarea frontend-ului, s-ar putea să nu fie cea mai bună ideie începerea imediată a studierii - reveniți după cunoașterea noțiunilor de bază! Experiența de lucru cu alte cadre poate ajuta, dar nu este obligatorie.</p>
 
-The easiest way to try out Vue.js is using the [JSFiddle Hello World example](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">create an <code>index.html</code> file</a> and include Vue with:
+Cea mai ușoară modalitate de a încerca Vue.js este utilizarea [exemplului JSFiddle Hello World](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Pur și simplu deschideți-l în altă filă și urmați-l pe măsură ce treceți prin câteva exemple de bază. Sau puteți <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">crea un fișier<code>index.html</code></a> și includeți Vue cu :
 
 ``` html
 <script src="https://unpkg.com/vue"></script>
 ```
 
-The [Installation](installation.html) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
+Pagina [Instalarea](installation.html) oferă mai multe opțiuni de instalare a Vue. 
+Notă: Nu **recomandăm** ca începătorii să înceapă cu `vue-cli`, mai ales dacă nu sunteți încă familiarizați cu instrumentele de construire bazate pe Node.js.
 
 ## Declarative Rendering
 
