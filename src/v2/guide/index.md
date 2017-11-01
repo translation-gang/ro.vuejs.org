@@ -23,9 +23,9 @@ Cea mai ușoară modalitate de a încerca Vue.js este utilizarea [exemplului JSF
 Pagina [Instalarea](installation.html) oferă mai multe opțiuni de instalare a Vue. 
 Notă: Nu **recomandăm** ca începătorii să înceapă cu `vue-cli`, mai ales dacă nu sunteți încă familiarizați cu instrumentele de construire bazate pe Node.js.
 
-## Declarative Rendering
+## Rendering Declarativ
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+În fișierul Vue.js este disponibil un sistem care ne permite să afișăm în mod automat datele din DOM, folosind o simplă sintaxă de șablon:
 
 ``` html
 <div id="app">
@@ -54,15 +54,15 @@ var app = new Vue({
 </script>
 {% endraw %}
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Open your browser's JavaScript console (right now, on this page) and set `app.message` to a different value. You should see the rendered example above update accordingly.
+Am creat deja prima noastră aplicație Vue! Acest lucru pare destul de similar cu redarea unui șablon de șir, dar Vue a făcut o mulțime de lucruri "sub capotă". Datele și DOM-ul sunt acum legate și totul acum este **reactiv**. De unde stim? Deschideți consola JavaScript a browserului dvs. (chiar acum, în această pagină) și setați `app.message` cu o valoare diferită. Ar trebui să vedeți în exemplul de mai sus datele actualizate în consecință.
 
-In addition to text interpolation, we can also bind element attributes like this:
+În plus față de interpolarea textului, putem lega atribute de element precum:
 
 ``` html
 <div id="app-2">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
+   Plasați mouse-ul peste mine pentru câteva secunde
+    pentru a vedea titlul meu legat dinamic!
   </span>
 </div>
 ```
@@ -77,22 +77,22 @@ var app2 = new Vue({
 {% raw %}
 <div id="app-2" class="demo">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
+    Plasați mouse-ul peste mine pentru câteva secunde pentru a vedea titlul meu legat dinamic!
   </span>
 </div>
 <script>
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'You loaded this page on ' + new Date().toLocaleString()
+    message: 'Dvs ați încărcat această pagină pe ' + new Date().toLocaleString()
   }
 })
 </script>
 {% endraw %}
 
-Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
+Aici întâlnim ceva nou. Atributul `v-bind` pe care îl vedeți se numește **directivă**. Directivele sunt prefixate cu `v-` pentru a indica faptul că acestea sunt atribute speciale furnizate de Vue și, după cum probabil ați ghicit, aplică un comportament reactiv special la DOM rendat. Aici se spune că "mențineți atributul `title` al acestui element actualizat cu proprietatea `message` din instanța Vue."
 
-If you open up your JavaScript console again and enter `app2.message = 'some new message'`, you'll once again see that the bound HTML - in this case the `title` attribute - has been updated.
+Dacă deschideți din nou consolă JavaScript și introduceți `app2.message = 'un mesaj nou'`, veți vedea încă o dată că HTML-ul legat - în acest caz de atributul `title` - a fost actualizat.
 
 ## Conditionals and Loops
 
