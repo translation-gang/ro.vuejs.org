@@ -84,17 +84,17 @@ new Vue({
 
 Atunci când un element înfășurat într-o componentă `transition` este inserat sau eliminat, se petrec următoarele:
 
-1. Vue v-a căuta automat dacă elementul țintă are tranziții CSS sau animații aplicate. În caz că detectează, vor fi adăugate/eliminate clasele de tranziție CSS în momente corespunzătoare.
+1. Vue va căuta automat dacă elementul țintă are tranziții CSS sau animații aplicate. În caz că detectează, vor fi adăugate/eliminate clasele de tranziție CSS în momente corespunzătoare.
 
-2. If the transition component provided [JavaScript hooks](#JavaScript-Hooks), these hooks will be called at appropriate timings.
+2. Dacă componenta de tranziție oferă [hook-uri JavaScript](#JavaScript-Hooks), atunci hook-urile date vor fi apelate la momente corespunzătoare.
 
-3. If no CSS transitions/animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed immediately on next frame (Note: this is a browser animation frame, different from Vue's concept of `nextTick`).
+3. În cazul în care nu sunt detectate tranziții/animații CSS și nu sunt prezente hook-uri JavaScript, operațiile DOM pentru inserare și/sau eliminare vor fi executate imediat pe următorul frame (Notă: acesta este un frame de animație al browserului, diferit de conceptul Vue de `nextTick`).
 
-### Transition Classes
+### Clasele de Tranziție
 
-There are six classes applied for enter/leave transitions.
+Există șase clase utilizate pentru tranzițiile de apariție/dispariție.
 
-1. `v-enter`: Starting state for enter. Added before element is inserted, removed one frame after element is inserted.
+1. `v-enter`: Reprezintă începutul animației de apariție a elementului. Această clasă se adaugă înainte de inserarea elementului și se elimină în următorul frame după inserare.
 
 2. `v-enter-active`: Active state for enter. Applied during the entire entering phase. Added before element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.
 
