@@ -94,13 +94,14 @@ Aici întâlnim ceva nou. Atributul `v-bind` pe care îl vedeți se numește **d
 
 Dacă deschideți din nou consolă JavaScript și introduceți `app2.message = 'un mesaj nou'`, veți vedea încă o dată că HTML-ul legat - în acest caz de atributul `title` - a fost actualizat.
 
-## Conditionals and Loops
+## Condiții și Cicluri
 
-It's easy to toggle the presence of an element, too:
+De asemenea, este ușor să comutați prezența unui element:
+
 
 ``` html
 <div id="app-3">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Acum mă vezi</span>
 </div>
 ```
 
@@ -115,7 +116,7 @@ var app3 = new Vue({
 
 {% raw %}
 <div id="app-3" class="demo">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Acum mă vezi</span>
 </div>
 <script>
 var app3 = new Vue({
@@ -127,11 +128,11 @@ var app3 = new Vue({
 </script>
 {% endraw %}
 
-Go ahead and enter `app3.seen = false` in the console. You should see the message disappear.
+Mergeți mai departe și introduceți `app3.seen = false` în consolă. Ar trebui să  dispără mesajul.
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions.html) when elements are inserted/updated/removed by Vue.
+Acest exemplu demonstrează că putem lega datele nu doar de text și atribute, ci și de **structura** DOM-ului. În plus, Vue oferă și un sistem de efect puternic de tranziție care poate aplica automat [efecte de tranziție](tranitions.html) când elementele sunt inserate/actualizate/eliminate de Vue.
 
-There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+Există și alte directive numeroase, fiecare având propria sa funcționalitate. De exemplu, directiva `v-for` poate fi utilizată pentru a afișa o listă de elemente utilizând datele dintr-un tablou(Array):
 
 ``` html
 <div id="app-4">
@@ -147,9 +148,9 @@ var app4 = new Vue({
   el: '#app-4',
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: 'Să studiez JavaScript' },
+      { text: 'Să studiez Vue' },
+      { text: 'Să creez ceva nou și interesant' }
     ]
   }
 })
@@ -167,16 +168,16 @@ var app4 = new Vue({
   el: '#app-4',
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: 'Să studiez JavaScript' },
+      { text: 'Să studiez Vue' },
+      { text: 'Să creez ceva nou și interesant' }
     ]
   }
 })
 </script>
 {% endraw %}
 
-In the console, enter `app4.todos.push({ text: 'New item' })`. You should see a new item appended to the list.
+În consola, introduceți `app4.todos.push({ text: 'Element nou' })`. Ar trebui să vedeți un element nou atașat în  listă.
 
 ## Handling User Input
 
