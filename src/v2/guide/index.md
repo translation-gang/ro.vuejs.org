@@ -179,14 +179,14 @@ var app4 = new Vue({
 
 În consola, introduceți `app4.todos.push({ text: 'Element nou' })`. Ar trebui să vedeți un element nou atașat în  listă.
 
-## Handling User Input
+## Lucru cu datele introduse de utilizator
 
-To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
+Pentru a permite utilizatorilor să interacționeze cu aplicația dvs., putem folosi directiva `v-on` pentru a atașa ascultătorii de evenimente care invocă metode în instanțele noastre Vue:
 
 ``` html
 <div id="app-5">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+  <button v-on:click="reverseMessage">Inversează Mesajul</button>
 </div>
 ```
 ``` js
@@ -205,7 +205,7 @@ var app5 = new Vue({
 {% raw %}
 <div id="app-5" class="demo">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+  <button v-on:click="reverseMessage">Inversează Mesajul</button>
 </div>
 <script>
 var app5 = new Vue({
@@ -222,9 +222,9 @@ var app5 = new Vue({
 </script>
 {% endraw %}
 
-Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
+Notați că în această metodă actualizăm starea aplicației noastre fără să atingem DOM-ul - toate manipulările DOM sunt tratate de Vue, iar codul pe care îl scrieți este axat pe logica extinsă.
 
-Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
+Vue oferă, de asemenea, directiva `v-model` care face legătura bidirecțională între forma input și starea aplicației:
 
 ``` html
 <div id="app-6">
