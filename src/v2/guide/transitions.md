@@ -96,9 +96,9 @@ Există șase clase utilizate pentru tranzițiile de apariție/dispariție.
 
 1. `v-enter`: Reprezintă începutul animației de apariție a elementului. Această clasă se adaugă înainte de inserarea elementului și se elimină în următorul frame după inserare.
 
-2. `v-enter-active`: Reprezintă starea activă a animației de apariție a elementului. Aplicată pe toată faza de animație a apariției elementului. Este adăugată inaintea inserării elementului și se elimină atunci când tranziția/animația se termină. Această clasă poate fi utilizată pentru a defini durata (duration), întîrzierea (delay) și curba de relaxare (easing curve) pentru animația de apariție.
+2. `v-enter-active`: Reprezintă starea activă a animației de apariție a elementului. Aplicată pe toată faza de animație a apariției elementului. Este adăugată înaintea inserării elementului și se elimină atunci când tranziția/animația se termină. Această clasă poate fi utilizată pentru a defini durata (duration), întîrzierea (delay) și curba de relaxare (easing curve) pentru animația de apariție.
 
-3. `v-enter-to`: **Only available in versions 2.1.8+.** Ending state for enter. Added one frame after element is inserted (at the same time `v-enter` is removed), removed when transition/animation finishes.
+3. `v-enter-to`: **Disponibil doar în versiunile 2.1.8+.** Reprezintă sfârșitul animației de apariție. Este adăugată în frame-ul ce urmează după inserarea elementului (în același moment cu eliminarea `v-enter`), clasa este eliminată la terminarea tranziției/animației.
 
 4. `v-leave`: Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.
 
