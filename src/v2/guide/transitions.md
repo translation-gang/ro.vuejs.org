@@ -96,13 +96,13 @@ Există șase clase utilizate pentru tranzițiile de apariție/dispariție.
 
 1. `v-enter`: Reprezintă începutul animației de apariție a elementului. Această clasă se adaugă înainte de inserarea elementului și se elimină în următorul frame după inserare.
 
-2. `v-enter-active`: Reprezintă starea activă a animației de apariție a elementului. Aplicată pe toată faza de animație a apariției elementului. Este adăugată înaintea inserării elementului și se elimină atunci când tranziția/animația se termină. Această clasă poate fi utilizată pentru a defini durata (duration), întîrzierea (delay) și curba de relaxare (easing curve) pentru animația de apariție.
+2. `v-enter-active`: Reprezintă starea activă a animației de apariție a elementului. Aplicată pe toată faza de animație a apariției elementului. Este adăugată înaintea inserării elementului și se elimină atunci când tranziția/animația se termină. Această clasă poate fi utilizată pentru a defini durata (duration), întârzierea (delay) și curba de relaxare (easing curve) pentru animația de apariție.
 
 3. `v-enter-to`: **Disponibil doar în versiunile 2.1.8+.** Reprezintă sfârșitul animației de apariție. Este adăugată în frame-ul ce urmează după inserarea elementului (în același moment cu eliminarea `v-enter`), clasa este eliminată la terminarea tranziției/animației.
 
 4. `v-leave`: Reprezintă începutul animației de dispariție a elementului. Clasa se adaugă imediat după startul animației de dispariție și se elmină în următorul frame.
 
-5. `v-leave-active`: Active state for leave. Applied during the entire leaving phase. Added immediately when leave transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.
+5. `v-leave-active`: Reprezintă starea activă a animației de dispariție. Este aplicată pentru întreaga perioadă de dispariție a elementului. Se adaugă imediat după începutul tranziției de dispariție, clasa se elimină la terminarea tranziției/animației. Această clasă poate fi utilizată pentru a defini durata (duration), întârzierea (delay) și curba de relaxare (easing curve) pentru animația de dispariție.
 
 6. `v-leave-to`: **Only available in versions 2.1.8+.** Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
 
