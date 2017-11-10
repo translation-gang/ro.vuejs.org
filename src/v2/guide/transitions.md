@@ -104,7 +104,7 @@ Există șase clase utilizate pentru tranzițiile de apariție/dispariție.
 
 5. `v-leave-active`: Reprezintă starea activă a animației de dispariție. Este aplicată pentru întreaga perioadă de dispariție a elementului. Se adaugă imediat după începutul tranziției de dispariție, clasa se elimină la terminarea tranziției/animației. Această clasă poate fi utilizată pentru a defini durata (duration), întârzierea (delay) și curba de relaxare (easing curve) pentru animația de dispariție.
 
-6. `v-leave-to`: **Only available in versions 2.1.8+.** Ending state for leave. Added one frame after a leaving transition is triggered (at the same time `v-leave` is removed), removed when the transition/animation finishes.
+6. `v-leave-to`: **Disponibil doar în versiunile 2.1.8+.** Reprezintă sfârșitul animației de dispariție. Este adăugată în frame-ul ce urmează după eliminarea elementului (în același moment cu eliminarea `v-leave`), clasa este eliminată la terminarea tranziției/animației.
 
 ![Transition Diagram](/images/transition.png)
 
