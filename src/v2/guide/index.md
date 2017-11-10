@@ -255,52 +255,52 @@ var app6 = new Vue({
 </script>
 {% endraw %}
 
-## Composing with Components
+## Compoziție cu Componente
 
-The component system is another important concept in Vue, because it's an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components:
+Sistemul component este un alt concept important în Vue, deoarece este o abstracție care ne permite să construim aplicații de scară largă, compuse din componente mici, autonome și adesea reutilizabile. Dacă ne gândim la asta, aproape orice tip de interfață de aplicație poate fi extrasă într-un arbore de componente:
 
-![Component Tree](/images/components.png)
+![Arbore de Componente](/images/components.png)
 
-In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
+În Vue, o componentă este în esență o instanță Vue cu opțiuni predefinite. Înregistrarea unei componente în Vue este simplă:
 
 ``` js
-// Define a new component called todo-item
+// Definiți o componentă nouă numită todo-item
 Vue.component('todo-item', {
   template: '<li>This is a todo</li>'
 })
 ```
 
-Now you can compose it in another component's template:
+Acum puteți să o puneți în șablonul altui component:
 
 ``` html
 <ol>
-  <!-- Create an instance of the todo-item component -->
+  <!-- Creați o instanță a componentei todo-item -->
   <todo-item></todo-item>
 </ol>
 ```
 
-But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](components.html#Props):
+Dar acest lucru ar face același text pentru fiecare todo, care nu este super interesant. Ar trebui să putem transmite datele din domeniul părintelui în componentele copil. Să modificăm definiția componentei pentru a accepta o [proprietate](components.html#Props):
 
 ``` js
 Vue.component('todo-item', {
-  // The todo-item component now accepts a
-  // "prop", which is like a custom attribute.
-  // This prop is called todo.
+  // Componenta todo-item acceptă acum o
+  // "prop", care este ca un atribut personalizat.
+  // Această proprietate este numită todo.
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
 })
 ```
 
-Now we can pass the todo into each repeated component using `v-bind`:
+Acum putem trece todo-ul în fiecare componentă repetată utilizând `v-bind`:
 
 ``` html
 <div id="app-7">
   <ol>
     <!--
-      Now we provide each todo-item with the todo object
-      it's representing, so that its content can be dynamic.
-      We also need to provide each component with a "key",
-      which will be explained later.
+      Acum oferim fiecărui component cu todo obiect care-l
+       reprezintă, astfel încât conținutul său poate fi dinamic.
+       De asemenea, trebuie să furnizăm fiecărei componente o "cheie",
+       care va fi explicată mai târziu.
     -->
     <todo-item
       v-for="item in groceryList"
@@ -320,9 +320,9 @@ var app7 = new Vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+      { id: 0, text: 'Legume' },
+      { id: 1, text: 'Cașcaval' },
+      { id: 2, text: 'Alt produs alimentar' }
     ]
   }
 })
@@ -342,18 +342,18 @@ var app7 = new Vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+      { id: 0, text: 'Legume' },
+      { id: 1, text: 'Cașcaval' },
+      { id: 2, text: 'Alt produs alimentar' }
     ]
   }
 })
 </script>
 {% endraw %}
 
-This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
+Acesta este un exemplu controversat, dar am reușit să separăm aplicația noastră în două unități mai mici, iar copilul este în mod rezonabil decuplat de părinte prin intermediul interfeței parametrilor de intrare. Acum putem îmbunătăți componenta `<todo-item>` cu un șablon și o logică mai complexă, fără a afecta aplicația părinte.
 
-In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](components.html), but here's an (imaginary) example of what an app's template might look like with components:
+Într-o aplicație mare, este necesar să împărțiți întreaga aplicație în componente, pentru ca dezvoltarea să poată fi gestionată. Vom vorbi mult mai mult despre componente [mai târziu în ghid](components.html), dar aici este un exemplu (imaginar) despre cum ar putea arăta șablonul unei aplicații cu componente:
 
 ``` html
 <div id="app">
