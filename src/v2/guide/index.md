@@ -365,14 +365,15 @@ Acesta este un exemplu controversat, dar am reușit să separăm aplicația noas
 </div>
 ```
 
-### Relation to Custom Elements
+### Relația cu Elementele Personalizate
 
-You may have noticed that Vue components are very similar to **Custom Elements**, which are part of the [Web Components Spec](https://www.w3.org/wiki/WebComponents/). That's because Vue's component syntax is loosely modeled after the spec. For example, Vue components implement the [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) and the `is` special attribute. However, there are a few key differences:
+S-ar putea să fi observat că componentele Vue sunt foarte asemănătoare cu **Elementele Personalizate**, care fac parte din [Componentele Web Spec](https://www.w3.org/wiki/WebComponents/). Asta pentru că sintaxa componentă a Vue este modelată slab după spec. De exemplu, componentele Vue implementează [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) și atributul special `is`. Cu toate acestea, există câteva diferențe cheie:
 
-1. The Web Components Spec is still in draft status, and is not natively implemented in every browser. In comparison, Vue components don't require any polyfills and work consistently in all supported browsers (IE9 and above). When needed, Vue components can also be wrapped inside a native custom element.
+1. Web Components Spec este încă în stare de proiect și nu este implementat nativ în fiecare browser. În comparație, componentele Vue nu necesită polifluze și nu lucrează consistent în toate browserele acceptate (IE9 și mai sus). Când este necesar, componentele Vue pot fi de asemenea înfășurate în interiorul unui element personalizat nativ.
 
-2. Vue components provide important features that are not available in plain custom elements, most notably cross-component data flow, custom event communication and build tool integrations.
+2. Componentele Vue furnizează caracteristici importante care nu sunt disponibile în elemente personalizate simple, mai ales fluxul de date cross-component, comunicarea evenimentelor personalizate și integrarea instrumentelor de construire.
 
-## Ready for More?
+## Gata pentru mai mult?
 
-We've briefly introduced the most basic features of Vue.js core - the rest of this guide will cover them and other advanced features with much finer details, so make sure to read through it all!
+Am prezentat pe scurt cele mai importante caracteristici ale nucleului Vue.js - alte informații și alte caracteristici avansate cu detalii mult mai fine sunt prezentate în ghid, așa că nu uitați să le citiți!
+
