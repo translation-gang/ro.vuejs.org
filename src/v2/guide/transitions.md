@@ -110,7 +110,7 @@ Există șase clase utilizate pentru tranzițiile de apariție/dispariție.
 
 Fiecare dintre aceste clase va fi prefixată cu numele tranziției. Aici prefixul `v-` este implicit când folosiți un element `<transition>` fără nume. De exemplu, dacă o să utilizți `<transition name="my-transition">` , atunci în loc de clasa `v-enter` se va folosi `my-transition-enter`.
 
-`v-enter-active` and `v-leave-active` give you the ability to specify different easing curves for enter/leave transitions, which you'll see an example of in the following section.
+`v-enter-active` și `v-leave-active` vă oferă posibilitatea de a specifica diferite curbe de relaxare (easing curves) pentru tranzițiile de apariție/dispariție a elementului, exemplul folosirii acestora va urma în următoarea secțiune.
 
 ### CSS Transitions
 
