@@ -1,5 +1,5 @@
 ---
-title: The Vue Instance
+title: Instanța Vue
 type: guide
 order: 3
 ---
