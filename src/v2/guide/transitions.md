@@ -108,7 +108,7 @@ Există șase clase utilizate pentru tranzițiile de apariție/dispariție.
 
 ![Transition Diagram](/images/transition.png)
 
-Each of these classes will be prefixed with the name of the transition. Here the `v-` prefix is the default when you use a `<transition>` element with no name. If you use `<transition name="my-transition">` for example, then the `v-enter` class would instead be `my-transition-enter`.
+Fiecare dintre aceste clase va fi prefixată cu numele tranziției. Aici prefixul `v-` este implicit când folosiți un element `<transition>` fără nume. De exemplu, dacă o să utilizți `<transition name="my-transition">` , atunci în loc de clasa `v-enter` se va folosi `my-transition-enter`.
 
 `v-enter-active` and `v-leave-active` give you the ability to specify different easing curves for enter/leave transitions, which you'll see an example of in the following section.
 
