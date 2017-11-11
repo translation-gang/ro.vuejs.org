@@ -112,14 +112,14 @@ Fiecare dintre aceste clase va fi prefixată cu numele tranziției. Aici prefixu
 
 `v-enter-active` și `v-leave-active` vă oferă posibilitatea de a specifica diferite curbe de relaxare (easing curves) pentru tranzițiile de apariție/dispariție a elementului, exemplul folosirii acestora va urma în următoarea secțiune.
 
-### CSS Transitions
+### Tranziții CSS
 
-One of the most common transition types uses CSS transitions. Here's an example:
+Una dintre cele mai comune tipuri de animație utilizează tranziții CSS. Iată un exemplu:
 
 ``` html
 <div id="example-1">
   <button @click="show = !show">
-    Toggle render
+    Comutare rendare
   </button>
   <transition name="slide-fade">
     <p v-if="show">hello</p>
@@ -137,8 +137,8 @@ new Vue({
 ```
 
 ``` css
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
+/* Animațiile de apariție și dispariție pot folosi    */
+/* diferite setări de durată și temporizare (timing). */
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
@@ -146,7 +146,7 @@ new Vue({
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
+/* .slide-fade-leave-active mai jos de versiunea 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
 }
@@ -155,7 +155,7 @@ new Vue({
 {% raw %}
 <div id="example-1" class="demo">
   <button @click="show = !show">
-    Toggle render
+    Comutare rendare
   </button>
   <transition name="slide-fade">
     <p v-if="show">hello</p>
