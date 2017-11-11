@@ -183,17 +183,17 @@ new Vue({
 </style>
 {% endraw %}
 
-### CSS Animations
+### Animații CSS
 
-CSS animations are applied in the same way as CSS transitions, the difference being that `v-enter` is not removed immediately after the element is inserted, but on an `animationend` event.
+Animațiile CSS sunt aplicate în același mod ca și tranzițiile CSS, diferența fiind că `v-enter` nu este eliminat imediat după inserarea elementului, ci la petrecerea acțiunii `animationend` (on animationend event).
 
-Here's an example, omitting prefixed CSS rules for the sake of brevity:
+Iată un exemplu în care pentru concisitate vor fi omise prefixele CSS legate de diferite browsere:
 
 ``` html
 <div id="example-2">
-  <button @click="show = !show">Toggle show</button>
+  <button @click="show = !show">Comutare prezentare</button>
   <transition name="bounce">
-    <p v-if="show">Look at me!</p>
+    <p v-if="show">Privește la mine!</p>
   </transition>
 </div>
 ```
@@ -229,9 +229,9 @@ new Vue({
 
 {% raw %}
 <div id="example-2" class="demo">
-  <button @click="show = !show">Toggle show</button>
+  <button @click="show = !show">Comutare prezentare</button>
   <transition name="bounce">
-    <p v-show="show">Look at me!</p>
+    <p v-show="show">Privește la mine!</p>
   </transition>
 </div>
 
