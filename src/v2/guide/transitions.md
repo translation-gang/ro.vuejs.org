@@ -348,11 +348,11 @@ new Vue({
 </script>
 {% endraw %}
 
-### Using Transitions and Animations Together
+### Folosirea Tranzițiilor și Animațiilor împreună
 
-Vue needs to attach event listeners in order to know when a transition has ended. It can either be `transitionend` or `animationend`, depending on the type of CSS rules applied. If you are only using one or the other, Vue can automatically detect the correct type.
+Pentru a ști când s-a încheiat o tranziție Vue trebuie să stabilească abonați la acțiuni (event listeners). În funcție de regulile CSS utilizate acțiunea petrecută poate fi `transitionend` sau `animationend`. Dacă folosiți doar una din metode, Vue poate detecta automat tipul corect.
 
-However, in some cases you may want to have both on the same element, for example having a CSS animation triggered by Vue, along with a CSS transition effect on hover. In these cases, you will have to explicitly declare the type you want Vue to care about in a `type` attribute, with a value of either `animation` or `transition`.
+Cu toate acestea, în unele cazuri, puteți dori să aveți ambele aplicate pe aceleași element, de exemplu având o animație CSS declanșată de Vue, împreună cu un efect de tranziție CSS pe hover. În aceste cazuri, va trebui să declarați în mod explicit tipul de care doriți Vue să aibă grijă într-un atribut `type`, cu valoarea `animation` sau `transition`.
 
 ### Explicit Transition Durations
 
