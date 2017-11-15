@@ -283,9 +283,9 @@ new Vue({
 </script>
 {% endraw %}
 
-### Custom Transition Classes
+### Clase de Tranziție Personalizate
 
-You can also specify custom transition classes by providing the following attributes:
+De asemenea, puteți specifica clase de tranziție personalizate folosind următoarele atribute:
 
 - `enter-class`
 - `enter-active-class`
@@ -294,16 +294,16 @@ You can also specify custom transition classes by providing the following attrib
 - `leave-active-class`
 - `leave-to-class` (2.1.8+)
 
-These will override the conventional class names. This is especially useful when you want to combine Vue's transition system with an existing CSS animation library, such as [Animate.css](https://daneden.github.io/animate.css/).
+Acestea vor înlocui numele claselor convenționale. Acest lucru este util în special atunci când doriți să combinați sistemul de tranziție Vue cu o bibliotecă de animație CSS existentă, cum ar fi [Animate.css](https://daneden.github.io/animate.css/).
 
-Here's an example:
+Iată un exemplu:
 
 ``` html
 <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 
 <div id="example-3">
   <button @click="show = !show">
-    Toggle render
+    Comutare rendare
   </button>
   <transition
     name="custom-classes-transition"
@@ -328,7 +328,7 @@ new Vue({
 <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 <div id="example-3" class="demo">
   <button @click="show = !show">
-    Toggle render
+    Comutare rendare
   </button>
   <transition
     name="custom-classes-transition"
