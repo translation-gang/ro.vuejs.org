@@ -354,19 +354,19 @@ Pentru a ști când s-a încheiat o tranziție Vue trebuie să stabilească abon
 
 Cu toate acestea, în unele cazuri, puteți dori să aveți ambele aplicate pe aceleași element, de exemplu având o animație CSS declanșată de Vue, împreună cu un efect de tranziție CSS pe hover. În aceste cazuri, va trebui să declarați în mod explicit tipul de care doriți Vue să aibă grijă într-un atribut `type`, cu valoarea `animation` sau `transition`.
 
-### Explicit Transition Durations
+### Specificarea Duratei Tranziției
 
-> New in 2.2.0+
+> Nou în 2.2.0+
 
-In most cases, Vue can automatically figure out when the transition has finished. By default, Vue waits for the first `transitionend` or `animationend` event on the root transition element. However, this may not always be desired - for example, we may have a choreographed transition sequence where some nested inner elements have a delayed transition or a longer transition duration than the root transition element.
+În cele mai multe cazuri, Vue detectează automat când tranziția este terminată. În mod implicit, Vue așteaptă prima acțiune (event) `transitionend` sau `animationend` pe elementul de tranziție de bază. Totuși, acest lucru nu este întotdeauna dorit - de exemplu, este posibil să avem o secvență de tranziții regizată în care unele elemente interioare au o tranziție întârziată sau o durată de tranziție mai lungă decât elementul de tranziție de bază.
 
-In such cases you can specify an explicit transition duration (in milliseconds) using the `duration` prop on the `<transition>` component:
+În astfel de cazuri, puteți specifica o durată de tranziție explicită (în milisecunde) folosind proprietatea `duration` pe componenta `<transition>` :
 
 ``` html
 <transition :duration="1000">...</transition>
 ```
 
-You can also specify separate values for enter and leave durations:
+De asemenea, puteți specifica valori separate pentru durata de apariție și de dispariție:
 
 ``` html
 <transition :duration="{ enter: 500, leave: 800 }">...</transition>
