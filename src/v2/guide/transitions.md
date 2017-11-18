@@ -372,9 +372,9 @@ De asemenea, puteți specifica valori separate pentru durata de apariție și de
 <transition :duration="{ enter: 500, leave: 800 }">...</transition>
 ```
 
-### JavaScript Hooks
+### Hook-uri JavaScript
 
-You can also define JavaScript hooks in attributes:
+De asemenea, puteți defini hook-uri JavaScript în atribute:
 
 ``` html
 <transition
@@ -396,14 +396,14 @@ You can also define JavaScript hooks in attributes:
 // ...
 methods: {
   // --------
-  // ENTERING
+  // APARIȚIE
   // --------
 
   beforeEnter: function (el) {
     // ...
   },
-  // the done callback is optional when
-  // used in combination with CSS
+  // callback-ul done este opțional atunci când
+  // este utilizat în combinație cu CSS
   enter: function (el, done) {
     // ...
     done()
@@ -416,14 +416,14 @@ methods: {
   },
 
   // --------
-  // LEAVING
+  // DISPARIȚIE
   // --------
 
   beforeLeave: function (el) {
     // ...
   },
-  // the done callback is optional when
-  // used in combination with CSS
+  // callback-ul done este opțional atunci când
+  // este utilizat în combinație cu CSS
   leave: function (el, done) {
     // ...
     done()
@@ -431,7 +431,7 @@ methods: {
   afterLeave: function (el) {
     // ...
   },
-  // leaveCancelled only available with v-show
+  // leaveCancelled este disponibil numai cu v-show
   leaveCancelled: function (el) {
     // ...
   }
