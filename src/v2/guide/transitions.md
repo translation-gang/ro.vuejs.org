@@ -544,9 +544,9 @@ new Vue({
 </script>
 {% endraw %}
 
-## Transitions on Initial Render
+## Tranziții la Rendarea Inițială
 
-If you also want to apply a transition on the initial render of a node, you can add the `appear` attribute:
+Dacă doriți să aplicați o tranziție la rendarea inițială a unui nod, puteți adăuga atributul `appear` :
 
 ``` html
 <transition appear>
@@ -554,7 +554,7 @@ If you also want to apply a transition on the initial render of a node, you can 
 </transition>
 ```
 
-By default, this will use the transitions specified for entering and leaving. If you'd like however, you can also specify custom CSS classes:
+În mod implicit, se vor folosi tranzițiile specificate pentru apariția și dispariția elementului. Însă dacă doriți, puteți specifica clase personalizate CSS:
 
 ``` html
 <transition
@@ -567,7 +567,7 @@ By default, this will use the transitions specified for entering and leaving. If
 </transition>
 ```
 
-and custom JavaScript hooks:
+și hook-uri JavaScript personalizate:
 
 ``` html
 <transition
