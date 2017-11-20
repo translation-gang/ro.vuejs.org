@@ -438,24 +438,24 @@ methods: {
 }
 ```
 
-These hooks can be used in combination with CSS transitions/animations or on their own.
+Aceste hook-uri pot fi utilizate fie singure, fie în combinație cu tranziții/animații CSS.
 
-<p class="tip">When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, they will be called synchronously and the transition will finish immediately.</p>
+<p class="tip">Când utilizați doar tranziții JavaScript, **callback-urile `done` sunt necesare pentru hook-urile `enter` și `leave`**. În caz contrar, ele vor fi chemate în mod sincron și tranziția se va termina imediat.</p>
 
-<p class="tip">It's also a good idea to explicitly add `v-bind:css="false"` for JavaScript-only transitions so that Vue can skip the CSS detection. This also prevents CSS rules from accidentally interfering with the transition.</p>
+<p class="tip">De asemenea, este o idee bună să adăugați în mod explicit `v-bind:css="false"` pentru tranziții ce utilizează doar JavaScript, astfel încât Vue să poată sări peste detectarea CSS. Acest lucru totodată previne ca regulile CSS să interfereze accidental cu tranziția.</p>
 
-Now let's dive into an example. Here's a JavaScript transition using Velocity.js:
+Acum să analizăm un exemplu. Iată o tranziție JavaScript folosind Velocity.js:
 
 ``` html
 <!--
-Velocity works very much like jQuery.animate and is
-a great option for JavaScript animations
+Velocity funcționează aproape la fel ca jQuery.animate
+și este o opțiune excelentă pentru animațiile JavaScript
 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="example-4">
   <button @click="show = !show">
-    Toggle
+    Comutare
   </button>
   <transition
     v-on:before-enter="beforeEnter"
@@ -501,7 +501,7 @@ new Vue({
 {% raw %}
 <div id="example-4" class="demo">
   <button @click="show = !show">
-    Toggle
+    Comutare
   </button>
   <transition
     v-on:before-enter="beforeEnter"
