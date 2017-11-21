@@ -4,21 +4,21 @@ type: guide
 order: 3
 ---
 
-## Creating a Vue Instance
+## Crearea unei instanțe Vue
 
-Every Vue application starts by creating a new **Vue instance** with the `Vue` function:
+Fiecare aplicație Vue începe prin crearea unei noi **instanțe Vue** cu funcția `Vue`:
 
 ``` js
 var vm = new Vue({
-  // options
+  // opțiuni
 })
 ```
 
-Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our Vue instance.
+Deși nu este strict asociat cu [pattern-ul MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel), designul Vue a fost inspirat parțial de acesta. Ca convenție, adesea folosim variabila `vm` (scurtă pentru ViewModel) pentru referire la instanța noastră Vue.
 
-When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/#Options-Data).
+Când creați o instanță Vue, treceți într-un **obiect de opțiuni**. Majoritatea acestui ghid descrie modul în care puteți utiliza aceste opțiuni pentru a crea comportamentul dorit. Pentru referință, puteți de asemenea să răsfoiți lista completă a opțiunilor din [referința API](../api/#Options-Data).
 
-A Vue application consists of a **root Vue instance** created with `new Vue`, optionally organized into a tree of nested, reusable components. For example, a todo app's component tree might look like this:
+O aplicație Vue constă dintr-o **instanță root Vue** creată cu `new Vue`, opțional organizată într-un arbore de componente reutilizabile. De exemplu, arborele de componente al aplicației todo ar putea arăta astfel:
 
 ```
 Root Instance
@@ -31,7 +31,7 @@ Root Instance
       |- TodoListStatistics
 ```
 
-We'll talk about [the component system](components.html) in detail later. For now, just know that all Vue components are also Vue instances, and so accept the same options object (except for a few root-specific options).
+Vom vorbi despre [componenta sistemului](components.html) detaliat mai târziu. Pentru moment, trebuie să știți doar că toate componentele Vue sunt și instanțe Vue, acceptând astfel același obiect de opțiuni (cu excepția câtorva opțiuni root-specifice).
 
 ## Data and Methods
 
