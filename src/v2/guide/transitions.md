@@ -581,63 +581,64 @@ Dacă doriți să aplicați o tranziție la rendarea inițială a unui nod, pute
 </transition>
 ```
 
-## Transitioning Between Elements
+## Tranziția între elemente
 
 We discuss [transitioning between components](#Transitioning-Between-Components) later, but you can also transition between raw elements using `v-if`/`v-else`. One of the most common two-element transitions is between a list container and a message describing an empty list:
+Vom discuta [tranziția între componente](#Transitioning-Between-Components) în detaliu mai târziu, dar acum putem analiza tranziția intre elemente folosind `v-if`/`v-else`. Unul dintre cazurile cele mai frecvente este trecerea de la containerul listei la mesajul că lista este goală:
 
 ``` html
 <transition>
   <table v-if="items.length > 0">
     <!-- ... -->
   </table>
-  <p v-else>Sorry, no items found.</p>
+  <p v-else>Ne pare rău, nu a fost gasit nici-un element.</p>
 </transition>
 ```
 
-This works well, but there's one caveat to be aware of:
+Această metodă funcționează bine, dar totuși există o avertizare:
 
-<p class="tip">When toggling between elements that have **the same tag name**, you must tell Vue that they are distinct elements by giving them unique `key` attributes. Otherwise, Vue's compiler will only replace the content of the element for efficiency. Even when technically unnecessary though, **it's considered good practice to always key multiple items within a `<transition>` component.**</p>
+<p class="tip">Atunci când comutați între elementele care au **același nume de tag**, trebuie de indicat pentru Vue că elementele sunt distincte oferindu-le valori unice prin intermediul atributului `key` . În caz contrar, compilatorul Vue va înlocui doar conținutul elementului pentru eficiență. Chiar și atunci când nu este necesar din punct de vedere tehnic, **se consideră o bună practică înfășurarea mai multor elemente în cadrul unei componente `<transition>` .**</p>
 
-For example:
+De exemplu:
 
 ``` html
 <transition>
   <button v-if="isEditing" key="save">
-    Save
+    Salvare
   </button>
   <button v-else key="edit">
-    Edit
+    Editare
   </button>
 </transition>
 ```
 
-In these cases, you can also use the `key` attribute to transition between different states of the same element. Instead of using `v-if` and `v-else`, the above example could be rewritten as:
+În aceste cazuri, puteți folosi și atributul `key` pentru a aplica tranziția între diferite stări ale aceluiași element. În loc de a folosi `v-if` și `v-else`, exemplul de mai sus poate fi rescris în modul următor:
 
 ``` html
 <transition>
   <button v-bind:key="isEditing">
-    {{ isEditing ? 'Save' : 'Edit' }}
+    {{ isEditing ? 'Salvare' : 'Editare' }}
   </button>
 </transition>
 ```
 
-It's actually possible to transition between any number of elements, either by using multiple `v-if`s or binding a single element to a dynamic property. For example:
+Practic este posibilă aplicarea tranziției între orice număr de elemente, fie prin utilizarea mai multor `v-if`-uri, fie prin legarea unui singur element de o proprietate dinamică. De exemplu:
 
 ``` html
 <transition>
   <button v-if="docState === 'saved'" key="saved">
-    Edit
+    Editare
   </button>
   <button v-if="docState === 'edited'" key="edited">
-    Save
+    Salvare
   </button>
   <button v-if="docState === 'editing'" key="editing">
-    Cancel
+    Anulare
   </button>
 </transition>
 ```
 
-Which could also be written as:
+Care ar putea fi scris și în modul următor:
 
 ``` html
 <transition>
@@ -652,9 +653,9 @@ Which could also be written as:
 computed: {
   buttonMessage: function () {
     switch (this.docState) {
-      case 'saved': return 'Edit'
-      case 'edited': return 'Save'
-      case 'editing': return 'Cancel'
+      case 'saved': return 'Editare'
+      case 'edited': return 'Salvare'
+      case 'editing': return 'Anulare'
     }
   }
 }
