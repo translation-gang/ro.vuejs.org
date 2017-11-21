@@ -33,39 +33,37 @@ Root Instance
 
 Vom vorbi despre [componenta sistemului](components.html) detaliat mai târziu. Pentru moment, trebuie să știți doar că toate componentele Vue sunt și instanțe Vue, acceptând astfel același obiect de opțiuni (cu excepția câtorva opțiuni root-specifice).
 
-## Data and Methods
+## Date și metode
 
-When a Vue instance is created, it adds all the properties found in its `data` object to Vue's **reactivity system**. When the values of those properties change, the view will "react", updating to match the new values.
+Atunci când este creată o instanță Vue, ea adaugă toate proprietățile găsite în obiectul `data` la **sistemul de reactivitate** Vue. Atunci când valorile acelor proprietăți se vor schimba, vizualizarea va "reacționa", actualizându-se pentru a se potrivi cu noile valori.
 
 ``` js
-// Our data object
+// Obiectul nostru de date
 var data = { a: 1 }
 
-// The object is added to a Vue instance
+// Obiectul este adăugat într-o instanța Vue
 var vm = new Vue({
   data: data
 })
 
-// These reference the same object!
+// Acestea fac referire la același obiect!
 vm.a === data.a // => true
 
-// Setting the property on the instance
-// also affects the original data
+// Setarea proprietății pe instanță
+// afectează de asemenea datele originale
 vm.a = 2
 data.a // => 2
 
-// ... and vice-versa
+// ... și invers
 data.a = 3
 vm.a // => 3
 ```
-
-When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
+Când aceste date se modifică, vizualizarea va face re-render. Trebuie notat faptul că proprietățile din `data` sunt numai **reactive**, dacă au existat atunci când instanța a fost creată. Aceasta înseamnă că dacă adăugați o proprietate nouă, cum ar fi:
 
 ``` js
 vm.b = 'hi'
 ```
-
-Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
+Apoi modificările la `b` nu vor declanșa nici o actualizare a vizualizărilor. Dacă știți că veți avea nevoie de o proprietate mai târziu, dar va începe fiind goală sau inexistentă, va trebui să setați o valoare inițială. De exemplu:
 
 ``` js
 data: {
@@ -77,7 +75,7 @@ data: {
 }
 ```
 
-In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
+În plus față de proprietățile de date, instanțele Vue expun o serie de proprietăți și metode de instanțe utile. Acestea sunt prefixate cu `$` pentru a le diferenția de proprietățile definite de utilizator. De exemplu:
 
 ``` js
 var data = { a: 1 }
@@ -89,13 +87,13 @@ var vm = new Vue({
 vm.$data === data // => true
 vm.$el === document.getElementById('example') // => true
 
-// $watch is an instance method
+// $ceasul este o metodă instanță
 vm.$watch('a', function (newValue, oldValue) {
-  // This callback will be called when `vm.a` changes
+  // Acest callback va fi apelat când `vm.a` se va modifica
 })
 ```
 
-In the future, you can consult the [API reference](../api/#Instance-Properties) for a full list of instance properties and methods.
+În viitor, puteți consulta [referința API](../api/#Instance-Properties) pentru o listă completă de proprietăți și metode ale instanței.
 
 ## Instance Lifecycle Hooks
 
