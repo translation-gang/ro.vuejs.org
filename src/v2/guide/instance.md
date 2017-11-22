@@ -95,11 +95,11 @@ vm.$watch('a', function (newValue, oldValue) {
 
 În viitor, puteți consulta [referința API](../api/#Instance-Properties) pentru o listă completă de proprietăți și metode ale instanței.
 
-## Instance Lifecycle Hooks
+## Hook-urile ciclului de viață al instanței
 
-Each Vue instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+Fiecare instanță Vue trece printr-o serie de pași de inițializare atunci când este creată - de exemplu, trebuie să configureze observația datelor, să compileze șablonul, să monteze instanța în DOM și să actualizeze DOM-ul atunci când se schimbă datele. În același timp, rulează și funcții numite **hook-uri ale ciclului de viață**, oferind utilizatorilor posibilitatea de a adăuga propriul cod la anumite etape.
 
-For example, the [`created`](../api/#created) hook can be used to run code after an instance is created:
+De exemplu, hook-ul [`created`](../api/#created) poate fi folosit pentru a rula codul după crearea unei instanțe: 
 
 ``` js
 new Vue({
@@ -107,17 +107,17 @@ new Vue({
     a: 1
   },
   created: function () {
-    // `this` points to the vm instance
+    // `this` indică instanța vm
     console.log('a is: ' + this.a)
   }
 })
-// => "a is: 1"
+// => "a este: 1"
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](../api/#mounted), [`updated`](../api/#updated), and [`destroyed`](../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.
+Există, de asemenea, alte hook-uri care vor fi chemate în diferite etape ale ciclului de viață al instanței, cum ar fi [`mounted`](../api/#mounted), [`updated`](../api/#updated) și [`destroyed`](../api/#destroyed). Toate hook-urile ale ciclurilor de viață sunt chemate cu contextul `this` care indică instanța Vue care o invocă.
 
-<p class="tip">Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since arrow functions are bound to the parent context, `this` will not be the Vue instance as you'd expect, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.</p>
 
+<p class="tip">Nu utilizați [funcțiile arrow](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) pe proprietatea de opțiuni sau pe callback, cum ar fi `created: () => console.log(this.a)` sau `vm.$watch('a', newValue => this.myMethod())`. Deoarece funcțiile arrow sunt legate de contextul părinte, `this` nu va fi instanța Vue așa cum v-ați așteptat, adesea rezultând erori precum `Uncaught TypeError: Cannot read property of undefined` sau `Uncaught TypeError: this.myMethod is not a function`.</p>
 
 ## Lifecycle Diagram
 
