@@ -119,8 +119,8 @@ Există, de asemenea, alte hook-uri care vor fi chemate în diferite etape ale c
 
 <p class="tip">Nu utilizați [funcțiile arrow](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) pe proprietatea de opțiuni sau pe callback, cum ar fi `created: () => console.log(this.a)` sau `vm.$watch('a', newValue => this.myMethod())`. Deoarece funcțiile arrow sunt legate de contextul părinte, `this` nu va fi instanța Vue așa cum v-ați așteptat, adesea rezultând erori precum `Uncaught TypeError: Cannot read property of undefined` sau `Uncaught TypeError: this.myMethod is not a function`.</p>
 
-## Lifecycle Diagram
+## Diagrama ciclului de viață
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Mai jos este o diagramă a ciclului de viață al instanței. Nu este nevoie să înțelegeți pe deplin tot ceea ce se întâmplă acum, dar pe măsură ce învățați și construiți mai mult, aceasta va fi o referință utilă.
 
-![The Vue Instance Lifecycle](/images/lifecycle.png)
+![Ciclul de viață al instanței Vue](/images/lifecycle.png).
