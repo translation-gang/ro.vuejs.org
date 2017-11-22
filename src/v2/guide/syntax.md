@@ -1,5 +1,5 @@
 ---
-title: Template Syntax
+title: Sintaxa Șablonului
 type: guide
 order: 4
 ---
