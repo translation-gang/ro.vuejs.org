@@ -661,9 +661,9 @@ computed: {
 }
 ```
 
-### Transition Modes
+### Moduri de tranziție
 
-There's still one problem though. Try clicking the button below:
+Totuși, există o problemă. Încercați să faceți click pe butonul de mai jos:
 
 {% raw %}
 <div id="no-mode-demo" class="demo">
@@ -694,9 +694,9 @@ new Vue({
 </style>
 {% endraw %}
 
-As it's transitioning between the "on" button and the "off" button, both buttons are rendered - one transitioning out while the other transitions in. This is the default behavior of `<transition>` - entering and leaving happens simultaneously.
+În timpul tranziției de la butonul "on" la butonul "off", se afișează simultan ambele butoane - un buton în procesul dispariției, iar celălalt în procesul apariției. Acesta este comportamentul implicit al componentei `<transition>` - apariția și dispariția elementului se întâmplă simultan.
 
-Sometimes this works great, like when transitioning items are absolutely positioned on top of each other:
+Uneori acestea funcționează excelent, precum în cazul când elementele de tranziție au poziționare absolută unul peste altul:
 
 {% raw %}
 <div id="no-mode-absolute-demo" class="demo">
@@ -736,7 +736,7 @@ new Vue({
 </style>
 {% endraw %}
 
-And then maybe also translated so that they look like slide transitions:
+De asemenea puteți interpreta acțiunile sub forma tranzițiilor de alunecare (slide transitions)
 
 {% raw %}
 <div id="no-mode-translate-demo" class="demo">
@@ -782,17 +782,17 @@ new Vue({
 </style>
 {% endraw %}
 
-Simultaneous entering and leaving transitions aren't always desirable though, so Vue offers some alternative **transition modes**:
+Tranzițiile simultane de apariție și dispariție nu sunt întotdeauna de dorit, de aceea Vue oferă câteva **moduri de tranziție** alternative:
 
-- `in-out`: New element transitions in first, then when complete, the current element transitions out.
+- `in-out`: Mai întâi se efectuează tranziția de apariție a elementului nou și doar după tranziția de dispariție a elementului vechi.
 
-- `out-in`: Current element transitions out first, then when complete, the new element transitions in.
+- `out-in`: Mai întâi se efectuează tranziția de dispariție a elementului curent și după finalizare tranziția de apariție a elementului nou.
 
-Now let's update the transition for our on/off buttons with `out-in`:
+Acum, să actualizăm tranziția pentru butoanele on/off folosind modul `out-in`:
 
 ``` html
 <transition name="fade" mode="out-in">
-  <!-- ... the buttons ... -->
+  <!-- ... butoanele ... -->
 </transition>
 ```
 
@@ -825,9 +825,9 @@ new Vue({
 </style>
 {% endraw %}
 
-With one attribute addition, we've fixed that original transition without having to add any special styling.
+Adăugând un atribut, am fixat această tranziție originală fără a fi nevoie să adăugăm stiluri speciale.
 
-The `in-out` mode isn't used as often, but can sometimes be useful for a slightly different transition effect. Let's try combining it with the slide-fade transition we worked on earlier:
+Modul `in-out` nu este folosit la fel de des, dar uneori poate fi util pentru un efect de tranziție un pic diferit. Să încercăm să îl combinăm cu tranziția (slide-fade) la care am lucrat mai devreme:
 
 {% raw %}
 <div id="in-out-translate-demo" class="demo">
@@ -873,7 +873,7 @@ new Vue({
 </style>
 {% endraw %}
 
-Pretty cool, right?
+Destul de mișto, nu?
 
 ## Transitioning Between Components
 
