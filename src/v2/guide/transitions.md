@@ -875,9 +875,9 @@ new Vue({
 
 Destul de mișto, nu?
 
-## Transitioning Between Components
+## Tranziția între componente
 
-Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we wrap a [dynamic component](components.html#Dynamic-Components):
+Tranziția între componente este chiar mai simplă - nici măcar nu avem nevoie de atributul `key`. În schimb, înfășurăm [componenta dinamică](components.html#Dynamic-Components):
 
 ``` html
 <transition name="component-fade" mode="out-in">
@@ -893,10 +893,10 @@ new Vue({
   },
   components: {
     'v-a': {
-      template: '<div>Component A</div>'
+      template: '<div>Componenta A</div>'
     },
     'v-b': {
-      template: '<div>Component B</div>'
+      template: '<div>Componenta B</div>'
     }
   }
 })
@@ -907,7 +907,7 @@ new Vue({
   transition: opacity .3s ease;
 }
 .component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active below version 2.1.8 */ {
+/* .component-fade-leave-active mai jos de versiunea 2.1.8 */ {
   opacity: 0;
 }
 ```
@@ -936,10 +936,10 @@ new Vue({
   },
   components: {
     'v-a': {
-      template: '<div>Component A</div>'
+      template: '<div>Componenta A</div>'
     },
     'v-b': {
-      template: '<div>Component B</div>'
+      template: '<div>Componenta B</div>'
     }
   }
 })
