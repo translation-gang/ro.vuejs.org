@@ -946,17 +946,17 @@ new Vue({
 </script>
 {% endraw %}
 
-## List Transitions
+## Tranzițiile listei
 
-So far, we've managed transitions for:
+Deocamdată, am reușit să cercetăm următoarele tranziții:
 
-- Individual nodes
-- Multiple nodes where only 1 is rendered at a time
+- Elemente individuale
+- Elemente multiple în care doar 1 este rendat la un moment dat
 
-So what about for when we have a whole list of items we want to render simultaneously, for example with `v-for`? In this case, we'll use the `<transition-group>` component. Before we dive into an example though, there are a few things that are important to know about this component:
+Și cum rămâne cu situația, când avem o întreagă listă de elemente pe care am dori să le afișăm simultan, de exemplu folosind `v-for`? În acest caz, vom utiliza componenta `<transition-group>`. Înainte de a analiza un exemplu, totuși, există câteva lucruri importante pe care ar fi bine să le cunoaștem despre această componentă:
 
-- Unlike `<transition>`, it renders an actual element: a `<span>` by default. You can change the element that's rendered with the `tag` attribute.
-- Elements inside are **always required** to have a unique `key` attribute
+- Spre deosebire de `<transition>`, rendează un element real: un `<span>` în mod implicit. Puteți schimba elementul care se va renda folosind atributul `tag`.
+- Elementele din interiorul `<transition-group>` **întotdeauna necesită** indicarea valorii unice pentru atributul `key`.
 
 ### List Entering/Leaving Transitions
 
