@@ -958,14 +958,14 @@ Deocamdată, am reușit să cercetăm următoarele tranziții:
 - Spre deosebire de `<transition>`, rendează un element real: un `<span>` în mod implicit. Puteți schimba elementul care se va renda folosind atributul `tag`.
 - Elementele din interiorul `<transition-group>` **întotdeauna necesită** indicarea valorii unice pentru atributul `key`.
 
-### List Entering/Leaving Transitions
+### Tranzițiile apariției/dispariției elementelor unei listei
 
-Now let's dive into an example, transitioning entering and leaving using the same CSS classes we've used previously:
+Acum să analizăm un exemplu, tranziția apariției și dispariției folosind aceleași clase CSS pe care le-am utilizat anterior:
 
 ``` html
 <div id="list-demo">
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button v-on:click="add">Adaugă</button>
+  <button v-on:click="remove">Elimină</button>
   <transition-group name="list" tag="p">
     <span v-for="item in items" v-bind:key="item" class="list-item">
       {{ item }}
@@ -1003,7 +1003,7 @@ new Vue({
 .list-enter-active, .list-leave-active {
   transition: all 1s;
 }
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+.list-enter, .list-leave-to /* .list-leave-active mai jos de versiunea 2.1.8 */ {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -1011,8 +1011,8 @@ new Vue({
 
 {% raw %}
 <div id="list-demo" class="demo">
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button v-on:click="add">Adaugă</button>
+  <button v-on:click="remove">Elimină</button>
   <transition-group name="list" tag="p">
     <span v-for="item in items" :key="item" class="list-item">
       {{ item }}
@@ -1054,7 +1054,7 @@ new Vue({
 </style>
 {% endraw %}
 
-There's one problem with this example. When you add or remove an item, the ones around it instantly snap into their new place instead of smoothly transitioning. We'll fix that later.
+Totuși există o problemă cu acest exemplu. Când adăugați sau eliminați un element, cele din jurul acestuia se fixează instantaneu în noul loc fără tranziție lină. O vom rezolva mai târziu.
 
 ### List Move Transitions
 
