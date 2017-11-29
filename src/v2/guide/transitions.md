@@ -1056,11 +1056,11 @@ new Vue({
 
 Totuși există o problemă cu acest exemplu. Când adăugați sau eliminați un element, cele din jurul acestuia se fixează instantaneu în noul loc fără tranziție lină. O vom rezolva mai târziu.
 
-### List Move Transitions
+### Tranzițiile mișcărilor elementelor unei liste
 
-The `<transition-group>` component has another trick up its sleeve. It can not only animate entering and leaving, but also changes in position. The only new concept you need to know to use this feature is the addition of **the `v-move` class**, which is added when items are changing positions. Like the other classes, its prefix will match the value of a provided `name` attribute and you can also manually specify a class with the `move-class` attribute.
+Componenta `<transition-group>` are încă un avantaj. Nu numai că poate anima apariția și dispariția elementelor, dar și schimbările de poziție a acestora. Singurul concept nou pe care trebuie să îl cunoașteți constă în adăugarea **clasei `v-move`**, care se adaugă atunci când elementele își schimbă pozițiile. Ca și la celelalte clase, prefixul său va fi setat conform valorii utilizate în atributul `name` sau în mod similar, puteți specifica manual clasa în atributul `move-class`.
 
-This class is mostly useful for specifying the transition timing and easing curve, as you'll see below:
+Această clasă este cel mai des utilă pentru specificarea curbei de relaxare (easing curve) și a temporizării (timing) tranziției, după cum veți vedea mai jos:
 
 ``` html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
@@ -1098,7 +1098,7 @@ new Vue({
 {% raw %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 <div id="flip-list-demo" class="demo">
-  <button v-on:click="shuffle">Shuffle</button>
+  <button v-on:click="shuffle">Amsestecă</button>
   <transition-group name="flip-list" tag="ul">
     <li v-for="item in items" :key="item">
       {{ item }}
@@ -1125,17 +1125,17 @@ new Vue({
 </style>
 {% endraw %}
 
-This might seem like magic, but under the hood, Vue is using an animation technique called [FLIP](https://aerotwist.com/blog/flip-your-animations/) to smoothly transition elements from their old position to their new position using transforms.
+Acest lucru ar putea părea ca magic, dar sub capotă, Vue folosește o tehnică de animație numită [FLIP](https://aerotwist.com/blog/flip-your-animations/) care permite trecerea lină a elementelor de la poziția lor veche la noua lor poziție folosind transformările CSS (transforms).
 
-We can combine this technique with our previous implementation to animate every possible change to our list!
+Putem combina această tehnică cu implementarea noastră anterioară pentru a anima orice schimbare posibilă a listei noastre!
 
 ``` html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 
 <div id="list-complete-demo" class="demo">
-  <button v-on:click="shuffle">Shuffle</button>
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button v-on:click="shuffle">Amestecă</button>
+  <button v-on:click="add">Adaugă</button>
+  <button v-on:click="remove">Elimină</button>
   <transition-group name="list-complete" tag="p">
     <span
       v-for="item in items"
@@ -1179,7 +1179,7 @@ new Vue({
   margin-right: 10px;
 }
 .list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active below version 2.1.8 */ {
+/* .list-complete-leave-active mai jos de versiunea 2.1.8 */ {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -1191,9 +1191,9 @@ new Vue({
 {% raw %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 <div id="list-complete-demo" class="demo">
-  <button v-on:click="shuffle">Shuffle</button>
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button v-on:click="shuffle">Amestecă</button>
+  <button v-on:click="add">Adaugă</button>
+  <button v-on:click="remove">Elimină</button>
   <transition-group name="list-complete" tag="p">
     <span v-for="item in items" :key="item" class="list-complete-item">
       {{ item }}
@@ -1239,16 +1239,16 @@ new Vue({
 </style>
 {% endraw %}
 
-<p class="tip">One important note is that these FLIP transitions do not work with elements set to `display: inline`. As an alternative, you can use `display: inline-block` or place elements in a flex context.</p>
+<p class="tip">O notă importantă este că aceste tranziții FLIP nu funcționează cu elementele setate ca `display: inline`. Ca alternativă, puteți utiliza `display: inline-block` sau flex-container.</p>
 
-These FLIP animations are also not limited to a single axis. Items in a multidimensional grid can be [transitioned too](https://jsfiddle.net/chrisvfritz/sLrhk1bc/):
+Animațiile FLIP nu se limitează doar la o singură axă. Elementele dintr-un tablou multidimensional pot fi [animate și ele](https://jsfiddle.net/chrisvfritz/sLrhk1bc/):
 
 {% raw %}
 <div id="sudoku-demo" class="demo">
-  <strong>Lazy Sudoku</strong>
-  <p>Keep hitting the shuffle button until you win.</p>
+  <strong>Sudoku Leneș</strong>
+  <p>Continuați să amestecați până când câștigați.</p>
   <button @click="shuffle">
-    Shuffle
+    Amestecă
   </button>
   <transition-group name="cell" tag="div" class="sudoku-container">
     <div v-for="cell in cells" :key="cell.id" class="cell">
