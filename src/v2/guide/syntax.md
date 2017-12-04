@@ -4,28 +4,28 @@ type: guide
 order: 4
 ---
 
-Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance's data. All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
+Vue.js utilizează o sintaxă de șablon bazată pe HTML, care vă permite să legați declarativ DOM-ul oferit de datele de bază ale instanței Vue. Toate șabloanele Vue.js sunt valabile în HTML, care pot fi analizate de browsere-le compatibile cu spec și cu parseri HTML.
 
-Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal amount of components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
+Sub capotă, Vue compilează șabloanele în funcțiile de redare Virtual DOM. Combinat cu sistemul de reactivitate, Vue este capabil să descopere în mod inteligent cantitatea minimă de componente pentru a redimensiona și aplica cantitatea minimă de manipulări DOM atunci când se modifică starea aplicației.
 
-If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](render-function.html) instead of templates, with optional JSX support.
+Dacă sunteți familiarizați cu conceptele DOM virtuale și preferați puterea primară a JavaScript, puteți, de asemenea, să [scrieți în mod direct funcțiile de redare](render-function.html) în locul șabloanelor, cu suport opțional JSX.
 
-## Interpolations
+## Interpolări
 
 ### Text
 
-The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
+Forma cea mai elementară de legare a datelor este interpolarea textului folosind sintaxa "Mustache" (acoladă dublă);
 
 ``` html
 <span>Message: {{ msg }}</span>
 ```
 
-The mustache tag will be replaced with the value of the `msg` property on the corresponding data object. It will also be updated whenever the data object's `msg` property changes.
+Eticheta pentru mustață va fi înlocuită cu valoarea proprietății `msg` de pe obiectul corespunzător. De asemenea, acesta va fi actualizat de fiecare dată când proprietatea `msg` se modifică.
 
-You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/#v-once), but keep in mind this will also affect any binding on the same node:
+De asemenea, puteți efectua interpolări de o singură dată care nu se actualizează la schimbarea datelor utilizând directiva [v-once](../api/#v-once), dar rețineți că aceasta va afecta și orice legare de același nod:
 
 ``` html
-<span v-once>This will never change: {{ msg }}</span>
+<span v-once>Aceasta nu se va schimba niciodată: {{ msg }}</span>
 ```
 
 ### Raw HTML
