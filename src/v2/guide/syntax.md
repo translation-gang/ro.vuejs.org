@@ -28,17 +28,18 @@ De asemenea, puteți efectua interpolări de o singură dată care nu se actuali
 <span v-once>Aceasta nu se va schimba niciodată: {{ msg }}</span>
 ```
 
-### Raw HTML
+### HTML-ul Crud
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the `v-html` directive:
+Mustața dublă interpretează datele ca text simplu, nu HTML. Pentru a utiliza HTML-ul real, va trebui să utilizați directiva `v-html`:
 
 ``` html
 <div v-html="rawHtml"></div>
 ```
 
-The contents of this `div` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
+Conținutul acestui "div" va fi înlocuit cu valoarea proprietății `rawHtml`, interpretată ca HTML simplu - legările de date sunt ignorate. Rețineți că nu puteți utiliza v-html pentru a compune șablonul parțial, deoarece Vue nu este un motor de șablon bazat pe șir. În schimb, componentele sunt preferate ca unitate fundamentală pentru reutilizarea și compoziția UI.
 
-<p class="tip">Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use HTML interpolation on trusted content and **never** on user-provided content.</p>
+
+<p class="tip"> Redarea dinamică a conținutului HTML arbitrar pe site-ul dvs. poate fi foarte periculoasă deoarece poate duce ușor la [vulnerabilități XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Utilizați numai interpolarea HTML pe un conținut de încredere și **niciodată** pe conținutul furnizat de utilizator. </p>
 
 ### Attributes
 
