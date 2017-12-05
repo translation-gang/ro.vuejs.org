@@ -81,15 +81,15 @@ Aceste expresii vor fi evaluate ca JavaScript în domeniul de date al proprietar
 
 <p class="tip">Exemplele de șabloane sunt sandboxed și au acces doar la o listă limitată(whitelist) de informații globale, cum ar fi `Math` și `Date`. Nu trebuie să încercați să accesați obiecte globale ale utilizatorului în expresiile de șabloane.</p>
 
-## Directives
+## Directivele
 
-Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception for `v-for`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
+Directivele sunt atribute speciale cu prefixul `v-`. Directivele valorilor atributelor se așteaptă să fie **o singură expresie JavaScript** (cu excepția pentru v-for, care va fi discutată mai târziu). Misiunea unei directive este de a aplica reactiv efecte secundare la DOM când se modifică valoarea expresiei sale. Să examinăm exemplul pe care l-am văzut în introducere:
 
 ``` html
-<p v-if="seen">Now you see me</p>
+<p v-if="seen">Acum mă vezi?</p>
 ```
 
-Here, the `v-if` directive would remove/insert the `<p>` element based on the truthiness of the value of the expression `seen`.
+Aici, directiva `v-if` va elimina/introduce elementul `<p>` bazat pe corectitudinea valorii expresiei `seen`.
 
 ### Arguments
 
