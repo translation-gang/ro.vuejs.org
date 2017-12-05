@@ -1304,9 +1304,9 @@ new Vue({
 </style>
 {% endraw %}
 
-### Staggering List Transitions
+### Tranzițiile eșalonării elementelor unei liste
 
-By communicating with JavaScript transitions through data attributes, it's also possible to stagger transitions in a list:
+Configurând tranzițiile JavaScript prin data-atribute, este posibilă și organizarea tranzițiilor eșalonării elementelor unei liste:
 
 ``` html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
