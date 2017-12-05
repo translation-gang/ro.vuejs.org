@@ -41,18 +41,18 @@ Conținutul acestui "div" va fi înlocuit cu valoarea proprietății `rawHtml`, 
 
 <p class="tip"> Redarea dinamică a conținutului HTML arbitrar pe site-ul dvs. poate fi foarte periculoasă deoarece poate duce ușor la [vulnerabilități XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Utilizați numai interpolarea HTML pe un conținut de încredere și **niciodată** pe conținutul furnizat de utilizator. </p>
 
-### Attributes
+### Atribute
 
-Mustaches cannot be used inside HTML attributes, instead use a [v-bind directive](../api/#v-bind):
+Mustațele nu pot fi utilizate în interiorul atributelor HTML, ele folosesc directiva [v-bind](../api/#v-bind):
+
 
 ``` html
 <div v-bind:id="dynamicId"></div>
 ```
-
-It also works for boolean attributes - the attribute will be removed if the condition evaluates to a falsy value:
+De asemenea, funcționează pentru atributele de tip boolean - atributul va fi eliminat dacă condiția este falsă:
 
 ``` html
-<button v-bind:disabled="isButtonDisabled">Button</button>
+<button v-bind:disabled="isButtonDisabled">Buton</button>
 ```
 
 ### Using JavaScript Expressions
