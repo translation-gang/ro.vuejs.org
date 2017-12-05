@@ -55,9 +55,9 @@ De asemenea, funcționează pentru atributele de tip boolean - atributul va fi e
 <button v-bind:disabled="isButtonDisabled">Buton</button>
 ```
 
-### Using JavaScript Expressions
+### Utilizarea expresiilor JavaScript
 
-So far we've only been binding to simple property keys in our templates. But Vue.js actually supports the full power of JavaScript expressions inside all data bindings:
+Până acum am legat date doar de cheile cu proprietăți simple în șabloanele noastre. Dar Vue.js suportă de fapt puterea completă a expresiilor JavaScript în interiorul tuturor legărilor de date:
 
 ``` html
 {{ number + 1 }}
@@ -69,17 +69,17 @@ So far we've only been binding to simple property keys in our templates. But Vue
 <div v-bind:id="'list-' + id"></div>
 ```
 
-These expressions will be evaluated as JavaScript in the data scope of the owner Vue instance. One restriction is that each binding can only contain **one single expression**, so the following will **NOT** work:
+Aceste expresii vor fi evaluate ca JavaScript în domeniul de date al proprietarului instanței Vue. O restricție este că fiecare legare poate conține numai **o singură expresie**, astfel încât următorul lucru **NU** va funcționa:
 
 ``` html
-<!-- this is a statement, not an expression: -->
+<!-- aceasta este o declarație, nu o expresie: -->
 {{ var a = 1 }}
 
-<!-- flow control won't work either, use ternary expressions -->
+<!-- controlul fluxului nu va funcționa niciodată, utilizați expresii ternare -->
 {{ if (ok) { return message } }}
 ```
 
-<p class="tip">Template expressions are sandboxed and only have access to a whitelist of globals such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.</p>
+<p class="tip">Exemplele de șabloane sunt sandboxed și au acces doar la o listă limitată(whitelist) de informații globale, cum ar fi `Math` și `Date`. Nu trebuie să încercați să accesați obiecte globale ale utilizatorului în expresiile de șabloane.</p>
 
 ## Directives
 
