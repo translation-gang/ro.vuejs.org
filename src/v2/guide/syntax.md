@@ -81,7 +81,7 @@ Aceste expresii vor fi evaluate ca JavaScript în domeniul de date al proprietar
 
 <p class="tip">Exemplele de șabloane sunt sandboxed și au acces doar la o listă limitată(whitelist) de informații globale, cum ar fi `Math` și `Date`. Nu trebuie să încercați să accesați obiecte globale ale utilizatorului în expresiile de șabloane.</p>
 
-## Directivele
+## Directive
 
 Directivele sunt atribute speciale cu prefixul `v-`. Directivele valorilor atributelor se așteaptă să fie **o singură expresie JavaScript** (cu excepția pentru v-for, care va fi discutată mai târziu). Misiunea unei directive este de a aplica reactiv efecte secundare la DOM când se modifică valoarea expresiei sale. Să examinăm exemplul pe care l-am văzut în introducere:
 
@@ -91,23 +91,23 @@ Directivele sunt atribute speciale cu prefixul `v-`. Directivele valorilor atrib
 
 Aici, directiva `v-if` va elimina/introduce elementul `<p>` bazat pe corectitudinea valorii expresiei `seen`.
 
-### Arguments
+### Argumente
 
-Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
+Unele directive pot lua un "argument", notat cu două puncte(:) după numele directivei. De exemplu, directiva `v-bind` este folosită pentru a actualiza reactiv un atribut HTML:
 
 ``` html
 <a v-bind:href="url"></a>
 ```
 
-Here `href` is the argument, which tells the `v-bind` directive to bind the element's `href` attribute to the value of the expression `url`.
+Aici `href` este argumentul, care spune directivei v-bind să lege atributul `href` al elementului la valoarea expresiei `url`.
 
-Another example is the `v-on` directive, which listens to DOM events:
+Un alt exemplu este directiva `v-on`, care asculta evenimentele DOM-ului:
 
 ``` html
 <a v-on:click="doSomething">
 ```
 
-Here the argument is the event name to listen to. We will talk about event handling in more detail too.
+Aici argumentul este numele acțiunii care va fi ascultat. Vom vorbi mai multe și despre manipularea acțiunilor.
 
 ### Modifiers
 
