@@ -109,15 +109,14 @@ Un alt exemplu este directiva `v-on`, care asculta evenimentele DOM-ului:
 
 Aici argumentul este numele acțiunii care va fi ascultat. Vom vorbi mai multe și despre manipularea acțiunilor.
 
-### Modifiers
+### Modificatorii
 
-Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+Modificatorii sunt postfixe speciale denotate printr-un punct, ceea ce indică faptul că o directivă ar trebui să fie legată într-un mod special. De exemplu, modificatorul `.prevent` declară directiva `v-on` pentru a apela `event.preventDefault()` la evenimentul declanșat:
 
 ``` html
 <form v-on:submit.prevent="onSubmit"></form>
 ```
-
-You'll see other examples of modifiers later, [for `v-on`](events.html#Event-Modifiers) and [for `v-model`](forms.html#Modifiers), when we explore those features.
+Veți vedea mai multe exemple de modificatori mai târziu, [pentru v-on](events.html#Event-Modifiers) și [pentru `v-model`](forms.html#Modifiers), atunci când vom explora aceste caracteristici.
 
 ## Shorthands
 
