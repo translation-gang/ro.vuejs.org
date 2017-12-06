@@ -118,28 +118,28 @@ Modificatorii sunt postfixe speciale denotate printr-un punct, ceea ce indică f
 ```
 Veți vedea mai multe exemple de modificatori mai târziu, [pentru v-on](events.html#Event-Modifiers) și [pentru `v-model`](forms.html#Modifiers), atunci când vom explora aceste caracteristici.
 
-## Shorthands
+## Prescurtări
 
-The `v-` prefix serves as a visual cue for identifying Vue-specific attributes in your templates. This is useful when you are using Vue.js to apply dynamic behavior to some existing markup, but can feel verbose for some frequently used directives. At the same time, the need for the `v-` prefix becomes less important when you are building an [SPA](https://en.wikipedia.org/wiki/Single-page_application) where Vue.js manages every template. Therefore, Vue.js provides special shorthands for two of the most often used directives, `v-bind` and `v-on`:
+Prefixul `v-` reprezintă o indicație vizuală pentru identificarea atributelor specifice Vue în șabloanele dvs. Acest lucru este util atunci când utilizați Vue.js pentru a aplica un comportament dinamic la unele marcări existente, dar puteți simți mai multe pentru unele directive utilizate frecvent. În același timp, necesitatea prefixului `v-` devine mai puțin importantă atunci când construiți un [SPA](https://en.wikipedia.org/wiki/Single-page_application) unde Vue.js gestionează fiecare șablon. Prin urmare, Vue.js oferă stenograme speciale pentru două dintre cele mai des utilizate directive, `v-bind` și `v-on`:
 
-### `v-bind` Shorthand
+### Prescurtarea `v-bind`
 
 ``` html
-<!-- full syntax -->
+<!-- sintaxa completă -->
 <a v-bind:href="url"></a>
 
-<!-- shorthand -->
+<!-- prescurtarea -->
 <a :href="url"></a>
 ```
 
-### `v-on` Shorthand
+### Prescurtarea `v-on`
 
 ``` html
-<!-- full syntax -->
+<!-- sintaxa completă -->
 <a v-on:click="doSomething"></a>
 
-<!-- shorthand -->
+<!-- prescurtarea -->
 <a @click="doSomething"></a>
 ```
 
-They may look a bit different from normal HTML, but `:` and `@` are valid chars for attribute names and all Vue.js supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is totally optional, but you will likely appreciate it when you learn more about its usage later.
+Ele pot arăta un pic diferit de normalul HTML, dar `:` și `@` sunt caractere valabile pentru numele atributelor și toate browserele acceptate de Vue.js pot să o parseze corect. În plus, ele nu apar în marcajul final randat. Sintaxa prescurtată este total opțională, dar probabil că veți aprecia atunci când veți afla mai multe despre utilizarea acesteia mai târziu.
