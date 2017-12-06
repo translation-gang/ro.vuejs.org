@@ -1,5 +1,5 @@
 ---
-title: Computed Properties and Watchers
+title: Proprietățile Computed și Observatorii
 type: guide
 order: 5
 ---
