@@ -4,7 +4,7 @@ type: guide
 order: 201
 ---
 
-## Prezentare generală
+## Prezentare Generală
 
 Vue oferă o mare varietate de metode pentru a aplica efecte de animație când elementele sunt inserate, actualizate sau eliminate din DOM. Acesta include instrumente pentru:
 
@@ -15,7 +15,7 @@ Vue oferă o mare varietate de metode pentru a aplica efecte de animație când 
 
 Pe această pagină ne vom referi doar la animația apariției, dispariției elementelor și la tranziția listelor, dar puteți analiza următoarea secțiune pentru [tranzițiile stărilor](transitioning-state.html).
 
-## Tranziția Elementelor/Componentelor unice
+## Tranziția Elementelor/Componentelor Unice
 
 Vue oferă un component învelitoare `transition`, care permite adăugarea tranzițiilor de apariție/dispariție pentru orice element sau componentă în următoarele contexte:
 
@@ -348,7 +348,7 @@ new Vue({
 </script>
 {% endraw %}
 
-### Folosirea Tranzițiilor și Animațiilor împreună
+### Folosirea Tranzițiilor și Animațiilor Împreună
 
 Pentru a ști când s-a încheiat o tranziție Vue trebuie să stabilească abonați la acțiuni (event listeners). În funcție de regulile CSS utilizate acțiunea petrecută poate fi `transitionend` sau `animationend`. Dacă folosiți doar una din metode, Vue poate detecta automat tipul corect.
 
@@ -581,7 +581,7 @@ Dacă doriți să aplicați o tranziție la rendarea inițială a unui nod, pute
 </transition>
 ```
 
-## Tranziția între elemente
+## Tranziția Între Elemente
 
 We discuss [transitioning between components](#Transitioning-Between-Components) later, but you can also transition between raw elements using `v-if`/`v-else`. One of the most common two-element transitions is between a list container and a message describing an empty list:
 Vom discuta [tranziția între componente](#Transitioning-Between-Components) în detaliu mai târziu, dar acum putem analiza tranziția intre elemente folosind `v-if`/`v-else`. Unul dintre cazurile cele mai frecvente este trecerea de la containerul listei la mesajul că lista este goală:
@@ -661,7 +661,7 @@ computed: {
 }
 ```
 
-### Moduri de tranziție
+### Moduri de Tranziție
 
 Totuși, există o problemă. Încercați să faceți click pe butonul de mai jos:
 
@@ -875,7 +875,7 @@ new Vue({
 
 Destul de mișto, nu?
 
-## Tranziția între componente
+## Tranziția Între Componente
 
 Tranziția între componente este chiar mai simplă - nici măcar nu avem nevoie de atributul `key`. În schimb, înfășurăm [componenta dinamică](components.html#Dynamic-Components):
 
@@ -946,7 +946,7 @@ new Vue({
 </script>
 {% endraw %}
 
-## Tranzițiile listei
+## Tranzițiile Listei
 
 Deocamdată, am reușit să cercetăm următoarele tranziții:
 
@@ -958,7 +958,7 @@ Deocamdată, am reușit să cercetăm următoarele tranziții:
 - Spre deosebire de `<transition>`, rendează un element real: un `<span>` în mod implicit. Puteți schimba elementul care se va renda folosind atributul `tag`.
 - Elementele din interiorul `<transition-group>` **întotdeauna necesită** indicarea valorii unice pentru atributul `key`.
 
-### Tranzițiile apariției/dispariției elementelor unei listei
+### Tranzițiile Apariției/Dispariției Elementelor Unei Liste
 
 Acum să analizăm un exemplu, tranziția apariției și dispariției folosind aceleași clase CSS pe care le-am utilizat anterior:
 
@@ -1056,7 +1056,7 @@ new Vue({
 
 Totuși există o problemă cu acest exemplu. Când adăugați sau eliminați un element, cele din jurul acestuia se fixează instantaneu în noul loc fără tranziție lină. O vom rezolva mai târziu.
 
-### Tranzițiile mișcărilor elementelor unei liste
+### Tranzițiile Mișcărilor Elementelor Unei Liste
 
 Componenta `<transition-group>` are încă un avantaj. Nu numai că poate anima apariția și dispariția elementelor, dar și schimbările de poziție a acestora. Singurul concept nou pe care trebuie să îl cunoașteți constă în adăugarea **clasei `v-move`**, care se adaugă atunci când elementele își schimbă pozițiile. Ca și la celelalte clase, prefixul său va fi setat conform valorii utilizate în atributul `name` sau în mod similar, puteți specifica manual clasa în atributul `move-class`.
 
@@ -1304,7 +1304,7 @@ new Vue({
 </style>
 {% endraw %}
 
-### Tranzițiile eșalonării elementelor unei liste
+### Tranzițiile Eșalonării Elementelor Unei Liste
 
 Configurând tranzițiile JavaScript prin data-atribute, este posibilă și organizarea tranzițiilor eșalonării elementelor unei liste:
 
@@ -1450,11 +1450,11 @@ new Vue({
 </script>
 {% endraw %}
 
-## Reusable Transitions
+## Tranziții Reutilizabile
 
-Transitions can be reused through Vue's component system. To create a reusable transition, all you have to do is place a `<transition>` or `<transition-group>` component at the root, then pass any children into the transition component.
+Tranzițiile pot fi refolosite prin intermediul sistemului de componente al Vue. Pentru a crea o tranziție reutilizabilă, tot ce trebuie să faceți este să plasați o componentă `<transition>` sau `<transition-group>` la bază, apoi să treceți copiii în componenta de tranziție.
 
-Here's an example using a template component:
+Un exemplu utilizând o componentă șablon:
 
 ``` js
 Vue.component('my-special-transition', {
@@ -1479,7 +1479,7 @@ Vue.component('my-special-transition', {
 })
 ```
 
-And functional components are especially well-suited to this task:
+Și componentele funcționale sunt cu adevărat potrivite pentru această sarcină:
 
 ``` js
 Vue.component('my-special-transition', {
@@ -1504,9 +1504,9 @@ Vue.component('my-special-transition', {
 })
 ```
 
-## Dynamic Transitions
+## Tranziții Dinamice
 
-Yes, even transitions in Vue are data-driven! The most basic example of a dynamic transition binds the `name` attribute to a dynamic property.
+Da, chiar și tranzițiile în Vue sunt conduse de date (data-driven)! Exemplul cel mai de bază al unei tranziții dinamice leagă atributul `name` cu o proprietate dinamică.
 
 ```html
 <transition v-bind:name="transitionName">
@@ -1514,9 +1514,9 @@ Yes, even transitions in Vue are data-driven! The most basic example of a dynami
 </transition>
 ```
 
-This can be useful when you've defined CSS transitions/animations using Vue's transition class conventions and want to switch between them.
+Acest lucru poate fi util atunci când ați definit tranziții/animații CSS utilizând convențiile clasei de tranziție Vue și doriți să comutați între ele.
 
-Really though, any transition attribute can be dynamically bound. And it's not only attributes. Since event hooks are methods, they have access to any data in the context. That means depending on the state of your component, your JavaScript transitions can behave differently.
+Cu toate acestea, orice atribut de tranziție poate fi legat dinamic. Și nu numai atributele. Deoarece hook-urile acțiunilor sunt metode, ele au acces la orice date din context. Aceasta înseamnă că, în funcție de starea componentei, tranzițiile JavaScript se pot comporta diferit.
 
 ``` html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
@@ -1535,11 +1535,11 @@ Really though, any transition attribute can be dynamically bound. And it's not o
   <button
     v-if="stop"
     v-on:click="stop = false; show = false"
-  >Start animating</button>
+  >Începeți animația</button>
   <button
     v-else
     v-on:click="stop = true"
-  >Stop it!</button>
+  >Opriți animația!</button>
 </div>
 ```
 
@@ -1606,11 +1606,11 @@ new Vue({
   <button
     v-if="stop"
     v-on:click="stop = false; show = false"
-  >Start animating</button>
+  >Începeți animația</button>
   <button
     v-else
     v-on:click="stop = true"
-  >Stop it!</button>
+  >Opriți animația!</button>
 </div>
 <script>
 new Vue({
@@ -1660,5 +1660,5 @@ new Vue({
 </script>
 {% endraw %}
 
-Finally, the ultimate way of creating dynamic transitions is through components that accept props to change the nature of the transition(s) to be used. It may sound cheesy, but the only limit really is your imagination.
+În cele din urmă, modul final de a crea tranziții dinamice se face prin componente care acceptă parametri de intrare (props) pentru a schimba natura tranziției (tranzițiilor) ce urmează să fie utilizată. Poate că sună straniu, dar singura limită este imaginația voastră.
 
