@@ -1,5 +1,5 @@
 ---
-title: State Transitions
+title: Tranzițiile Stărilor
 type: guide
 order: 202
 ---
