@@ -4,14 +4,14 @@ type: guide
 order: 202
 ---
 
-Vue's transition system offers many simple ways to animate entering, leaving, and lists, but what about animating your data itself? For example:
+Sistemul de tranziție al Vue oferă numeroase moduri simple de a anima apariția, dispariția elementelor și a listelor, dar cum rămâne cu animarea datelor în sine? De exemplu:
 
-- numbers and calculations
-- colors displayed
-- the positions of SVG nodes
-- the sizes and other properties of elements
+- numere și calcule
+- afișarea culorilor
+- pozițiile elementelor-SVG
+- mărimile și alte proprietăți ale elementelor
 
-All of these are either already stored as raw numbers or can be converted into numbers. Once we do that, we can animate these state changes using 3rd-party libraries to tween state, in combination with Vue's reactivity and component systems.
+Toate acestea sunt deja stocate ca numere sau pot fi transformate în numere. Odată ce facem acest lucru, putem anima aceste schimbări de stări folosind biblioteci terțe, în combinație cu sistemele de reactivitate și componente ale Vue.
 
 ## Animating State with Watchers
 
