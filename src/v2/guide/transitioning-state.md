@@ -251,9 +251,9 @@ new Vue({
 </style>
 {% endraw %}
 
-## Dynamic State Transitions
+## Tranzițiile Dinamice Între Stări
 
-As with Vue's transition components, the data backing state transitions can be updated in real time, which is especially useful for prototyping! Even using a simple SVG polygon, you can achieve many effects that would be difficult to conceive of until you've played with the variables a little.
+Ca și în cazul componentelor de tranziție ale Vue, datele pe care se bazează tranzițiile stărilor pot fi actualizate în timp real, ceea ce este util în special pentru prototipare! Chiar folosind un poligon SVG simplu, puteți obține multe efecte interesante greu de realizat fără un joc mic cu variabile.
 
 {% raw %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
@@ -262,7 +262,7 @@ As with Vue's transition components, the data backing state transitions can be u
     <polygon :points="points" class="demo-polygon"></polygon>
     <circle cx="100" cy="100" r="90" class="demo-circle"></circle>
   </svg>
-  <label>Sides: {{ sides }}</label>
+  <label>Laturi: {{ sides }}</label>
   <input
     class="demo-range-input"
     type="range"
@@ -270,7 +270,7 @@ As with Vue's transition components, the data backing state transitions can be u
     max="500"
     v-model.number="sides"
   >
-  <label>Minimum Radius: {{ minRadius }}%</label>
+  <label>Radius Minim: {{ minRadius }}%</label>
   <input
     class="demo-range-input"
     type="range"
@@ -278,7 +278,7 @@ As with Vue's transition components, the data backing state transitions can be u
     max="90"
     v-model.number="minRadius"
   >
-  <label>Update Interval: {{ updateInterval }} milliseconds</label>
+  <label>Interval de actualizare: {{ updateInterval }} millisecunde</label>
   <input
     class="demo-range-input"
     type="range"
@@ -386,7 +386,7 @@ function generatePoints (stats) {
 </style>
 {% endraw %}
 
-See [this fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) for the complete code behind the above demo.
+Accesați [acest fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) pentru a analiza codul sursă.
 
 ## Organizing Transitions into Components
 
