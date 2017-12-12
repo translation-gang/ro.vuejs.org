@@ -110,9 +110,9 @@ computed: {
 
 De ce avem nevoie de caching? Imaginați-vă că avem o proprietate computed scumpă **A**, care necesită ciclu printr-un tablou array uriaș și face o mulțime de calcule. Apoi, putem avea alte proprietăți calculate care la rândul lor depind de **A**. Fără caching, am fi executat **A** de mai multe ori decât este necesar! În cazurile în care nu doriți caching, utilizați o metodă în schimb.
 
-### Computed vs Watched Property
+### Computed vs Proprietatea de Observare
 
-Vue does provide a more generic way to observe and react to data changes on a Vue instance: **watch properties**. When you have some data that needs to change based on some other data, it is tempting to overuse `watch` - especially if you are coming from an AngularJS background. However, it is often a better idea to use a computed property rather than an imperative `watch` callback. Consider this example:
+Vue oferă o modalitate mai generică de a observa și de a reacționa la schimbările de date de pe o instanță Vue: **proprietățile de observare**. Când aveți date care trebuie să se schimbe pe baza altor date, este tentant să utilizați `watch` - mai ales dacă veniți dintr-un fundal AngularJS. Cu toate acestea, este adesea o idee mai bună de a utiliza o proprietate computed, mai degrabă decât un apel imperativ `watch`. Luați în considerație acest exemplu:
 
 ``` html
 <div id="demo">{{ fullName }}</div>
@@ -137,7 +137,7 @@ var vm = new Vue({
 })
 ```
 
-The above code is imperative and repetitive. Compare it with a computed property version:
+Codul de mai sus este imperativ și repetat. Comparați-l cu o versiune de proprietate computed:
 
 ``` js
 var vm = new Vue({
@@ -154,7 +154,7 @@ var vm = new Vue({
 })
 ```
 
-Much better, isn't it?
+Mult mai bine, nu-i așa?
 
 ### Computed Setter
 
