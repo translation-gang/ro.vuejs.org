@@ -4,9 +4,9 @@ type: guide
 order: 5
 ---
 
-## Computed Properties
+## Proprietățile Computed 
 
-In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example:
+Expresiile în șablon sunt foarte convenabile, dar sunt destinate operațiilor simple. Punerea prea multă logică în șabloanele dvs. le poate face umflate și greu de întreținut. De exemplu:
 
 ``` html
 <div id="example">
@@ -14,9 +14,9 @@ In-template expressions are very convenient, but they are meant for simple opera
 </div>
 ```
 
-At this point, the template is no longer simple and declarative. You have to look at it for a second before realizing that it displays `message` in reverse. The problem is made worse when you want to include the reversed message in your template more than once.
+În acest moment, șablonul nu mai este simplu și declarativ. Trebuie să te uiți la acesta o secundă înainte de a realiza că afișează mesajul în sens invers. Problema este agravată atunci când doriți să includeți mesajul inversat în șablonul dvs. de mai multe ori.
 
-That's why for any complex logic, you should use a **computed property**.
+De aceea, pentru orice logică complexă, ar trebui să utilizați o **proprietate computed**.
 
 ### Basic Example
 
