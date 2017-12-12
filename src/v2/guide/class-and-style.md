@@ -1,5 +1,5 @@
 ---
-title: Class and Style Bindings
+title: Clasă și Combinări de Stil
 type: guide
 order: 6
 ---
