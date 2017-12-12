@@ -77,16 +77,16 @@ Puteți deschide consola și puteți juca singur cu exemplul vm. Valoarea `vm.re
 
 Puteți lega datele de proprietățile computed în șabloane, la fel ca o proprietate normală. Vue este conștient de faptul că `vm.reversedMessage` depinde de `vm.message`, deci va actualiza orice legare care depinde de `vm.reversedMessage` când se va modifica `vm.message`. Cea mai bună parte este faptul că am creat relația de dependență declarativă: funcția getter computed nu are efecte secundare, ceea ce face mai ușoară testarea și înțelegerea.
 
-### Computed Caching vs Methods
+### Caching-ul Computed vs Metode
 
-You may have noticed we can achieve the same result by invoking a method in the expression:
+Se poate observa că putem obține același rezultat prin invocarea unei metode în expresie:
 
 ``` html
-<p>Reversed message: "{{ reverseMessage() }}"</p>
+<p>Mesaj Inversat: "{{ reverseMessage() }}"</p>
 ```
 
 ``` js
-// in component
+// în component
 methods: {
   reverseMessage: function () {
     return this.message.split('').reverse().join('')
@@ -94,9 +94,9 @@ methods: {
 }
 ```
 
-Instead of a computed property, we can define the same function as a method instead. For the end result, the two approaches are indeed exactly the same. However, the difference is that **computed properties are cached based on their dependencies.** A computed property will only re-evaluate when some of its dependencies have changed. This means as long as `message` has not changed, multiple access to the `reversedMessage` computed property will immediately return the previously computed result without having to run the function again.
+În loc de o proprietate computed, putem defini aceeași funcție ca metodă. Pentru rezultatul final, cele două abordări sunt exact aceleași. Cu toate acestea, diferența este că **proprietățile computed sunt stocate în cache-ul bazat pe dependențele lor.** O proprietate computed va reevalua numai când unele dintre dependențele sale s-au schimbat. Aceasta înseamnă că atâta timp cât mesajul nu s-a schimbat, accesul multiplu la proprietatea computed `reversedMessage` va readuce imediat rezultatul calculat anterior fără a mai fi nevoie să executați din nou funcția.
 
-This also means the following computed property will never update, because `Date.now()` is not a reactive dependency:
+Aceasta înseamnă, de asemenea, că următoarea proprietate computed nu se va actualiza niciodată, deoarece `Date.now()` nu este o dependență reactivă:
 
 ``` js
 computed: {
@@ -106,9 +106,9 @@ computed: {
 }
 ```
 
-In comparison, a method invocation will **always** run the function whenever a re-render happens.
+În comparație, o invocare a metodei va executa **întotdeauna** funcția ori de câte ori se face o redare.
 
-Why do we need caching? Imagine we have an expensive computed property **A**, which requires looping through a huge Array and doing a lot of computations. Then we may have other computed properties that in turn depend on **A**. Without caching, we would be executing **A**’s getter many more times than necessary! In cases where you do not want caching, use a method instead.
+De ce avem nevoie de caching? Imaginați-vă că avem o proprietate computed scumpă **A**, care necesită ciclu printr-un tablou array uriaș și face o mulțime de calcule. Apoi, putem avea alte proprietăți calculate care la rândul lor depind de **A**. Fără caching, am fi executat **A** de mai multe ori decât este necesar! În cazurile în care nu doriți caching, utilizați o metodă în schimb.
 
 ### Computed vs Watched Property
 
