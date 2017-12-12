@@ -158,17 +158,17 @@ Mult mai bine, nu-i așa?
 
 ### Computed Setter
 
-Computed properties are by default getter-only, but you can also provide a setter when you need it:
+Proprietățile computed sunt, în mod implicit, numai getter-ul, dar puteți oferi și un setter atunci când aveți nevoie de el:
 
 ``` js
 // ...
 computed: {
   fullName: {
-    // getter
+    // getter-ul
     get: function () {
       return this.firstName + ' ' + this.lastName
     },
-    // setter
+    // setter-ul
     set: function (newValue) {
       var names = newValue.split(' ')
       this.firstName = names[0]
@@ -179,7 +179,7 @@ computed: {
 // ...
 ```
 
-Now when you run `vm.fullName = 'John Doe'`, the setter will be invoked and `vm.firstName` and `vm.lastName` will be updated accordingly.
+Acum, când executați `vm.fullName = 'John Doe'`, setter-ul va fi invocat și `vm.firstName` și `vm.lastName` vor fi actualizate corespunzător.
 
 ## Watchers
 
