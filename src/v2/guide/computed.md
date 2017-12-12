@@ -18,12 +18,12 @@ Expresiile în șablon sunt foarte convenabile, dar sunt destinate operațiilor 
 
 De aceea, pentru orice logică complexă, ar trebui să utilizați o **proprietate computed**.
 
-### Basic Example
+### Exemplul de Bază
 
 ``` html
 <div id="example">
-  <p>Original message: "{{ message }}"</p>
-  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+  <p>Mesajul Original: "{{ message }}"</p>
+  <p>Mesajul Inversat: "{{ reversedMessage }}"</p>
 </div>
 ```
 
@@ -31,30 +31,30 @@ De aceea, pentru orice logică complexă, ar trebui să utilizați o **proprieta
 var vm = new Vue({
   el: '#example',
   data: {
-    message: 'Hello'
+    message: 'Salut'
   },
   computed: {
-    // a computed getter
+    // un computed getter
     reversedMessage: function () {
-      // `this` points to the vm instance
+      // `this` indică instanța vm
       return this.message.split('').reverse().join('')
     }
   }
 })
 ```
 
-Result:
+Resultat:
 
 {% raw %}
 <div id="example" class="demo">
-  <p>Original message: "{{ message }}"</p>
-  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+  <p>Mesajul Original: "{{ message }}"</p>
+  <p>Mesajul Inversat: "{{ reversedMessage }}"</p>
 </div>
 <script>
 var vm = new Vue({
   el: '#example',
   data: {
-    message: 'Hello'
+    message: 'Salut'
   },
   computed: {
     reversedMessage: function () {
@@ -65,17 +65,17 @@ var vm = new Vue({
 </script>
 {% endraw %}
 
-Here we have declared a computed property `reversedMessage`. The function we provided will be used as the getter function for the property `vm.reversedMessage`:
+Aici am declarat o proprietate computed `reversedMessage`. Funcția pe care am furnizat-o va fi folosită ca funcția getter pentru proprietatea `vm.reversedMessage`:
 
 ``` js
-console.log(vm.reversedMessage) // => 'olleH'
+console.log(vm.reversedMessage) // => 'tulaS'
 vm.message = 'Goodbye'
-console.log(vm.reversedMessage) // => 'eybdooG'
+console.log(vm.reversedMessage) // => 'ap aP'
 ```
 
-You can open the console and play with the example vm yourself. The value of `vm.reversedMessage` is always dependent on the value of `vm.message`.
+Puteți deschide consola și puteți juca singur cu exemplul vm. Valoarea `vm.reversedMessage` este întotdeauna dependentă de valoarea `vm.message`.
 
-You can data-bind to computed properties in templates just like a normal property. Vue is aware that `vm.reversedMessage` depends on `vm.message`, so it will update any bindings that depend on `vm.reversedMessage` when `vm.message` changes. And the best part is that we've created this dependency relationship declaratively: the computed getter function has no side effects, which makes it easier to test and understand.
+Puteți lega datele de proprietățile computed în șabloane, la fel ca o proprietate normală. Vue este conștient de faptul că `vm.reversedMessage` depinde de `vm.message`, deci va actualiza orice legare care depinde de `vm.reversedMessage` când se va modifica `vm.message`. Cea mai bună parte este faptul că am creat relația de dependență declarativă: funcția getter computed nu are efecte secundare, ceea ce face mai ușoară testarea și înțelegerea.
 
 ### Computed Caching vs Methods
 
