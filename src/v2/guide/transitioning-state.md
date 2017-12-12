@@ -13,9 +13,9 @@ Sistemul de tranziție al Vue oferă numeroase moduri simple de a anima apariți
 
 Toate acestea sunt deja stocate ca numere sau pot fi transformate în numere. Odată ce facem acest lucru, putem anima aceste schimbări de stări folosind biblioteci terțe, în combinație cu sistemele de reactivitate și componente ale Vue.
 
-## Animating State with Watchers
+## Animarea Stării Folosind Observatorii
 
-Watchers allow us to animate changes of any numerical property into another property. That may sound complicated in the abstract, so let's dive into an example using [Tween.js](https://github.com/tweenjs/tween.js):
+Observatorii (watchers) ne permit să animăm modificările oricărei proprietăți numerice într-o altă proprietate. Într-o astfel de formă abstractă acest lucru poate părea complicat, deci hai să analizăm un exemplu utilizând [Tween.js](https://github.com/tweenjs/tween.js):
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -93,7 +93,7 @@ new Vue({
 </script>
 {% endraw %}
 
-When you update the number, the change is animated below the input. This makes for a nice demo, but what about something that isn't directly stored as a number, like any valid CSS color for example? Here's how we could accomplish this with the addition of [Color.js](https://github.com/brehaut/color-js):
+Când actualizați numărul, modificarea este animată sub câmpul de introducere. E frumos ca demonstrație, dar cum rămâne cu cazul în care parametrii nu sunt stocați direct ca numere, de exemplu culorile CSS? Iată cum am putea realiza acest lucru prin adăugarea [Color.js](https://github.com/brehaut/color-js):
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -105,8 +105,8 @@ When you update the number, the change is animated below the input. This makes f
     v-on:keyup.enter="updateColor"
     placeholder="Enter a color"
   >
-  <button v-on:click="updateColor">Update</button>
-  <p>Preview:</p>
+  <button v-on:click="updateColor">Actualizare</button>
+  <p>Previzualizare:</p>
   <span
     v-bind:style="{ backgroundColor: tweenedCSSColor }"
     class="example-7-color-preview"
@@ -184,8 +184,8 @@ new Vue({
     v-on:keyup.enter="updateColor"
     placeholder="Enter a color"
   >
-  <button v-on:click="updateColor">Update</button>
-  <p>Preview:</p>
+  <button v-on:click="updateColor">Actualizare</button>
+  <p>Previzualizare:</p>
   <span
     v-bind:style="{ backgroundColor: tweenedCSSColor }"
     class="example-7-color-preview"
