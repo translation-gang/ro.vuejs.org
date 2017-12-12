@@ -43,7 +43,7 @@ var vm = new Vue({
 })
 ```
 
-Resultat:
+Rezultat:
 
 {% raw %}
 <div id="example" class="demo">
@@ -181,16 +181,16 @@ computed: {
 
 Acum, când executați `vm.fullName = 'John Doe'`, setter-ul va fi invocat și `vm.firstName` și `vm.lastName` vor fi actualizate corespunzător.
 
-## Watchers
+## Observatorii
 
-While computed properties are more appropriate in most cases, there are times when a custom watcher is necessary. That's why Vue provides a more generic way to react to data changes through the `watch` option. This is most useful when you want to perform asynchronous or expensive operations in response to changing data.
+Deși proprietățile computed sunt mai potrivite în majoritatea cazurilor, există momente când este necesar un observator personalizat. De aceea, Vue oferă o modalitate mai generică de a reacționa la schimbările de date prin intermediul opțiunii `watch`. Acest lucru este foarte util atunci când doriți să efectuați operații asincrone sau costisitoare ca răspuns la modificarea datelor.
 
-For example:
+De exemplu:
 
 ``` html
 <div id="watch-example">
   <p>
-    Ask a yes/no question:
+    Scriți o întrebare de tip da/nu:
     <input v-model="question">
   </p>
   <p>{{ answer }}</p>
@@ -198,10 +198,10 @@ For example:
 ```
 
 ``` html
-<!-- Since there is already a rich ecosystem of ajax libraries    -->
-<!-- and collections of general-purpose utility methods, Vue core -->
-<!-- is able to remain small by not reinventing them. This also   -->
-<!-- gives you the freedom to use what you're familiar with. -->
+<!-- Deoarece există deja un ecosistem bogat de biblioteci ajax    -->
+<!-- și colecții de metode de utilitate generală, nucleul Vue este -->
+<!-- capabil să rămână mic, prin faptul că nu le reinventează. Acesta -->
+<!-- de asemenea vă oferă libertatea de a folosi ceea ce cunoașteți. -->
 <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 <script>
@@ -209,41 +209,41 @@ var watchExampleVM = new Vue({
   el: '#watch-example',
   data: {
     question: '',
-    answer: 'I cannot give you an answer until you ask a question!'
+    answer: 'Nu vă pot da un răspuns până când nu puneți o întrebare!'
   },
   watch: {
-    // whenever question changes, this function will run
+    // ori de câte ori se schimbă întrebarea, această funcție va funcționa
     question: function (newQuestion) {
-      this.answer = 'Waiting for you to stop typing...'
+      this.answer = 'Vă aștept să încetați să scrieți...'
       this.getAnswer()
     }
   },
   methods: {
-    // _.debounce is a function provided by lodash to limit how
-    // often a particularly expensive operation can be run.
-    // In this case, we want to limit how often we access
-    // yesno.wtf/api, waiting until the user has completely
-    // finished typing before making the ajax request. To learn
-    // more about the _.debounce function (and its cousin
-    // _.throttle), visit: https://lodash.com/docs#debounce
+    // _.debounce este o funcție oferită de lodash pentru a limita cum
+     // deseori se poate executa o operație deosebit de costisitoare.
+     // În acest caz, dorim să limităm cât de des accesăm
+     // yesno.wtf/api, așteptând până când utilizatorul a terminat complet
+     //  să tasteze, înainte de a efectua solicitarea ajax. Pentru a invata
+     // mai multe despre funcția _.debounce (și vărul ei
+     // _.throttle), vizitați: https://lodash.com/docs#debounce
     getAnswer: _.debounce(
       function () {
         if (this.question.indexOf('?') === -1) {
-          this.answer = 'Questions usually contain a question mark. ;-)'
+          this.answer = 'Întrebările, de obicei, conțin un semn de întrebare. ;-)'
           return
         }
-        this.answer = 'Thinking...'
+        this.answer = 'Gândire...'
         var vm = this
         axios.get('https://yesno.wtf/api')
           .then(function (response) {
             vm.answer = _.capitalize(response.data.answer)
           })
           .catch(function (error) {
-            vm.answer = 'Error! Could not reach the API. ' + error
+            vm.answer = 'Eroare! Nu s-a putut ajunge la API. ' + error
           })
       },
-      // This is the number of milliseconds we wait for the
-      // user to stop typing.
+      // Aceste este numărul de milisecunde în care noi 
+      // așteptăm ca utilizatorul să înceteze să scrie
       500
     )
   }
@@ -251,12 +251,12 @@ var watchExampleVM = new Vue({
 </script>
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="watch-example" class="demo">
   <p>
-    Ask a yes/no question:
+    Scriți o întrebare de tip da/nu:
     <input v-model="question">
   </p>
   <p>{{ answer }}</p>
@@ -268,11 +268,11 @@ var watchExampleVM = new Vue({
   el: '#watch-example',
   data: {
     question: '',
-    answer: 'I cannot give you an answer until you ask a question!'
+    answer: 'Nu vă pot da un răspuns până când nu puneți o întrebare!'
   },
   watch: {
     question: function (newQuestion) {
-      this.answer = 'Waiting for you to stop typing...'
+      this.answer = 'Vă aștept să încetați să scrieți...'
       this.getAnswer()
     }
   },
@@ -281,7 +281,7 @@ var watchExampleVM = new Vue({
       function () {
         var vm = this
         if (this.question.indexOf('?') === -1) {
-          vm.answer = 'Questions usually contain a question mark. ;-)'
+          vm.answer = 'Întrebările, de obicei, conțin un semn de întrebare. ;-)'
           return
         }
         vm.answer = 'Thinking...'
@@ -290,7 +290,7 @@ var watchExampleVM = new Vue({
             vm.answer = _.capitalize(response.data.answer)
           })
           .catch(function (error) {
-            vm.answer = 'Error! Could not reach the API. ' + error
+            vm.answer = 'Eroare! Nu s-a putut ajunge la API. ' + error
           })
       },
       500
@@ -300,6 +300,6 @@ var watchExampleVM = new Vue({
 </script>
 {% endraw %}
 
-In this case, using the `watch` option allows us to perform an asynchronous operation (accessing an API), limit how often we perform that operation, and set intermediary states until we get a final answer. None of that would be possible with a computed property.
+În acest caz, folosirea opțiunii `watch` ne permite să efectuăm o operație asincronă (accesând un API), să limităm cât de des se efectuează acea operație și să se stabilească stări intermediare până când primim un răspuns final. Nici una dintre acestea nu ar fi posibilă cu o proprietate component.
 
-In addition to the `watch` option, you can also use the imperative [vm.$watch API](../api/#vm-watch).
+În plus față de opțiunea `watch`, puteți folosi și imperativul [vm.$watch API](../api/#vm-watch).
