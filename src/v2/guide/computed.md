@@ -69,7 +69,7 @@ Aici am declarat o proprietate computed `reversedMessage`. Funcția pe care am f
 
 ``` js
 console.log(vm.reversedMessage) // => 'tulaS'
-vm.message = 'Goodbye'
+vm.message = 'Pa pa'
 console.log(vm.reversedMessage) // => 'ap aP'
 ```
 
