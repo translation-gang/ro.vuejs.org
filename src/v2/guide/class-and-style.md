@@ -9,7 +9,7 @@ Deseori, avem nevoia de a modifica dinamic clasele CSS și elementele stilurilor
 
 ## Legarea Claselor HTML
 
-### Obiectul Sintaxa
+### Sintaxa Obiect
 
 Putem trece un obiect la `v-bind:class` pentru a comuta dinamic clasele:
 
