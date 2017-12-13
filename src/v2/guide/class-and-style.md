@@ -112,13 +112,13 @@ Cu toate acestea, acest lucru poate fi un pic apăsător dacă aveți mai multe 
 <div v-bind:class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### With Components
+### Cu Componente
 
-> This section assumes knowledge of [Vue Components](components.html). Feel free to skip it and come back later.
+> Această secțiune presupune cunoașterea [Componentelor Vue](components.html). Puteți sări pentru a vă informa și reveniți mai târziu.
 
-When you use the `class` attribute on a custom component, those classes will be added to the component's root element. Existing classes on this element will not be overwritten.
+Când utilizați atributul `class` pe o componentă personalizată, aceste clase vor fi adăugate la elementul rădăcină al componentei. Clasele existente pe acest element nu vor fi suprascrise.
 
-For example, if you declare this component:
+De exemplu, dacă declarați această componentă:
 
 ``` js
 Vue.component('my-component', {
@@ -126,25 +126,25 @@ Vue.component('my-component', {
 })
 ```
 
-Then add some classes when using it:
+Apoi adăugați câteva clase atunci când o utilizați:
 
 ``` html
 <my-component class="baz boo"></my-component>
 ```
 
-The rendered HTML will be:
+HTML-ul redat va fi:
 
 ``` html
 <p class="foo bar baz boo">Hi</p>
 ```
 
-The same is true for class bindings:
+Același lucru este valabil și pentru legările de clasă:
 
 ``` html
 <my-component v-bind:class="{ active: isActive }"></my-component>
 ```
 
-When `isActive` is truthy, the rendered HTML will be:
+Atunci când `isActive` este afirmativ, HTML rendat va fi:
 
 ``` html
 <p class="foo bar active">Hi</p>
