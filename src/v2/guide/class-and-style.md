@@ -6,20 +6,20 @@ order: 6
 
 Deseori, avem nevoia de a modifica dinamic clasele CSS și elementele stilurilor inline. Deoarece ambele sunt atribute, putem folosi `v-bind` pentru a le manipula: avem nevoie doar de a calcula un string final cu expresiile noastre. Cu toate acestea, amestecul cu concatenarea șirului este enervant și predispusă la erori. Din acest motiv, Vue oferă îmbunătățiri speciale atunci când `v-bind` este folosit cu `clasă` și `stil`. În plus față de șirurile de caractere, expresiile pot, de asemenea, evalua  obiecte sau tablouri(array).
  
- 
-## Binding HTML Classes
 
-### Object Syntax
+## Legarea Claselor HTML
 
-We can pass an object to `v-bind:class` to dynamically toggle classes:
+### Obiectul Sintaxa
+
+Putem trece un obiect la `v-bind:class` pentru a comuta dinamic clasele:
 
 ``` html
 <div v-bind:class="{ active: isActive }"></div>
 ```
 
-The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
+Sintaxa de mai sus înseamnă că prezența clasei `active` va fi determinată de [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) a proprietății de date `isActive`.
 
-You can have multiple classes toggled by having more fields in the object. In addition, the `v-bind:class` directive can also co-exist with the plain `class` attribute. So given the following template:
+Puteți avea mai multe clase comutate având mai multe câmpuri în obiect. În plus, directiva `v-bind:class` poate coexista cu atributul simplu `class`. Deci, având în vedere următorul șablon:
 
 ``` html
 <div class="static"
@@ -27,7 +27,7 @@ You can have multiple classes toggled by having more fields in the object. In ad
 </div>
 ```
 
-And the following data:
+Și următoarele date:
 
 ``` js
 data: {
@@ -36,15 +36,15 @@ data: {
 }
 ```
 
-It will render:
+Aceasta va face:
 
 ``` html
 <div class="static active"></div>
 ```
 
-When `isActive` or `hasError` changes, the class list will be updated accordingly. For example, if `hasError` becomes `true`, the class list will become `"static active text-danger"`.
+Când `isActive` sau `hasError` se modifică, lista de clase va fi actualizată în consecință. De exemplu, dacă `hasError` devine `true`, lista claselor va deveni `"static active text-danger"`.
 
-The bound object doesn't have to be inline:
+Obiectul legat nu trebuie să fie în linie:
 
 ``` html
 <div v-bind:class="classObject"></div>
@@ -58,7 +58,7 @@ data: {
 }
 ```
 
-This will render the same result. We can also bind to a [computed property](computed.html) that returns an object. This is a common and powerful pattern:
+Acest lucru va da același rezultat. De asemenea, putem lega de o [proprietate computed](computed.html) care returnează un obiect. Acesta este un model comun și puternic:
 
 ``` html
 <div v-bind:class="classObject"></div>
