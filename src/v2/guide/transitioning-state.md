@@ -388,9 +388,9 @@ function generatePoints (stats) {
 
 Accesați [acest fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) pentru a analiza codul sursă.
 
-## Organizing Transitions into Components
+## Organizarea Tranzițiilor în Formă de Componente
 
-Managing many state transitions can quickly increase the complexity of a Vue instance or component. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
+Gestionarea mai multor tranziții de stări poate mări rapid complexitatea unei instanțe sau a unei componente Vue. Din fericire, multe animații pot fi extrase în componente derivate dedicate. Deci haideți să facem asta cu numărul animat din exemplul nostru anterior:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -408,11 +408,10 @@ Managing many state transitions can quickly increase the complexity of a Vue ins
 ```
 
 ``` js
-// This complex tweening logic can now be reused between
-// any integers we may wish to animate in our application.
-// Components also offer a clean interface for configuring
-// more dynamic transitions and complex transition
-// strategies.
+// Această logică complexă de tranziție poate fi reutilizată acum între
+// orice numere întregi pe care dorim să le animăm în aplicația noastră.
+// Componentele oferă, de asemenea, o interfață clară pentru configurarea
+// comodă a tranzițiilor dinamice și a celor complexe.
 Vue.component('animated-integer', {
   template: '<span>{{ tweeningValue }}</span>',
   props: {
@@ -455,7 +454,7 @@ Vue.component('animated-integer', {
   }
 })
 
-// All complexity has now been removed from the main Vue instance!
+// Toată complexitatea a fost eliminată din instanța principală Vue!
 new Vue({
   el: '#example-8',
   data: {
@@ -539,7 +538,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Within child components, we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions.html). Together, there are very few limits to what can be accomplished.
+În cadrul componentelor derivate, putem folosi orice combinație de strategii de tranziție care au fost menționate pe această pagină, împreună cu cele oferite de [sistemul de tranziție încorporat](transitions.html) al Vue. Toate strategiile împreună oferă oportunități aproape nelimitate.
 
 ## Bringing Designs to Life
 
