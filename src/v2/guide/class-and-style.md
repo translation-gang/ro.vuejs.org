@@ -150,11 +150,11 @@ Atunci când `isActive` este afirmativ, HTML rendat va fi:
 <p class="foo bar active">Hi</p>
 ```
 
-## Binding Inline Styles
+## Legarea Stilurilor Inline
 
-### Object Syntax
+### Sintaxa Obiect
 
-The object syntax for `v-bind:style` is pretty straightforward - it looks almost like CSS, except it's a JavaScript object. You can use either camelCase or kebab-case (use quotes with kebab-case) for the CSS property names:
+Sintaxa obiectului pentru `v-bind:style` este destul de simplă - arată aproape ca și CSS, cu excepția faptului că este un obiect JavaScript. Aveți posibilitatea să utilizați fie camelCase, fie kebab-case pentru numele proprietăților CSS:
 
 ``` html
 <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
@@ -166,7 +166,7 @@ data: {
 }
 ```
 
-It is often a good idea to bind to a style object directly so that the template is cleaner:
+Este adesea o idee bună să legeți direct un obiect de tip stil astfel încât șablonul să fie mai curat:
 
 ``` html
 <div v-bind:style="styleObject"></div>
@@ -180,7 +180,7 @@ data: {
 }
 ```
 
-Again, the object syntax is often used in conjunction with computed properties that return objects.
+Evident, sintaxa obiectului este adesea folosită împreună cu proprietățile computed care returnează obiecte.
 
 ### Array Syntax
 
