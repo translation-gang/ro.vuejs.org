@@ -78,9 +78,9 @@ computed: {
 }
 ```
 
-### Array Syntax
+### Sintaxa Array
 
-We can pass an array to `v-bind:class` to apply a list of classes:
+Putem trece un array la `v-bind:class` pentru a aplica o listă de clase:
 
 ``` html
 <div v-bind:class="[activeClass, errorClass]"></div>
@@ -92,21 +92,21 @@ data: {
 }
 ```
 
-Which will render:
+Ceea ce vom primi:
 
 ``` html
 <div class="active text-danger"></div>
 ```
 
-If you would like to also toggle a class in the list conditionally, you can do it with a ternary expression:
+Dacă doriți să comutați și o clasă în listă în mod condiționat, o puteți face cu o expresie ternară:
 
 ``` html
 <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-This will always apply `errorClass`, but will only apply `activeClass` when `isActive` is truthy.
+În acest caz `errorClass` se va aplica întotdeauna, dar `activeClass` se va aplica doar atunci când `isActive` este adevărat.
 
-However, this can be a bit verbose if you have multiple conditional classes. That's why it's also possible to use the object syntax inside array syntax:
+Cu toate acestea, acest lucru poate fi un pic apăsător dacă aveți mai multe clase condiționale. De aceea este posibilă și utilizarea sintaxei obiectului în sintaxa array:
 
 ``` html
 <div v-bind:class="[{ active: isActive }, errorClass]"></div>
