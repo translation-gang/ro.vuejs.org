@@ -1,5 +1,5 @@
 ---
-title: Mixins
+title: Mixin-uri
 type: guide
 order: 301
 ---
