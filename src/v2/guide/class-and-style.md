@@ -192,7 +192,7 @@ Sintaxa array pentru `v-bind:style` vă permite să aplicați mai multe obiecte 
 
 ### Auto-prefixarea
 
-When you use a CSS property that requires [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `v-bind:style`, for example `transform`, Vue will automatically detect and add appropriate prefixes to the applied styles.
+Când utilizați o proprietate CSS care necesită [prefixele furnizorilor](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) în `v-bind:style`, de exemplu `transform`, Vue va detectează automat și adaugă prefixele corespunzătoare stilurilor aplicate.
 
 ### Multiple Values
 
