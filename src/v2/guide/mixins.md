@@ -4,14 +4,14 @@ type: guide
 order: 301
 ---
 
-## Basics
+## Elementele de Bază
 
-Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
+Mixin-urile reprezintă o modalitate flexibilă de distribuire a funcționalităților reutilizabile pentru componentele Vue. Un obiect mixin poate conține orice opțiuni ale componentei. Când o componentă folosește un mixin, toate opțiunile mixin-ului vor fi "amestecate" cu opțiunile proprii ale componentei.
 
-Example:
+Exemplu:
 
 ``` js
-// define a mixin object
+// definim un obiect mixin
 var myMixin = {
   created: function () {
     this.hello()
@@ -23,12 +23,12 @@ var myMixin = {
   }
 }
 
-// define a component that uses this mixin
+// definim o componentă care folosește mixin-ul dat
 var Component = Vue.extend({
   mixins: [myMixin]
 })
 
-var component = new Component() // => "hello from mixin!"
+var component = new Component() // => "Salut din mixin!"
 ```
 
 ## Option Merging
