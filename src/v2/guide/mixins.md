@@ -4,7 +4,7 @@ type: guide
 order: 301
 ---
 
-## Elementele de Bază
+## Principiile Fundamentale 
 
 Mixin-urile reprezintă o modalitate flexibilă de distribuire a funcționalităților reutilizabile pentru componentele Vue. Un obiect mixin poate conține orice opțiuni ale componentei. Când o componentă folosește un mixin, toate opțiunile mixin-ului vor fi "amestecate" cu opțiunile proprii ale componentei.
 
