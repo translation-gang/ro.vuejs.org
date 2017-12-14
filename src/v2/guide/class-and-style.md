@@ -182,15 +182,15 @@ data: {
 
 Evident, sintaxa obiectului este adesea folosită împreună cu proprietățile computed care returnează obiecte.
 
-### Array Syntax
+### Sintaxa Array
 
-The array syntax for `v-bind:style` allows you to apply multiple style objects to the same element:
+Sintaxa array pentru `v-bind:style` vă permite să aplicați mai multe obiecte de stil aceluiași element:
 
 ``` html
 <div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Auto-prefixing
+### Auto-prefixarea
 
 When you use a CSS property that requires [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `v-bind:style`, for example `transform`, Vue will automatically detect and add appropriate prefixes to the applied styles.
 
