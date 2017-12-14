@@ -194,14 +194,14 @@ Sintaxa array pentru `v-bind:style` vă permite să aplicați mai multe obiecte 
 
 Când utilizați o proprietate CSS care necesită [prefixele furnizorilor](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) în `v-bind:style`, de exemplu `transform`, Vue va detectează automat și adaugă prefixele corespunzătoare stilurilor aplicate.
 
-### Multiple Values
+### Valori Multiple
 
 > 2.3.0+
 
-Starting in 2.3.0+ you can provide an array of multiple (prefixed) values to a style property, for example:
+Începând cu 2.3.0+, puteți oferi o serie de valori multiple (prefixate) unei proprietăți de stil, de exemplu:
 
 ``` html
 <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
-This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
+Aceasta va face doar ultima valoare din array, pe care browserul o acceptă. În acest caz, acesta va afișa `display: flex` pentru browserele care suportă versiunea fără flexiune a flexboxului.
