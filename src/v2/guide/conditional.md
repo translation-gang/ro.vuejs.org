@@ -1,5 +1,5 @@
 ---
-title: Conditional Rendering
+title: Rendarea condiționată
 type: guide
 order: 7
 ---
