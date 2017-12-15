@@ -174,15 +174,15 @@ Rețineți că elementele `<label>` sunt încă reutilizate eficient, deoarece n
 
 ## `v-show`
 
-Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
+O altă opțiune pentru afișarea condiționată a unui element este directiva `v-show`. Utilizarea este în mare parte aceeași:
 
 ``` html
-<h1 v-show="ok">Hello!</h1>
+<h1 v-show="ok">Salut!</h1>
 ```
 
-The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
+Diferența este că un element cu `v-show` va fi întotdeauna randat și va rămâne în DOM; `v-show` comută doar proprietatea CSS `display` a elementului.
 
-<p class="tip">Note that `v-show` doesn't support the `<template>` element, nor does it work with `v-else`.</p>
+<p class="tip">Rețineți că `v-show` nu acceptă elementul `<template>`, nici nu funcționează cu `v-else`.</p>
 
 ## `v-if` vs `v-show`
 
