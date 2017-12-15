@@ -186,13 +186,13 @@ Diferența este că un element cu `v-show` va fi întotdeauna randat și va răm
 
 ## `v-if` vs `v-show`
 
-`v-if` is "real" conditional rendering because it ensures that event listeners and child components inside the conditional block are properly destroyed and re-created during toggles.
+`v-if` este randare condiționată "reală", deoarece asigură că ascultătorii de evenimente și componentele derivate din interiorul blocului condițional sunt distruse și recreate în timpul comutării.
 
-`v-if` is also **lazy**: if the condition is false on initial render, it will not do anything - the conditional block won't be rendered until the condition becomes true for the first time.
+`v-if` este de asemenea **leneș**: dacă condiția este falsă la redarea inițială, nu va face nimic - blocul condiționat nu va fi randat până când condiția nu va deveni reală.
 
-In comparison, `v-show` is much simpler - the element is always rendered regardless of initial condition, with CSS-based toggling.
+În comparație, `v-show` este cu mult mai simplu - elementul este întotdeauna randat indiferent de starea inițială, cu comutarea pe bază de CSS.
 
-Generally speaking, `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime.
+Vorbind la general, `v-if` are costuri mai mari de comutare, în timp ce `v-show` are costuri inițiale mai mari de randare. Așadar, preferați `v-show` dacă trebuie să comutați ceva foarte des, și preferați `v-if` în cazul în care condiția este puțin probabil să se schimbe în timpul de execuție.
 
 ## `v-if` with `v-for`
 
