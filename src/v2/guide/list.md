@@ -1,5 +1,5 @@
 ---
-title: List Rendering
+title: Randarea Listei
 type: guide
 order: 8
 ---
