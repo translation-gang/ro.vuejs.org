@@ -86,12 +86,12 @@ vm.conflicting() // => "din componentă"
 
 Rețineți că aceleași strategii de fuziune sunt utilizate în `Vue.extend()`.
 
-## Global Mixin
+## Mixin Global
 
-You can also apply a mixin globally. Use with caution! Once you apply a mixin globally, it will affect **every** Vue instance created afterwards. When used properly, this can be used to inject processing logic for custom options:
+De asemenea, puteți aplica mixin-ul la nivel global. Utilizați cu prudență! Odată ce aplicați un mixin la nivel global, acesta va afecta **fiecare** instanță Vue creată ulterior. Atunci când este folosit corect, acesta poate fi utilizat pentru a injecta logica de procesare pentru opțiunile personalizate:
 
 ``` js
-// inject a handler for `myOption` custom option
+// injectăm un handler pentru opțiunea personalizată `myOption`
 Vue.mixin({
   created: function () {
     var myOption = this.$options.myOption
@@ -107,7 +107,7 @@ new Vue({
 // => "hello!"
 ```
 
-<p class="tip">Use global mixins sparsely and carefully, because it affects every single Vue instance created, including third party components. In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.</p>
+<p class="tip">Utilizați mixin-uri globale rar și atent, deoarece acestea afectează fiecare instanță creată de Vue, inclusiv componentele terțe. În majoritatea cazurilor, ar trebui să le utilizați numai pentru manipularea opțiunilor personalizate, așa cum sa demonstrat în exemplul de mai sus. Este, de asemenea, o idee bună să le înregistrați ca [Plugin-uri](plugins.html) pentru a evita aplicarea duplicată.</p>
 
 ## Custom Option Merge Strategies
 
