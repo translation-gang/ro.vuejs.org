@@ -6,22 +6,22 @@ order: 7
 
 ## `v-if`
 
-In string templates, for example Handlebars, we would write a conditional block like this:
+În șabloanele de tip string, de exemplu, Handlebars, am putea scrie un bloc condițional astfel:
 
 ``` html
-<!-- Handlebars template -->
+<!-- Șablon Handlebars -->
 {{#if ok}}
   <h1>Yes</h1>
 {{/if}}
 ```
 
-In Vue, we use the `v-if` directive to achieve the same:
+În Vue, folosim directiva `v-if` pentru a obține aceleași rezultate:
 
 ``` html
 <h1 v-if="ok">Yes</h1>
 ```
 
-It is also possible to add an "else block" with `v-else`:
+Este, de asemenea, posibil să adăugați "un alt bloc" cu `v-else`:
 
 ``` html
 <h1 v-if="ok">Yes</h1>
