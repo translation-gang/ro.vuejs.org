@@ -1,5 +1,5 @@
 ---
-title: Rendarea condiționată
+title: Randarea condiționată
 type: guide
 order: 7
 ---
@@ -28,15 +28,15 @@ Este, de asemenea, posibil să adăugați "un alt bloc" cu `v-else`:
 <h1 v-else>No</h1>
 ```
 
-### Conditional Groups with `v-if` on `<template>`
+### Grupuri condiționate cu `v-if` pe `<template>`
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+Deoarece `v-if` este o directivă, aceasta va trebui atașată la un singur element. Dar dacă vrem să comutăm mai multe elemente? În acest caz putem folosi `v-if` pe un element `<template>`, care servește ca un wrap invizibil. Rezultatul final randat nu va include elementul `<template>`.
 
 ``` html
 <template v-if="ok">
-  <h1>Title</h1>
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
+  <h1>Titlu</h1>
+  <p>Paragraful 1</p>
+  <p>Paragraful 2</p>
 </template>
 ```
 
