@@ -57,9 +57,9 @@ Un element `v-else` trebuie să urmeze imediat după un element v-if sau un `v-e
 
 ### `v-else-if`
 
-> New in 2.1.0+
+> Adăugat în versiunea 2.1.0+
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+Modelul `v-else-if`, așa cum sugerează și numele, servește drept "alt bloc if" pentru `v-if`. De asemenea, poate fi legat de mai multe ori:
 
 ```html
 <div v-if="type === 'A'">
@@ -72,11 +72,11 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
   C
 </div>
 <div v-else>
-  Not A/B/C
+  Nu A/B/C
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Similar cu `v-else`, un element `v-else-if` trebuie să urmeze imediat după un element `v-if` sau `v-else-if`.
 
 ### Controlling Reusable Elements with `key`
 
