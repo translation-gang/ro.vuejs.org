@@ -42,18 +42,18 @@ Deoarece `v-if` este o directivă, aceasta va trebui atașată la un singur elem
 
 ### `v-else`
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+Puteți folosi directiva `v-else` pentru a indica un "alt bloc" pentru `v-if`:
 
 ``` html
 <div v-if="Math.random() > 0.5">
-  Now you see me
+  Acum mă vezi
 </div>
 <div v-else>
-  Now you don't
+  Acum nu
 </div>
 ```
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+Un element `v-else` trebuie să urmeze imediat după un element v-if sau un `v-else-if` element - altfel acesta nu va fi recunoscut.
 
 ### `v-else-if`
 
