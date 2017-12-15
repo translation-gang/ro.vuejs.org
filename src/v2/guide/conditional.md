@@ -194,6 +194,6 @@ Diferența este că un element cu `v-show` va fi întotdeauna randat și va răm
 
 Vorbind la general, `v-if` are costuri mai mari de comutare, în timp ce `v-show` are costuri inițiale mai mari de randare. Așadar, preferați `v-show` dacă trebuie să comutați ceva foarte des, și preferați `v-if` în cazul în care condiția este puțin probabil să se schimbe în timpul de execuție.
 
-## `v-if` with `v-for`
+## `v-if` cu `v-for`
 
-When used together with `v-if`, `v-for` has a higher priority than `v-if`. See the <a href="../guide/list.html#V-for-and-v-if">list rendering guide</a> for details.
+Când este folosit împreună cu `v-if`, `v-for` are o prioritate mai mare decât `v-if`. Consultați <a href="../guide/list.html#V-for-and-v-if"> ghidul de randare a listei </a> pentru detalii.
