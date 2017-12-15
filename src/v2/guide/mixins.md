@@ -31,9 +31,9 @@ var Component = Vue.extend({
 var component = new Component() // => "Salut din mixin!"
 ```
 
-## Option Merging
+## Fuziunea Opțiunilor
 
-When a mixin and the component itself contain overlapping options, they will be "merged" using appropriate strategies. For example, hook functions with the same name are merged into an array so that all of them will be called. In addition, mixin hooks will be called **before** the component's own hooks:
+Când un mixin și componenta în sine conțin opțiuni ce se suprapun, acestea vor fi "fuzionate" folosind strategii adecvate. De exemplu, funcțiile de tip hook cu același nume sunt îmbinate într-o matrice, astfel încât toate acestea să fie apelate. În plus, hook-urile mixin-ului vor fi apelate **înainte** de hook-urile componentei:
 
 ``` js
 var mixin = {
@@ -49,11 +49,11 @@ new Vue({
   }
 })
 
-// => "mixin hook called"
-// => "component hook called"
+// => "hook-ul mixinului a fost apelat"
+// => "hook-ul componentei a fost apelat"
 ```
 
-Options that expect object values, for example `methods`, `components` and `directives`, will be merged into the same object. The component's options will take priority when there are conflicting keys in these objects:
+Opțiunile care așteaptă valorile obiectului, de exemplu `methods`, `components` și `directives`, vor fi îmbinate în același obiect. Opțiunile componentei vor avea prioritate când există conflicte între cheile acestor obiecte:
 
 ``` js
 var mixin = {
@@ -62,7 +62,7 @@ var mixin = {
       console.log('foo')
     },
     conflicting: function () {
-      console.log('from mixin')
+      console.log('din mixin')
     }
   }
 }
@@ -74,17 +74,17 @@ var vm = new Vue({
       console.log('bar')
     },
     conflicting: function () {
-      console.log('from self')
+      console.log('din componentă')
     }
   }
 })
 
 vm.foo() // => "foo"
 vm.bar() // => "bar"
-vm.conflicting() // => "from self"
+vm.conflicting() // => "din componentă"
 ```
 
-Note that the same merge strategies are used in `Vue.extend()`.
+Rețineți că aceleași strategii de fuziune sunt utilizate în `Vue.extend()`.
 
 ## Global Mixin
 
