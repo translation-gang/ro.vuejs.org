@@ -78,13 +78,13 @@ Modelul `v-else-if`, așa cum sugerează și numele, servește drept "alt bloc i
 
 Similar cu `v-else`, un element `v-else-if` trebuie să urmeze imediat după un element `v-if` sau `v-else-if`.
 
-### Controlling Reusable Elements with `key`
+### Controlul elementelor reutilizabile cu `key`
 
-Vue tries to render elements as efficiently as possible, often re-using them instead of rendering from scratch. Beyond helping make Vue very fast, this can have some useful advantages. For example, if you allow users to toggle between multiple login types:
+Vue încearcă să facă elementele cât mai eficient posibil, adesea reutilizându-le în loc de randare de la zero. Pe lângă faptul că aceasta ajuta la rapiditatea Vue-ului, acest lucru poate avea și alte avantaje utile. De exemplu, dacă permiteți utilizatorilor să comute între mai multe tipuri de login:
 
 ``` html
 <template v-if="loginType === 'username'">
-  <label>Username</label>
+  <label>Numele Utilizatorului</label>
   <input placeholder="Enter your username">
 </template>
 <template v-else>
@@ -93,15 +93,15 @@ Vue tries to render elements as efficiently as possible, often re-using them ins
 </template>
 ```
 
-Then switching the `loginType` in the code above will not erase what the user has already entered. Since both templates use the same elements, the `<input>` is not replaced - just its `placeholder`.
+Apoi, schimbarea `loginType` în codul de mai sus nu va șterge ce a introdus deja utilizatorul. Deoarece ambele șabloane utilizează aceleași elemente, `<input>` nu este înlocuit - doar `placeholder`.
 
-Check it out for yourself by entering some text in the input, then pressing the toggle button:
+Verificați-l pentru dvs. prin introducerea unui text în intrare, apoi apăsând butonul de comutare:
 
 {% raw %}
 <div id="no-key-example" class="demo">
   <div>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
+      <label>Numele Utilizatorului</label>
       <input placeholder="Enter your username">
     </template>
     <template v-else>
@@ -109,7 +109,7 @@ Check it out for yourself by entering some text in the input, then pressing the 
       <input placeholder="Enter your email address">
     </template>
   </div>
-  <button @click="toggleLoginType">Toggle login type</button>
+  <button @click="toggleLoginType">Comutați tipul de conectare</button>
 </div>
 <script>
 new Vue({
@@ -126,11 +126,11 @@ new Vue({
 </script>
 {% endraw %}
 
-This isn't always desirable though, so Vue offers a way for you to say, "These two elements are completely separate - don't re-use them." Add a `key` attribute with unique values:
+Acest lucru nu se recomandă întotdeauna, așa că Vue vă oferă o cale de a spune: "Aceste două elemente sunt complet separate - nu le re-utilizați". Adăugați un atribut `key` cu valori unice:
 
 ``` html
 <template v-if="loginType === 'username'">
-  <label>Username</label>
+  <label>Numele Utilizatorului</label>
   <input placeholder="Enter your username" key="username-input">
 </template>
 <template v-else>
@@ -139,13 +139,13 @@ This isn't always desirable though, so Vue offers a way for you to say, "These t
 </template>
 ```
 
-Now those inputs will be rendered from scratch each time you toggle. See for yourself:
+Acum, aceste intrări vor fi redate de la zero de fiecare dată când comutați. Încearcă și singur:
 
 {% raw %}
 <div id="key-example" class="demo">
   <div>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
+      <label>Numele Utilizatorului</label>
       <input placeholder="Enter your username" key="username-input">
     </template>
     <template v-else>
@@ -153,7 +153,7 @@ Now those inputs will be rendered from scratch each time you toggle. See for you
       <input placeholder="Enter your email address" key="email-input">
     </template>
   </div>
-  <button @click="toggleLoginType">Toggle login type</button>
+  <button @click="toggleLoginType">Comutați tipul de conectare</button>
 </div>
 <script>
 new Vue({
@@ -170,7 +170,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Note that the `<label>` elements are still efficiently re-used, because they don't have `key` attributes.
+Rețineți că elementele `<label>` sunt încă reutilizate eficient, deoarece nu au atribute `key`.
 
 ## `v-show`
 
