@@ -1,5 +1,5 @@
 ---
-title: Custom Directives
+title: Directive Personalizate
 type: guide
 order: 302
 ---
