@@ -109,9 +109,9 @@ new Vue({
 
 <p class="tip">Utilizați mixin-uri globale rar și atent, deoarece acestea afectează fiecare instanță creată de Vue, inclusiv componentele terțe. În majoritatea cazurilor, ar trebui să le utilizați numai pentru manipularea opțiunilor personalizate, așa cum sa demonstrat în exemplul de mai sus. Este, de asemenea, o idee bună să le înregistrați ca [Plugin-uri](plugins.html) pentru a evita aplicarea duplicată.</p>
 
-## Custom Option Merge Strategies
+## Strategii Personalizate de Fuziune a Opțiunilor
 
-When custom options are merged, they use the default strategy which overwrites the existing value. If you want a custom option to be merged using custom logic, you need to attach a function to `Vue.config.optionMergeStrategies`:
+Atunci când opțiunile personalizate sunt îmbinate, ele utilizează strategia implicită care suprascrie valoarea existentă. Dacă doriți ca o opțiune personalizată să fie îmbinată utilizând logica personalizată, trebuie să atașați o funcție la `Vue.config.optionMergeStrategies`:
 
 ``` js
 Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
@@ -119,14 +119,14 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 }
 ```
 
-For most object-based options, you can use the same strategy used by `methods`:
+Pentru majoritatea opțiunilor bazate pe obiecte, puteți utiliza aceeași strategie folosită de `methods`:
 
 ``` js
 var strategies = Vue.config.optionMergeStrategies
 strategies.myOption = strategies.methods
 ```
 
-A more advanced example can be found on [Vuex](https://github.com/vuejs/vuex)'s 1.x merging strategy:
+Un exemplu mai avansat poate fi găsit în strategia de fuziune din [Vuex](https://github.com/vuejs/vuex) 1.x:
 
 ``` js
 const merge = Vue.config.optionMergeStrategies.computed
