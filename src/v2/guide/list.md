@@ -4,9 +4,9 @@ type: guide
 order: 8
 ---
 
-## Mapping an Array to Elements with `v-for`
+## Afișarea unui Array de elemente cu `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Putem folosi directiva `v-for` pentru a crea o listă de elemente bazate pe un array. Direcția `v-for` necesită o sintaxă specială sub forma unui `item in items`, unde `items` este sursa de date a array-ului și `item` este un **alias** pentru elementul din array fiind repetat pe:
 
 ``` html
 <ul id="example-1">
@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
+În interiorul blocurilor `v-for` avem acces deplin la proprietățile domeniului părinte. `v-for` sprijină, de asemenea, un al doilea argument opțional pentru indexul elementului curent.
 
 ``` html
 <ul id="example-2">
@@ -77,7 +77,7 @@ var example2 = new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw%}
 <ul id="example-2" class="demo">
@@ -104,7 +104,7 @@ var example2 = new Vue({
 </script>
 {% endraw %}
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+De asemenea, puteți folosi `of` ca delimitator în loc de `in`, astfel încât să fie mai aproape de sintaxa JavaScript pentru iteratori:
 
 ``` html
 <div v-for="item of items"></div>
