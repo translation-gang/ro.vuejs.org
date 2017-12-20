@@ -110,9 +110,9 @@ De asemenea, puteți folosi `of` ca delimitator în loc de `in`, astfel încât 
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## `v-for` cu un Obiect
 
-You can also use `v-for` to iterate through the properties of an object.
+De asemenea, puteți folosi `v-for` pentru a itera prin proprietățile unui obiect.
 
 ``` html
 <ul id="v-for-object" class="demo">
@@ -135,7 +135,7 @@ new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <ul id="v-for-object" class="demo">
@@ -157,7 +157,7 @@ new Vue({
 </script>
 {% endraw %}
 
-You can also provide a second argument for the key:
+De asemenea, puteți oferi un al doilea argument pentru primirea unei chei:
 
 ``` html
 <div v-for="(value, key) in object">
@@ -185,7 +185,7 @@ new Vue({
 </script>
 {% endraw %}
 
-And another for the index:
+Și al treilea pentru index:
 
 ``` html
 <div v-for="(value, key, index) in object">
@@ -213,7 +213,7 @@ new Vue({
 </script>
 {% endraw %}
 
-<p class="tip">When iterating over an object, the order is based on the key enumeration order of `Object.keys()`, which is **not** guaranteed to be consistent across JavaScript engine implementations.</p>
+<p class="tip">Atunci când iterăm peste un obiect, ordinea se bazează pe ordinul de enumerare a cheiei în `Object.keys ()`, care **nu** este garantat a fi consecvent în implementările motorului JavaScript.</p>
 
 ## `key`
 
