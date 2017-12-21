@@ -1,30 +1,31 @@
 ---
-title: Introduction
+title: Introducere
 type: guide
 order: 2
 ---
 
-## What is Vue.js?
+## Ce este Vue.js?
 
-Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](single-file-components.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (pronunțat /vjuː/, ca **view**) este un **framework progresiv** pentru construirea interfețelor de utilizator. Spre deosebire de alte framework-uri monolitice, Vue este conceput pentru o implementare treptată. Biblioteca centrală se concentrează numai asupra stratului de vizualizare și este ușor de preluat și integrat cu alte biblioteci sau proiecte existente. Pe de o altă parte, Vue este, de asemenea, perfect capabil să alimenteze aplicații sofisticate cu o singură pagină, atunci când sunt utilizate în combinație cu [unelte moderne](single-file-components.html) și [biblioteci de suport](https://github.com/vuejs/awesome-vue#components--libraries).
 
-If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](comparison.html).
+Dacă sunteți un dezvoltator frontend cu experiență și doriți să știți cum se compară Vue cu alte biblioteci/framework-uri, consultați [Comparația cu alte Framework-uri](comparison.html).
 
-## Getting Started
+## Să începem
 
-<p class="tip">The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.</p>
+<p class="tip">Ghidul oficial presupune că deja sunteți familiarizați cu HTML, CSS și JavaScript la un nivel de bază. Dacă sunteți începător în dezvoltarea frontend-ului, s-ar putea să nu fie cea mai bună ideie începerea imediată a studierii - reveniți după cunoașterea noțiunilor de bază! Experiența de lucru cu alte cadre poate ajuta, dar nu este obligatorie.</p>
 
-The easiest way to try out Vue.js is using the [JSFiddle Hello World example](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">create an <code>index.html</code> file</a> and include Vue with:
+Cea mai ușoară modalitate de a încerca Vue.js este utilizarea [exemplului JSFiddle Hello World](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Pur și simplu deschideți-l în altă filă și urmați-l pe măsură ce treceți prin câteva exemple de bază. Sau puteți <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">crea un fișier<code>index.html</code></a> și includeți Vue cu :
 
 ``` html
 <script src="https://unpkg.com/vue"></script>
 ```
 
-The [Installation](installation.html) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
+Pagina [Instalarea](installation.html) oferă mai multe opțiuni de instalare a Vue. 
+Notă: Nu **recomandăm** ca începătorii să înceapă cu `vue-cli`, mai ales dacă nu sunteți încă familiarizați cu instrumentele de construire bazate pe Node.js.
 
-## Declarative Rendering
+## Rendering Declarativ
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+În fișierul Vue.js este disponibil un sistem care ne permite să afișăm în mod automat datele din DOM, folosind o simplă sintaxă de șablon:
 
 ``` html
 <div id="app">
@@ -53,15 +54,15 @@ var app = new Vue({
 </script>
 {% endraw %}
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Open your browser's JavaScript console (right now, on this page) and set `app.message` to a different value. You should see the rendered example above update accordingly.
+Am creat deja prima noastră aplicație Vue! Acest lucru pare destul de similar cu redarea unui șablon de șir, dar Vue a făcut o mulțime de lucruri "sub capotă". Datele și DOM-ul sunt acum legate și totul acum este **reactiv**. De unde stim? Deschideți consola JavaScript a browserului dvs. (chiar acum, în această pagină) și setați `app.message` cu o valoare diferită. Ar trebui să vedeți în exemplul de mai sus datele actualizate în consecință.
 
-In addition to text interpolation, we can also bind element attributes like this:
+În plus față de interpolarea textului, putem lega atribute de element precum:
 
 ``` html
 <div id="app-2">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
+   Plasați mouse-ul peste mine pentru câteva secunde
+    pentru a vedea titlul meu legat dinamic!
   </span>
 </div>
 ```
@@ -76,30 +77,31 @@ var app2 = new Vue({
 {% raw %}
 <div id="app-2" class="demo">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
+    Plasați mouse-ul peste mine pentru câteva secunde pentru a vedea titlul meu legat dinamic!
   </span>
 </div>
 <script>
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'You loaded this page on ' + new Date().toLocaleString()
+    message: 'Dvs ați încărcat această pagină pe ' + new Date().toLocaleString()
   }
 })
 </script>
 {% endraw %}
 
-Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
+Aici întâlnim ceva nou. Atributul `v-bind` pe care îl vedeți se numește **directivă**. Directivele sunt prefixate cu `v-` pentru a indica faptul că acestea sunt atribute speciale furnizate de Vue și, după cum probabil ați ghicit, aplică un comportament reactiv special la DOM rendat. Aici se spune că "mențineți atributul `title` al acestui element actualizat cu proprietatea `message` din instanța Vue."
 
-If you open up your JavaScript console again and enter `app2.message = 'some new message'`, you'll once again see that the bound HTML - in this case the `title` attribute - has been updated.
+Dacă deschideți din nou consolă JavaScript și introduceți `app2.message = 'un mesaj nou'`, veți vedea încă o dată că HTML-ul legat - în acest caz de atributul `title` - a fost actualizat.
 
-## Conditionals and Loops
+## Condiții și Cicluri
 
-It's easy to toggle the presence of an element, too:
+De asemenea, este ușor să comutați prezența unui element:
+
 
 ``` html
 <div id="app-3">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Acum mă vezi</span>
 </div>
 ```
 
@@ -114,7 +116,7 @@ var app3 = new Vue({
 
 {% raw %}
 <div id="app-3" class="demo">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Acum mă vezi</span>
 </div>
 <script>
 var app3 = new Vue({
@@ -126,11 +128,11 @@ var app3 = new Vue({
 </script>
 {% endraw %}
 
-Go ahead and enter `app3.seen = false` in the console. You should see the message disappear.
+Mergeți mai departe și introduceți `app3.seen = false` în consolă. Ar trebui să  dispără mesajul.
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions.html) when elements are inserted/updated/removed by Vue.
+Acest exemplu demonstrează că putem lega datele nu doar de text și atribute, ci și de **structura** DOM-ului. În plus, Vue oferă și un sistem de efect puternic de tranziție care poate aplica automat [efecte de tranziție](tranitions.html) când elementele sunt inserate/actualizate/eliminate de Vue.
 
-There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+Există și alte directive numeroase, fiecare având propria sa funcționalitate. De exemplu, directiva `v-for` poate fi utilizată pentru a afișa o listă de elemente utilizând datele dintr-un tablou(Array):
 
 ``` html
 <div id="app-4">
@@ -146,9 +148,9 @@ var app4 = new Vue({
   el: '#app-4',
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: 'Să studiez JavaScript' },
+      { text: 'Să studiez Vue' },
+      { text: 'Să creez ceva nou și interesant' }
     ]
   }
 })
@@ -166,25 +168,25 @@ var app4 = new Vue({
   el: '#app-4',
   data: {
     todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+      { text: 'Să studiez JavaScript' },
+      { text: 'Să studiez Vue' },
+      { text: 'Să creez ceva nou și interesant' }
     ]
   }
 })
 </script>
 {% endraw %}
 
-In the console, enter `app4.todos.push({ text: 'New item' })`. You should see a new item appended to the list.
+În consola, introduceți `app4.todos.push({ text: 'Element nou' })`. Ar trebui să vedeți un element nou atașat în  listă.
 
-## Handling User Input
+## Lucru cu datele introduse de utilizator
 
-To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
+Pentru a permite utilizatorilor să interacționeze cu aplicația dvs., putem folosi directiva `v-on` pentru a atașa ascultătorii de evenimente care invocă metode în instanțele noastre Vue:
 
 ``` html
 <div id="app-5">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+  <button v-on:click="reverseMessage">Inversează Mesajul</button>
 </div>
 ```
 ``` js
@@ -203,7 +205,7 @@ var app5 = new Vue({
 {% raw %}
 <div id="app-5" class="demo">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+  <button v-on:click="reverseMessage">Inversează Mesajul</button>
 </div>
 <script>
 var app5 = new Vue({
@@ -220,9 +222,9 @@ var app5 = new Vue({
 </script>
 {% endraw %}
 
-Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
+Notați că în această metodă actualizăm starea aplicației noastre fără să atingem DOM-ul - toate manipulările DOM sunt tratate de Vue, iar codul pe care îl scrieți este axat pe logica extinsă.
 
-Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
+Vue oferă, de asemenea, directiva `v-model` care face legătura bidirecțională între forma input și starea aplicației:
 
 ``` html
 <div id="app-6">
@@ -253,52 +255,52 @@ var app6 = new Vue({
 </script>
 {% endraw %}
 
-## Composing with Components
+## Compoziție cu Componente
 
-The component system is another important concept in Vue, because it's an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components:
+Sistemul component este un alt concept important în Vue, deoarece este o abstracție care ne permite să construim aplicații de scară largă, compuse din componente mici, autonome și adesea reutilizabile. Dacă ne gândim la asta, aproape orice tip de interfață de aplicație poate fi extrasă într-un arbore de componente:
 
-![Component Tree](/images/components.png)
+![Arbore de Componente](/images/components.png)
 
-In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
+În Vue, o componentă este în esență o instanță Vue cu opțiuni predefinite. Înregistrarea unei componente în Vue este simplă:
 
 ``` js
-// Define a new component called todo-item
+// Definiți o componentă nouă numită todo-item
 Vue.component('todo-item', {
   template: '<li>This is a todo</li>'
 })
 ```
 
-Now you can compose it in another component's template:
+Acum puteți să o puneți în șablonul altui component:
 
 ``` html
 <ol>
-  <!-- Create an instance of the todo-item component -->
+  <!-- Creați o instanță a componentei todo-item -->
   <todo-item></todo-item>
 </ol>
 ```
 
-But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](components.html#Props):
+Dar acest lucru ar face același text pentru fiecare todo, care nu este super interesant. Ar trebui să putem transmite datele din domeniul părintelui în componentele copil. Să modificăm definiția componentei pentru a accepta o [proprietate](components.html#Props):
 
 ``` js
 Vue.component('todo-item', {
-  // The todo-item component now accepts a
-  // "prop", which is like a custom attribute.
-  // This prop is called todo.
+  // Componenta todo-item acceptă acum o
+  // "prop", care este ca un atribut personalizat.
+  // Această proprietate este numită todo.
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
 })
 ```
 
-Now we can pass the todo into each repeated component using `v-bind`:
+Acum putem trece todo-ul în fiecare componentă repetată utilizând `v-bind`:
 
 ``` html
 <div id="app-7">
   <ol>
     <!--
-      Now we provide each todo-item with the todo object
-      it's representing, so that its content can be dynamic.
-      We also need to provide each component with a "key",
-      which will be explained later.
+      Acum oferim fiecărui component cu todo obiect care-l
+       reprezintă, astfel încât conținutul său poate fi dinamic.
+       De asemenea, trebuie să furnizăm fiecărei componente o "cheie",
+       care va fi explicată mai târziu.
     -->
     <todo-item
       v-for="item in groceryList"
@@ -318,9 +320,9 @@ var app7 = new Vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+      { id: 0, text: 'Legume' },
+      { id: 1, text: 'Cașcaval' },
+      { id: 2, text: 'Alt produs alimentar' }
     ]
   }
 })
@@ -340,18 +342,18 @@ var app7 = new Vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+      { id: 0, text: 'Legume' },
+      { id: 1, text: 'Cașcaval' },
+      { id: 2, text: 'Alt produs alimentar' }
     ]
   }
 })
 </script>
 {% endraw %}
 
-This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
+Acesta este un exemplu controversat, dar am reușit să separăm aplicația noastră în două unități mai mici, iar copilul este în mod rezonabil decuplat de părinte prin intermediul interfeței parametrilor de intrare. Acum putem îmbunătăți componenta `<todo-item>` cu un șablon și o logică mai complexă, fără a afecta aplicația părinte.
 
-In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](components.html), but here's an (imaginary) example of what an app's template might look like with components:
+Într-o aplicație mare, este necesar să împărțiți întreaga aplicație în componente, pentru ca dezvoltarea să poată fi gestionată. Vom vorbi mult mai mult despre componente [mai târziu în ghid](components.html), dar aici este un exemplu (imaginar) despre cum ar putea arăta șablonul unei aplicații cu componente:
 
 ``` html
 <div id="app">
@@ -363,14 +365,15 @@ In a large application, it is necessary to divide the whole app into components 
 </div>
 ```
 
-### Relation to Custom Elements
+### Relația cu Elementele Personalizate
 
-You may have noticed that Vue components are very similar to **Custom Elements**, which are part of the [Web Components Spec](https://www.w3.org/wiki/WebComponents/). That's because Vue's component syntax is loosely modeled after the spec. For example, Vue components implement the [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) and the `is` special attribute. However, there are a few key differences:
+S-ar putea să fi observat că componentele Vue sunt foarte asemănătoare cu **Elementele Personalizate**, care fac parte din [Componentele Web Spec](https://www.w3.org/wiki/WebComponents/). Asta pentru că sintaxa componentă a Vue este modelată slab după spec. De exemplu, componentele Vue implementează [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) și atributul special `is`. Cu toate acestea, există câteva diferențe cheie:
 
-1. The Web Components Spec is still in draft status, and is not natively implemented in every browser. In comparison, Vue components don't require any polyfills and work consistently in all supported browsers (IE9 and above). When needed, Vue components can also be wrapped inside a native custom element.
+1. Web Components Spec este încă în stare de proiect și nu este implementat nativ în fiecare browser. În comparație, componentele Vue nu necesită polifluze și nu lucrează consistent în toate browserele acceptate (IE9 și mai sus). Când este necesar, componentele Vue pot fi de asemenea înfășurate în interiorul unui element personalizat nativ.
 
-2. Vue components provide important features that are not available in plain custom elements, most notably cross-component data flow, custom event communication and build tool integrations.
+2. Componentele Vue furnizează caracteristici importante care nu sunt disponibile în elemente personalizate simple, mai ales fluxul de date cross-component, comunicarea evenimentelor personalizate și integrarea instrumentelor de construire.
 
-## Ready for More?
+## Gata pentru mai mult?
 
-We've briefly introduced the most basic features of Vue.js core - the rest of this guide will cover them and other advanced features with much finer details, so make sure to read through it all!
+Am prezentat pe scurt cele mai importante caracteristici ale nucleului Vue.js - alte informații și alte caracteristici avansate cu detalii mult mai fine sunt prezentate în ghid, așa că nu uitați să le citiți!
+
