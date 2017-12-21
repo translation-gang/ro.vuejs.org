@@ -1,65 +1,65 @@
 ---
-title: Conditional Rendering
+title: Randarea condiționată
 type: guide
 order: 7
 ---
 
 ## `v-if`
 
-In string templates, for example Handlebars, we would write a conditional block like this:
+În șabloanele de tip string, de exemplu, Handlebars, am putea scrie un bloc condițional astfel:
 
 ``` html
-<!-- Handlebars template -->
+<!-- Șablon Handlebars -->
 {{#if ok}}
   <h1>Yes</h1>
 {{/if}}
 ```
 
-In Vue, we use the `v-if` directive to achieve the same:
+În Vue, folosim directiva `v-if` pentru a obține aceleași rezultate:
 
 ``` html
 <h1 v-if="ok">Yes</h1>
 ```
 
-It is also possible to add an "else block" with `v-else`:
+Este, de asemenea, posibil să adăugați "un alt bloc" cu `v-else`:
 
 ``` html
 <h1 v-if="ok">Yes</h1>
 <h1 v-else>No</h1>
 ```
 
-### Conditional Groups with `v-if` on `<template>`
+### Grupuri condiționate cu `v-if` pe `<template>`
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+Deoarece `v-if` este o directivă, aceasta va trebui atașată la un singur element. Dar dacă vrem să comutăm mai multe elemente? În acest caz putem folosi `v-if` pe un element `<template>`, care servește ca un wrap invizibil. Rezultatul final randat nu va include elementul `<template>`.
 
 ``` html
 <template v-if="ok">
-  <h1>Title</h1>
-  <p>Paragraph 1</p>
-  <p>Paragraph 2</p>
+  <h1>Titlu</h1>
+  <p>Paragraful 1</p>
+  <p>Paragraful 2</p>
 </template>
 ```
 
 ### `v-else`
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+Puteți folosi directiva `v-else` pentru a indica un "alt bloc" pentru `v-if`:
 
 ``` html
 <div v-if="Math.random() > 0.5">
-  Now you see me
+  Acum mă vezi
 </div>
 <div v-else>
-  Now you don't
+  Acum nu
 </div>
 ```
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+Un element `v-else` trebuie să urmeze imediat după un element v-if sau un `v-else-if` element - altfel acesta nu va fi recunoscut.
 
 ### `v-else-if`
 
-> New in 2.1.0+
+> Adăugat în versiunea 2.1.0+
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+Modelul `v-else-if`, așa cum sugerează și numele, servește drept "alt bloc if" pentru `v-if`. De asemenea, poate fi legat de mai multe ori:
 
 ```html
 <div v-if="type === 'A'">
@@ -72,19 +72,19 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
   C
 </div>
 <div v-else>
-  Not A/B/C
+  Nu A/B/C
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Similar cu `v-else`, un element `v-else-if` trebuie să urmeze imediat după un element `v-if` sau `v-else-if`.
 
-### Controlling Reusable Elements with `key`
+### Controlul elementelor reutilizabile cu `key`
 
-Vue tries to render elements as efficiently as possible, often re-using them instead of rendering from scratch. Beyond helping make Vue very fast, this can have some useful advantages. For example, if you allow users to toggle between multiple login types:
+Vue încearcă să facă elementele cât mai eficient posibil, adesea reutilizându-le în loc de randare de la zero. Pe lângă faptul că aceasta ajuta la rapiditatea Vue-ului, acest lucru poate avea și alte avantaje utile. De exemplu, dacă permiteți utilizatorilor să comute între mai multe tipuri de login:
 
 ``` html
 <template v-if="loginType === 'username'">
-  <label>Username</label>
+  <label>Numele Utilizatorului</label>
   <input placeholder="Enter your username">
 </template>
 <template v-else>
@@ -93,15 +93,15 @@ Vue tries to render elements as efficiently as possible, often re-using them ins
 </template>
 ```
 
-Then switching the `loginType` in the code above will not erase what the user has already entered. Since both templates use the same elements, the `<input>` is not replaced - just its `placeholder`.
+Apoi, schimbarea `loginType` în codul de mai sus nu va șterge ce a introdus deja utilizatorul. Deoarece ambele șabloane utilizează aceleași elemente, `<input>` nu este înlocuit - doar `placeholder`.
 
-Check it out for yourself by entering some text in the input, then pressing the toggle button:
+Verificați-l pentru dvs. prin introducerea unui text în intrare, apoi apăsând butonul de comutare:
 
 {% raw %}
 <div id="no-key-example" class="demo">
   <div>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
+      <label>Numele Utilizatorului</label>
       <input placeholder="Enter your username">
     </template>
     <template v-else>
@@ -109,7 +109,7 @@ Check it out for yourself by entering some text in the input, then pressing the 
       <input placeholder="Enter your email address">
     </template>
   </div>
-  <button @click="toggleLoginType">Toggle login type</button>
+  <button @click="toggleLoginType">Comutați tipul de conectare</button>
 </div>
 <script>
 new Vue({
@@ -126,11 +126,11 @@ new Vue({
 </script>
 {% endraw %}
 
-This isn't always desirable though, so Vue offers a way for you to say, "These two elements are completely separate - don't re-use them." Add a `key` attribute with unique values:
+Acest lucru nu se recomandă întotdeauna, așa că Vue vă oferă o cale de a spune: "Aceste două elemente sunt complet separate - nu le re-utilizați". Adăugați un atribut `key` cu valori unice:
 
 ``` html
 <template v-if="loginType === 'username'">
-  <label>Username</label>
+  <label>Numele Utilizatorului</label>
   <input placeholder="Enter your username" key="username-input">
 </template>
 <template v-else>
@@ -139,13 +139,13 @@ This isn't always desirable though, so Vue offers a way for you to say, "These t
 </template>
 ```
 
-Now those inputs will be rendered from scratch each time you toggle. See for yourself:
+Acum, aceste intrări vor fi redate de la zero de fiecare dată când comutați. Încearcă și singur:
 
 {% raw %}
 <div id="key-example" class="demo">
   <div>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
+      <label>Numele Utilizatorului</label>
       <input placeholder="Enter your username" key="username-input">
     </template>
     <template v-else>
@@ -153,7 +153,7 @@ Now those inputs will be rendered from scratch each time you toggle. See for you
       <input placeholder="Enter your email address" key="email-input">
     </template>
   </div>
-  <button @click="toggleLoginType">Toggle login type</button>
+  <button @click="toggleLoginType">Comutați tipul de conectare</button>
 </div>
 <script>
 new Vue({
@@ -170,30 +170,30 @@ new Vue({
 </script>
 {% endraw %}
 
-Note that the `<label>` elements are still efficiently re-used, because they don't have `key` attributes.
+Rețineți că elementele `<label>` sunt încă reutilizate eficient, deoarece nu au atribute `key`.
 
 ## `v-show`
 
-Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
+O altă opțiune pentru afișarea condiționată a unui element este directiva `v-show`. Utilizarea este în mare parte aceeași:
 
 ``` html
-<h1 v-show="ok">Hello!</h1>
+<h1 v-show="ok">Salut!</h1>
 ```
 
-The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
+Diferența este că un element cu `v-show` va fi întotdeauna randat și va rămâne în DOM; `v-show` comută doar proprietatea CSS `display` a elementului.
 
-<p class="tip">Note that `v-show` doesn't support the `<template>` element, nor does it work with `v-else`.</p>
+<p class="tip">Rețineți că `v-show` nu acceptă elementul `<template>`, nici nu funcționează cu `v-else`.</p>
 
 ## `v-if` vs `v-show`
 
-`v-if` is "real" conditional rendering because it ensures that event listeners and child components inside the conditional block are properly destroyed and re-created during toggles.
+`v-if` este randare condiționată "reală", deoarece asigură că ascultătorii de evenimente și componentele derivate din interiorul blocului condițional sunt distruse și recreate în timpul comutării.
 
-`v-if` is also **lazy**: if the condition is false on initial render, it will not do anything - the conditional block won't be rendered until the condition becomes true for the first time.
+`v-if` este de asemenea **leneș**: dacă condiția este falsă la redarea inițială, nu va face nimic - blocul condiționat nu va fi randat până când condiția nu va deveni reală.
 
-In comparison, `v-show` is much simpler - the element is always rendered regardless of initial condition, with CSS-based toggling.
+În comparație, `v-show` este cu mult mai simplu - elementul este întotdeauna randat indiferent de starea inițială, cu comutarea pe bază de CSS.
 
-Generally speaking, `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime.
+Vorbind la general, `v-if` are costuri mai mari de comutare, în timp ce `v-show` are costuri inițiale mai mari de randare. Așadar, preferați `v-show` dacă trebuie să comutați ceva foarte des, și preferați `v-if` în cazul în care condiția este puțin probabil să se schimbe în timpul de execuție.
 
-## `v-if` with `v-for`
+## `v-if` cu `v-for`
 
-When used together with `v-if`, `v-for` has a higher priority than `v-if`. See the <a href="../guide/list.html#V-for-and-v-if">list rendering guide</a> for details.
+Când este folosit împreună cu `v-if`, `v-for` are o prioritate mai mare decât `v-if`. Consultați <a href="../guide/list.html#V-for-and-v-if"> ghidul de randare a listei </a> pentru detalii.
