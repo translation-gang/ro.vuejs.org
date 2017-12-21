@@ -1,21 +1,21 @@
 ---
-title: State Transitions
+title: Tranzițiile Stărilor
 type: guide
 order: 202
 ---
 
-Vue's transition system offers many simple ways to animate entering, leaving, and lists, but what about animating your data itself? For example:
+Sistemul de tranziție al Vue oferă numeroase moduri simple de a anima apariția, dispariția elementelor și a listelor, dar cum rămâne cu animarea datelor în sine? De exemplu:
 
-- numbers and calculations
-- colors displayed
-- the positions of SVG nodes
-- the sizes and other properties of elements
+- numere și calcule
+- afișarea culorilor
+- pozițiile elementelor-SVG
+- mărimile și alte proprietăți ale elementelor
 
-All of these are either already stored as raw numbers or can be converted into numbers. Once we do that, we can animate these state changes using 3rd-party libraries to tween state, in combination with Vue's reactivity and component systems.
+Toate acestea sunt deja stocate ca numere sau pot fi transformate în numere. Odată ce facem acest lucru, putem anima aceste schimbări de stări folosind biblioteci terțe, în combinație cu sistemele de reactivitate și componente ale Vue.
 
-## Animating State with Watchers
+## Animarea Stării Folosind Observatorii
 
-Watchers allow us to animate changes of any numerical property into another property. That may sound complicated in the abstract, so let's dive into an example using [Tween.js](https://github.com/tweenjs/tween.js):
+Observatorii (watchers) ne permit să animăm modificările oricărei proprietăți numerice într-o altă proprietate. Într-o astfel de formă abstractă acest lucru poate părea complicat, deci hai să analizăm un exemplu utilizând [Tween.js](https://github.com/tweenjs/tween.js):
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -93,7 +93,7 @@ new Vue({
 </script>
 {% endraw %}
 
-When you update the number, the change is animated below the input. This makes for a nice demo, but what about something that isn't directly stored as a number, like any valid CSS color for example? Here's how we could accomplish this with the addition of [Color.js](https://github.com/brehaut/color-js):
+Când actualizați numărul, modificarea este animată sub câmpul de introducere. E frumos ca demonstrație, dar cum rămâne cu cazul în care parametrii nu sunt stocați direct ca numere, de exemplu culorile CSS? Iată cum am putea realiza acest lucru prin adăugarea [Color.js](https://github.com/brehaut/color-js):
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -105,8 +105,8 @@ When you update the number, the change is animated below the input. This makes f
     v-on:keyup.enter="updateColor"
     placeholder="Enter a color"
   >
-  <button v-on:click="updateColor">Update</button>
-  <p>Preview:</p>
+  <button v-on:click="updateColor">Actualizare</button>
+  <p>Previzualizare:</p>
   <span
     v-bind:style="{ backgroundColor: tweenedCSSColor }"
     class="example-7-color-preview"
@@ -184,8 +184,8 @@ new Vue({
     v-on:keyup.enter="updateColor"
     placeholder="Enter a color"
   >
-  <button v-on:click="updateColor">Update</button>
-  <p>Preview:</p>
+  <button v-on:click="updateColor">Actualizare</button>
+  <p>Previzualizare:</p>
   <span
     v-bind:style="{ backgroundColor: tweenedCSSColor }"
     class="example-7-color-preview"
@@ -251,9 +251,9 @@ new Vue({
 </style>
 {% endraw %}
 
-## Dynamic State Transitions
+## Tranzițiile Dinamice Între Stări
 
-As with Vue's transition components, the data backing state transitions can be updated in real time, which is especially useful for prototyping! Even using a simple SVG polygon, you can achieve many effects that would be difficult to conceive of until you've played with the variables a little.
+Ca și în cazul componentelor de tranziție ale Vue, datele pe care se bazează tranzițiile stărilor pot fi actualizate în timp real, ceea ce este util în special pentru prototipare! Chiar folosind un poligon SVG simplu, puteți obține multe efecte interesante greu de realizat fără un joc mic cu variabile.
 
 {% raw %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenLite.min.js"></script>
@@ -262,7 +262,7 @@ As with Vue's transition components, the data backing state transitions can be u
     <polygon :points="points" class="demo-polygon"></polygon>
     <circle cx="100" cy="100" r="90" class="demo-circle"></circle>
   </svg>
-  <label>Sides: {{ sides }}</label>
+  <label>Laturi: {{ sides }}</label>
   <input
     class="demo-range-input"
     type="range"
@@ -270,7 +270,7 @@ As with Vue's transition components, the data backing state transitions can be u
     max="500"
     v-model.number="sides"
   >
-  <label>Minimum Radius: {{ minRadius }}%</label>
+  <label>Radius Minim: {{ minRadius }}%</label>
   <input
     class="demo-range-input"
     type="range"
@@ -278,7 +278,7 @@ As with Vue's transition components, the data backing state transitions can be u
     max="90"
     v-model.number="minRadius"
   >
-  <label>Update Interval: {{ updateInterval }} milliseconds</label>
+  <label>Interval de actualizare: {{ updateInterval }} millisecunde</label>
   <input
     class="demo-range-input"
     type="range"
@@ -386,11 +386,11 @@ function generatePoints (stats) {
 </style>
 {% endraw %}
 
-See [this fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) for the complete code behind the above demo.
+Accesați [acest fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) pentru a analiza codul sursă.
 
-## Organizing Transitions into Components
+## Organizarea Tranzițiilor în Formă de Componente
 
-Managing many state transitions can quickly increase the complexity of a Vue instance or component. Fortunately, many animations can be extracted out into dedicated child components. Let's do this with the animated integer from our earlier example:
+Gestionarea mai multor tranziții de stări poate mări rapid complexitatea unei instanțe sau a unei componente Vue. Din fericire, multe animații pot fi extrase în componente derivate dedicate. Deci haideți să facem asta cu numărul animat din exemplul nostru anterior:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
@@ -408,11 +408,10 @@ Managing many state transitions can quickly increase the complexity of a Vue ins
 ```
 
 ``` js
-// This complex tweening logic can now be reused between
-// any integers we may wish to animate in our application.
-// Components also offer a clean interface for configuring
-// more dynamic transitions and complex transition
-// strategies.
+// Această logică complexă de tranziție poate fi reutilizată acum între
+// orice numere întregi pe care dorim să le animăm în aplicația noastră.
+// Componentele oferă, de asemenea, o interfață clară pentru configurarea
+// comodă a tranzițiilor dinamice și a celor complexe.
 Vue.component('animated-integer', {
   template: '<span>{{ tweeningValue }}</span>',
   props: {
@@ -455,7 +454,7 @@ Vue.component('animated-integer', {
   }
 })
 
-// All complexity has now been removed from the main Vue instance!
+// Toată complexitatea a fost eliminată din instanța principală Vue!
 new Vue({
   el: '#example-8',
   data: {
@@ -539,15 +538,15 @@ new Vue({
 </script>
 {% endraw %}
 
-Within child components, we can use any combination of transition strategies that have been covered on this page, along with those offered by Vue's [built-in transition system](transitions.html). Together, there are very few limits to what can be accomplished.
+În cadrul componentelor derivate, putem folosi orice combinație de strategii de tranziție care au fost menționate pe această pagină, împreună cu cele oferite de [sistemul de tranziție încorporat](transitions.html) al Vue. Toate strategiile împreună oferă oportunități aproape nelimitate.
 
-## Bringing Designs to Life
+## Însuflețirea Creațiilor
 
-To animate, by one definition, means to bring to life. Unfortunately, when designers create icons, logos, and mascots, they're usually delivered as images or static SVGs. So although GitHub's octocat, Twitter's bird, and many other logos resemble living creatures, they don't really seem alive.
+A anima, intr-o definiție, înseamnă a aduce la viață. Din păcate, atunci când designerii creează iconițe, logo-uri și mascote, ele sunt de obicei livrate ca imagini sau SVG-uri statice. Caracatița de la GitHub, pasărea de la Twitter și multe alte logo-uri amintesc fiintele vii, însă care nu par însuflețite.
 
-Vue can help. Since SVGs are just data, we only need examples of what these creatures look like when excited, thinking, or alarmed. Then Vue can help transition between these states, making your welcome pages, loading indicators, and notifications more emotionally compelling.
+Vue poate ajuta în cazul dat. Deoarece SVG-urile sunt doar date, avem nevoie doar de exemple despre cum arată aceste creaturi atunci cand sunt incantate, gandesc sau sunt alarmate. Apoi, Vue crează tranziția între aceste stări, făcând paginile dvs. de bun venit, indicatorii de încărcare și notificările mai convingătoare din punct de vedere emoțional.
 
-Sarah Drasner demonstrates this in the demo below, using a combination of timed and interactivity-driven state changes:
+Sarah Drasner demonstrează acest lucru în demo-ul de mai jos, folosind o combinație de schimbări de stare în funcție de cronometrare și interactivitate:
 
 <p data-height="265" data-theme-id="light" data-slug-hash="YZBGNp" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Vue-controlled Wall-E" class="codepen">See the Pen <a href="https://codepen.io/sdras/pen/YZBGNp/">Vue-controlled Wall-E</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
