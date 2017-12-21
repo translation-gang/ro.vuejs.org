@@ -1,62 +1,63 @@
 ---
-title: Template Syntax
+title: Sintaxa Șablonului
 type: guide
 order: 4
 ---
 
-Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance's data. All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
+Vue.js utilizează o sintaxă de șablon bazată pe HTML, care vă permite să legați declarativ DOM-ul oferit de datele de bază ale instanței Vue. Toate șabloanele Vue.js sunt valabile în HTML, care pot fi analizate de browsere-le compatibile cu spec și cu parseri HTML.
 
-Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal amount of components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
+Sub capotă, Vue compilează șabloanele în funcțiile de redare Virtual DOM. Combinat cu sistemul de reactivitate, Vue este capabil să descopere în mod inteligent cantitatea minimă de componente pentru a redimensiona și aplica cantitatea minimă de manipulări DOM atunci când se modifică starea aplicației.
 
-If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](render-function.html) instead of templates, with optional JSX support.
+Dacă sunteți familiarizați cu conceptele DOM virtuale și preferați puterea primară a JavaScript, puteți, de asemenea, să [scrieți în mod direct funcțiile de redare](render-function.html) în locul șabloanelor, cu suport opțional JSX.
 
-## Interpolations
+## Interpolări
 
 ### Text
 
-The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
+Forma cea mai elementară de legare a datelor este interpolarea textului folosind sintaxa "Mustache" (acoladă dublă);
 
 ``` html
 <span>Message: {{ msg }}</span>
 ```
 
-The mustache tag will be replaced with the value of the `msg` property on the corresponding data object. It will also be updated whenever the data object's `msg` property changes.
+Eticheta pentru mustață va fi înlocuită cu valoarea proprietății `msg` de pe obiectul corespunzător. De asemenea, acesta va fi actualizat de fiecare dată când proprietatea `msg` se modifică.
 
-You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/#v-once), but keep in mind this will also affect any binding on the same node:
+De asemenea, puteți efectua interpolări de o singură dată care nu se actualizează la schimbarea datelor utilizând directiva [v-once](../api/#v-once), dar rețineți că aceasta va afecta și orice legare de același nod:
 
 ``` html
-<span v-once>This will never change: {{ msg }}</span>
+<span v-once>Aceasta nu se va schimba niciodată: {{ msg }}</span>
 ```
 
-### Raw HTML
+### HTML-ul Crud
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the `v-html` directive:
+Mustața dublă interpretează datele ca text simplu, nu HTML. Pentru a utiliza HTML-ul real, va trebui să utilizați directiva `v-html`:
 
 ``` html
 <div v-html="rawHtml"></div>
 ```
 
-The contents of this `div` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
+Conținutul acestui "div" va fi înlocuit cu valoarea proprietății `rawHtml`, interpretată ca HTML simplu - legările de date sunt ignorate. Rețineți că nu puteți utiliza v-html pentru a compune șablonul parțial, deoarece Vue nu este un motor de șablon bazat pe șir. În schimb, componentele sunt preferate ca unitate fundamentală pentru reutilizarea și compoziția UI.
 
-<p class="tip">Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use HTML interpolation on trusted content and **never** on user-provided content.</p>
 
-### Attributes
+<p class="tip"> Redarea dinamică a conținutului HTML arbitrar pe site-ul dvs. poate fi foarte periculoasă deoarece poate duce ușor la [vulnerabilități XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Utilizați numai interpolarea HTML pe un conținut de încredere și **niciodată** pe conținutul furnizat de utilizator. </p>
 
-Mustaches cannot be used inside HTML attributes, instead use a [v-bind directive](../api/#v-bind):
+### Atribute
+
+Mustațele nu pot fi utilizate în interiorul atributelor HTML, ele folosesc directiva [v-bind](../api/#v-bind):
+
 
 ``` html
 <div v-bind:id="dynamicId"></div>
 ```
-
-It also works for boolean attributes - the attribute will be removed if the condition evaluates to a falsy value:
+De asemenea, funcționează pentru atributele de tip boolean - atributul va fi eliminat dacă condiția este falsă:
 
 ``` html
-<button v-bind:disabled="isButtonDisabled">Button</button>
+<button v-bind:disabled="isButtonDisabled">Buton</button>
 ```
 
-### Using JavaScript Expressions
+### Utilizarea expresiilor JavaScript
 
-So far we've only been binding to simple property keys in our templates. But Vue.js actually supports the full power of JavaScript expressions inside all data bindings:
+Până acum am legat date doar de cheile cu proprietăți simple în șabloanele noastre. Dar Vue.js suportă de fapt puterea completă a expresiilor JavaScript în interiorul tuturor legărilor de date:
 
 ``` html
 {{ number + 1 }}
@@ -68,78 +69,77 @@ So far we've only been binding to simple property keys in our templates. But Vue
 <div v-bind:id="'list-' + id"></div>
 ```
 
-These expressions will be evaluated as JavaScript in the data scope of the owner Vue instance. One restriction is that each binding can only contain **one single expression**, so the following will **NOT** work:
+Aceste expresii vor fi evaluate ca JavaScript în domeniul de date al proprietarului instanței Vue. O restricție este că fiecare legare poate conține numai **o singură expresie**, astfel încât următorul lucru **NU** va funcționa:
 
 ``` html
-<!-- this is a statement, not an expression: -->
+<!-- aceasta este o declarație, nu o expresie: -->
 {{ var a = 1 }}
 
-<!-- flow control won't work either, use ternary expressions -->
+<!-- controlul fluxului nu va funcționa niciodată, utilizați expresii ternare -->
 {{ if (ok) { return message } }}
 ```
 
-<p class="tip">Template expressions are sandboxed and only have access to a whitelist of globals such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.</p>
+<p class="tip">Exemplele de șabloane sunt sandboxed și au acces doar la o listă limitată(whitelist) de informații globale, cum ar fi `Math` și `Date`. Nu trebuie să încercați să accesați obiecte globale ale utilizatorului în expresiile de șabloane.</p>
 
-## Directives
+## Directive
 
-Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception for `v-for`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
+Directivele sunt atribute speciale cu prefixul `v-`. Directivele valorilor atributelor se așteaptă să fie **o singură expresie JavaScript** (cu excepția pentru v-for, care va fi discutată mai târziu). Misiunea unei directive este de a aplica reactiv efecte secundare la DOM când se modifică valoarea expresiei sale. Să examinăm exemplul pe care l-am văzut în introducere:
 
 ``` html
-<p v-if="seen">Now you see me</p>
+<p v-if="seen">Acum mă vezi?</p>
 ```
 
-Here, the `v-if` directive would remove/insert the `<p>` element based on the truthiness of the value of the expression `seen`.
+Aici, directiva `v-if` va elimina/introduce elementul `<p>` bazat pe corectitudinea valorii expresiei `seen`.
 
-### Arguments
+### Argumente
 
-Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
+Unele directive pot lua un "argument", notat cu două puncte(:) după numele directivei. De exemplu, directiva `v-bind` este folosită pentru a actualiza reactiv un atribut HTML:
 
 ``` html
 <a v-bind:href="url"></a>
 ```
 
-Here `href` is the argument, which tells the `v-bind` directive to bind the element's `href` attribute to the value of the expression `url`.
+Aici `href` este argumentul, care spune directivei v-bind să lege atributul `href` al elementului la valoarea expresiei `url`.
 
-Another example is the `v-on` directive, which listens to DOM events:
+Un alt exemplu este directiva `v-on`, care asculta evenimentele DOM-ului:
 
 ``` html
 <a v-on:click="doSomething">
 ```
 
-Here the argument is the event name to listen to. We will talk about event handling in more detail too.
+Aici argumentul este numele acțiunii care va fi ascultat. Vom vorbi mai multe și despre manipularea acțiunilor.
 
-### Modifiers
+### Modificatorii
 
-Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+Modificatorii sunt postfixe speciale denotate printr-un punct, ceea ce indică faptul că o directivă ar trebui să fie legată într-un mod special. De exemplu, modificatorul `.prevent` declară directiva `v-on` pentru a apela `event.preventDefault()` la evenimentul declanșat:
 
 ``` html
 <form v-on:submit.prevent="onSubmit"></form>
 ```
+Veți vedea mai multe exemple de modificatori mai târziu, [pentru v-on](events.html#Event-Modifiers) și [pentru `v-model`](forms.html#Modifiers), atunci când vom explora aceste caracteristici.
 
-You'll see other examples of modifiers later, [for `v-on`](events.html#Event-Modifiers) and [for `v-model`](forms.html#Modifiers), when we explore those features.
+## Prescurtări
 
-## Shorthands
+Prefixul `v-` reprezintă o indicație vizuală pentru identificarea atributelor specifice Vue în șabloanele dvs. Acest lucru este util atunci când utilizați Vue.js pentru a aplica un comportament dinamic la unele marcări existente, dar puteți simți mai multe pentru unele directive utilizate frecvent. În același timp, necesitatea prefixului `v-` devine mai puțin importantă atunci când construiți un [SPA](https://en.wikipedia.org/wiki/Single-page_application) unde Vue.js gestionează fiecare șablon. Prin urmare, Vue.js oferă stenograme speciale pentru două dintre cele mai des utilizate directive, `v-bind` și `v-on`:
 
-The `v-` prefix serves as a visual cue for identifying Vue-specific attributes in your templates. This is useful when you are using Vue.js to apply dynamic behavior to some existing markup, but can feel verbose for some frequently used directives. At the same time, the need for the `v-` prefix becomes less important when you are building an [SPA](https://en.wikipedia.org/wiki/Single-page_application) where Vue.js manages every template. Therefore, Vue.js provides special shorthands for two of the most often used directives, `v-bind` and `v-on`:
-
-### `v-bind` Shorthand
+### Prescurtarea `v-bind`
 
 ``` html
-<!-- full syntax -->
+<!-- sintaxa completă -->
 <a v-bind:href="url"></a>
 
-<!-- shorthand -->
+<!-- prescurtarea -->
 <a :href="url"></a>
 ```
 
-### `v-on` Shorthand
+### Prescurtarea `v-on`
 
 ``` html
-<!-- full syntax -->
+<!-- sintaxa completă -->
 <a v-on:click="doSomething"></a>
 
-<!-- shorthand -->
+<!-- prescurtarea -->
 <a @click="doSomething"></a>
 ```
 
-They may look a bit different from normal HTML, but `:` and `@` are valid chars for attribute names and all Vue.js supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is totally optional, but you will likely appreciate it when you learn more about its usage later.
+Ele pot arăta un pic diferit de normalul HTML, dar `:` și `@` sunt caractere valabile pentru numele atributelor și toate browserele acceptate de Vue.js pot să o parseze corect. În plus, ele nu apar în marcajul final randat. Sintaxa prescurtată este total opțională, dar probabil că veți aprecia atunci când veți afla mai multe despre utilizarea acesteia mai târziu.
