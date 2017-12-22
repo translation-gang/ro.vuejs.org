@@ -6,7 +6,7 @@ order: 302
 
 ## Intro
 
-In addition to the default set of directives shipped in core (`v-model` and `v-show`), Vue also allows you to register your own custom directives. Note that in Vue 2.0, the primary form of code reuse and abstraction is components - however there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
+Pe lângă setul implicit de directive livrate în nucleu (`v-model` și `v-show`), Vue vă permite, de asemenea, să vă înregistrați propriile directive personalizate. Rețineți că în Vue 2.0, forma primară de reutilizare și abstractizare a codului reprezintă componentele - cu toate acestea, pot exista cazuri în care aveți nevoie de a efectua operațiuni la nivel inferior cu DOM, pentru care directivele personalizate pot fi foarte utile. Un exemplu ar fi focalizarea asupra unui element input:
 
 {% raw %}
 <div id="simplest-directive-example" class="demo">
@@ -24,25 +24,25 @@ new Vue({
 </script>
 {% endraw %}
 
-When the page loads, that element gains focus (note: autofocus doesn't work on mobile Safari). In fact, if you haven't clicked on anything else since visiting this page, the input above should be focused now. Now let's build the directive that accomplishes this:
+Când pagina se încarcă, acel element capătă focalizare (rețineți: autofocusul nu funcționează pe Safari mobil). De fapt, dacă nu ați făcut clic pe altceva de la vizitarea acestei pagini, inputul de mai sus ar trebui să fie focalizat acum. Deci, să construim directiva care realizează acest lucru:
 
 ``` js
-// Register a global custom directive called v-focus
+// Înregistrăm o directivă personalizată globală numită v-focus
 Vue.directive('focus', {
-  // When the bound element is inserted into the DOM...
+  // Când elementul legat este inserat în DOM...
   inserted: function (el) {
-    // Focus the element
+    // Focalizarea elementului
     el.focus()
   }
 })
 ```
 
-If you want to register a directive locally instead, components also accept a `directives` option:
+Dacă doriți să înregistrați o directivă locală, componentele acceptă și opțiunea `directives`:
 
 ``` js
 directives: {
   focus: {
-    // directive definition
+    // definirea directivei
     inserted: function (el) {
       el.focus()
     }
@@ -50,7 +50,7 @@ directives: {
 }
 ```
 
-Then in a template, you can use the new `v-focus` attribute on any element, like this:
+Apoi, într-un șablon, puteți folosi noul atribut `v-focus` pe orice element, cum ar fi acesta:
 
 ``` html
 <input v-focus>
