@@ -4,7 +4,7 @@ type: guide
 order: 302
 ---
 
-## Intro
+## Introducere
 
 Pe lângă setul implicit de directive livrate în nucleu (`v-model` și `v-show`), Vue vă permite, de asemenea, să vă înregistrați propriile directive personalizate. Rețineți că în Vue 2.0, forma primară de reutilizare și abstractizare a codului reprezintă componentele - cu toate acestea, pot exista cazuri în care aveți nevoie de a efectua operațiuni la nivel inferior cu DOM, pentru care directivele personalizate pot fi foarte utile. Un exemplu ar fi focalizarea asupra unui element input:
 
