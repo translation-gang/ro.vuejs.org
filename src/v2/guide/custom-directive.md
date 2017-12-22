@@ -24,7 +24,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Când pagina se încarcă, acel element capătă focalizare (rețineți: autofocusul nu funcționează pe Safari mobil). De fapt, dacă nu ați făcut clic pe altceva de la vizitarea acestei pagini, inputul de mai sus ar trebui să fie focalizat acum. Deci, să construim directiva care realizează acest lucru:
+Când pagina se încarcă, acel element capătă focalizare (rețineți: `autofocus` nu funcționează pe Safari mobil). De fapt, dacă nu ați făcut clic pe altceva de la vizitarea acestei pagini, inputul de mai sus ar trebui să fie focalizat acum. Deci, să construim directiva care realizează acest lucru:
 
 ``` js
 // Înregistrăm o directivă personalizată globală numită v-focus
