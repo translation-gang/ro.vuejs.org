@@ -249,9 +249,9 @@ Vue împachetează o metodă de mutație observată a array-ului, astfel încât
 
 Puteți deschide consola și puteți juca cu array-ului exemplelor anterioare, prin apelarea metodelor de mutație. De exemplu: `example1.items.push({ message: 'Baz' })`.
 
-### Replacing an Array
+### Înlocuirea unui Array
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
+Metodele de mutație, după cum sugerează și numele, mută array-ul original ]n cel care este chemat. În comparație, există, de asemenea, metode non-mutație, de ex. `filter()`, `concat()` și `slice()`, care nu modifică array-ul original, dar **întoarce întotdeauna un șir nou**. Când lucrați cu metode non-mutație, puteți înlocui array-ul vechi cu cel nou:
 
 ``` js
 example1.items = example1.items.filter(function (item) {
@@ -259,7 +259,7 @@ example1.items = example1.items.filter(function (item) {
 })
 ```
 
-You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
+S-ar putea crede că acest lucru va face ca Vue să arunce DOM-ul existent și să redea întreaga listă - din fericire, nu este cazul. Vue implementează unele euristici inteligente pentru a maximiliza reutilizarea elementului DOM, înlocuind astfel un array cu un alt array care conține obiecte suprapuse, este o operație foarte eficientă.
 
 ### Caveats
 
