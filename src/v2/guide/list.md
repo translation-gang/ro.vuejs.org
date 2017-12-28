@@ -233,11 +233,11 @@ Se recomandă să furnizați (o cheie)`key` cu `v-for` ori de câte ori este pos
 
 Deoarece este un mecanism generic pentru Vue de a identifica nodurile, `key` are și alte utilizări care nu sunt legate în mod specific cu `v-for`, așa cum vom vedea mai târziu în ghid.
 
-## Array Change Detection
+## Array-ul Schimbă Detectarea
 
-### Mutation Methods
+### Metode de Mutație
 
-Vue wraps an observed array's mutation methods so they will also trigger view updates. The wrapped methods are:
+Vue împachetează o metodă de mutație observată a array-ului, astfel încât aceasta va declanșa actualizări de vizualizare. Metodele împachetate sunt:
 
 - `push()`
 - `pop()`
@@ -247,7 +247,7 @@ Vue wraps an observed array's mutation methods so they will also trigger view up
 - `sort()`
 - `reverse()`
 
-You can open the console and play with the previous examples' `items` array by calling their mutation methods. For example: `example1.items.push({ message: 'Baz' })`.
+Puteți deschide consola și puteți juca cu array-ului exemplelor anterioare, prin apelarea metodelor de mutație. De exemplu: `example1.items.push({ message: 'Baz' })`.
 
 ### Replacing an Array
 
