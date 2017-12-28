@@ -261,14 +261,14 @@ example1.items = example1.items.filter(function (item) {
 
 S-ar putea crede că acest lucru va face ca Vue să arunce DOM-ul existent și să redea întreaga listă - din fericire, nu este cazul. Vue implementează unele euristici inteligente pentru a maximiliza reutilizarea elementului DOM, înlocuind astfel un array cu un alt array care conține obiecte suprapuse, este o operație foarte eficientă.
 
-### Caveats
+### Avertismente
 
-Due to limitations in JavaScript, Vue **cannot** detect the following changes to an array:
+Datorită limitărilor din JavaScript, Vue **nu poate** detecta următoarele modificări la un arrray:
 
-1. When you directly set an item with the index, e.g. `vm.items[indexOfItem] = newValue`
-2. When you modify the length of the array, e.g. `vm.items.length = newLength`
+1. Când setați direct un element cu indexul, de ex. `vm.items[indexOfItem] = newValue`
+2. Când modificați lungimea array-ului, de ex. `vm.items.length = newLength`
 
-To overcome caveat 1, both of the following will accomplish the same as `vm.items[indexOfItem] = newValue`, but will also trigger state updates in the reactivity system:
+Pentru a depăși avertismentul 1, ambele dintre ele vor realiza aceleași lucruri ca și `vm.items[indexOfItem] = newValue`, dar vor declanșa actualizări de stare în sistemul de reactivitate:
 
 ``` js
 // Vue.set
@@ -279,7 +279,7 @@ Vue.set(example1.items, indexOfItem, newValue)
 example1.items.splice(indexOfItem, 1, newValue)
 ```
 
-To deal with caveat 2, you can use `splice`:
+Pentru a face față avertismentului 2, puteți folosi `splice`:
 
 ``` js
 example1.items.splice(newLength)
