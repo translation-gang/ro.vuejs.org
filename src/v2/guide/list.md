@@ -217,11 +217,11 @@ new Vue({
 
 ## `key`
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index. This is similar to the behavior of `track-by="$index"` in Vue 1.x.
+Când Vue actualizează o listă de elemente redate cu `v-for`, implicit folosește o strategie "in-place patch". Dacă ordinea elementelor de date s-a schimbat, în loc să mutați elementele DOM pentru a se potrivi cu ordinea articolelor, Vue va face patch pentru fiecare element în loc și va asigura că reflectă ceea ce ar trebui să fie redat la indexul respectiv. Acest lucru este similar cu comportamentul `track-by="$index"` în Vue 1.x.
 
-This default mode is efficient, but only suitable **when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+Acest mod implicit este eficient, dar numai potrivit **când lista de rendare nu se bazează pe starea componentă a elementului derivat sau pe starea DOM temporară (de exemplu, forma de intrare pentru valori)**.
 
-To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item. An ideal value for `key` would be the unique id of each item. This special attribute is a rough equivalent to `track-by` in 1.x, but it works like an attribute, so you need to use `v-bind` to bind it to dynamic values (using shorthand here):
+Pentru a da Vue-ului un indiciu, astfel încât să poată urmări identitatea fiecărui nod, reutilizând și reordonând elementele existente, trebuie să oferiți un atribut unic `key` pentru fiecare element. O valoare ideală pentru `key` ar fi id-ul unic al fiecărui element. Acest atribut special este strict echivalent cu `track-by` în 1.x, dar funcționează ca un atribut, deci trebuie să folosiți `v-bind` pentru a le lega de valorile dinamice (folosind shorthand aici):
 
 ``` html
 <div v-for="item in items" :key="item.id">
@@ -229,9 +229,9 @@ To give Vue a hint so that it can track each node's identity, and thus reuse and
 </div>
 ```
 
-It is recommended to provide a `key` with `v-for` whenever possible, unless the iterated DOM content is simple, or you are intentionally relying on the default behavior for performance gains.
+Se recomandă să furnizați (o cheie)`key` cu `v-for` ori de câte ori este posibil, cu excepția cazului în care conținutul DOM-ului iterabil este simplu sau dacă vă bazați în mod intenționat pe comportamentul implicit pentru câștigurile de performanță.
 
-Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
+Deoarece este un mecanism generic pentru Vue de a identifica nodurile, `key` are și alte utilizări care nu sunt legate în mod specific cu `v-for`, așa cum vom vedea mai târziu în ghid.
 
 ## Array Change Detection
 
