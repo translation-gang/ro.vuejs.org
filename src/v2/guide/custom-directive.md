@@ -56,21 +56,21 @@ Apoi, într-un șablon, puteți folosi noul atribut `v-focus` pe orice element, 
 <input v-focus>
 ```
 
-## Hook Functions
+## Funcții de Declanșare (Hook-uri)
 
-A directive definition object can provide several hook functions (all optional):
+Un obiect de definire a directivelor poate oferi mai multe hook-uri (toate opționale):
 
-- `bind`: called only once, when the directive is first bound to the element. This is where you can do one-time setup work.
+- `bind`: apelată o singură dată, când directiva este prima dată legată de element. Aici puteți efectua o singură operație de configurare.
 
-- `inserted`: called when the bound element has been inserted into its parent node (this only guarantees parent node presence, not necessarily in-document).
+- `inserted`: apelată atunci când elementul legat a fost inserat în nodul părinte (acest lucru garantează doar prezența în nodul părinte, nu neapărat în document).
 
-- `update`: called after the containing component's VNode has updated, __but possibly before its children have updated__. The directive's value may or may not have changed, but you can skip unnecessary updates by comparing the binding's current and old values (see below on hook arguments).
+- `update`: apelată după ce VNode-ul componentei-container este actualizat, __dar eventual înainte ca elementele derivate să fie actualizate__. Valoarea directivei se poate schimba până în acest moment sau poate nu, dar puteți sări peste actualizările inutile prin compararea valorilor curente și vechi ale legăturii (priviți mai jos despre argumentele hook-urilor).
 
-- `componentUpdated`: called after the containing component's VNode __and the VNodes of its children__ have updated.
+- `componentUpdated`: apelată după actualizarea atât a VNodei componentei-container __cât și a VNode-lor derivatelor sale__.
 
-- `unbind`: called only once, when the directive is unbound from the element.
+- `unbind`: apelată o singură dată, când directiva se dezleagă de la element.
 
-We'll explore the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `oldVnode`) in the next section.
+Vom examina argumentele transmise în aceste hook-uri (și anume `el`, `binding`, `vnode` și `oldVnode`) în secțiunea următoare.
 
 ## Directive Hook Arguments
 
