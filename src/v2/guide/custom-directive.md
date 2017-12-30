@@ -141,9 +141,9 @@ new Vue({
 </script>
 {% endraw %}
 
-## Function Shorthand
+## Forma Prescurtată
 
-In many cases, you may want the same behavior on `bind` and `update`, but don't care about the other hooks. For example:
+În multe cazuri, este posibil să doriți același comportament penreu `bind` și `update`, dar să nu vă fie importante celelalte hook-uri. De exemplu:
 
 ``` js
 Vue.directive('color-swatch', function (el, binding) {
