@@ -385,9 +385,9 @@ methods: {
 }
 ```
 
-## `v-for` with a Range
+## `v-for` cu un Interval
 
-`v-for` can also take an integer. In this case it will repeat the template that many times.
+`v-for` poate lua de asemenea un număr întreg. În acest caz, se va repeta șablonul de mai multe ori.
 
 ``` html
 <div>
@@ -395,7 +395,7 @@ methods: {
 </div>
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="range" class="demo">
