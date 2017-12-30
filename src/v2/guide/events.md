@@ -29,7 +29,7 @@ Rezultat:
 
 {% raw %}
 <div id="example-1" class="demo">
-  <button v-on:click="counter += 1">Add 1</button>
+  <button v-on:click="counter += 1">Adaugă 1</button>
   <p>Butonul de mai sus a fost apăsat de {{ counter }} ori.</p>
 </div>
 <script>
@@ -42,15 +42,15 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-## Method Event Handlers
+## Metoda de Gestionare a Evenimentelor
 
-The logic for many event handlers will be more complex though, so keeping your JavaScript in the value of the `v-on` attribute isn't feasible. That's why `v-on` can also accept the name of a method you'd like to call.
+Logica procesării evenimentelor poate fi destul de complexă, astfel încât nu este întotdeauna posibilă lăsarea întregului cod JavaScript în valoarea atributului v-on. În acest caz, `v-on` poate accepta numele metodei pe care doriți să o apelați.
 
-For example:
+De examplu:
 
 ``` html
 <div id="example-2">
-  <!-- `greet` is the name of a method defined below -->
+  <!-- `greet`  este numele metodei is the name of a method definite mai jos -->
   <button v-on:click="greet">Greet</button>
 </div>
 ```
@@ -61,12 +61,12 @@ var example2 = new Vue({
   data: {
     name: 'Vue.js'
   },
-  // define methods under the `methods` object
+  // definiți metodele în obiectul `methods`
   methods: {
     greet: function (event) {
-      // `this` inside methods points to the Vue instance
+      // `this` din interior metodelor indică instanța Vue
       alert('Hello ' + this.name + '!')
-      // `event` is the native DOM event
+      // `event` este evenimentul DOM-ului nativ
       if (event) {
         alert(event.target.tagName)
       }
@@ -74,11 +74,11 @@ var example2 = new Vue({
   }
 })
 
-// you can invoke methods in JavaScript too
-example2.greet() // => 'Hello Vue.js!'
+// puteți invoca și metode în JavaScript
+example2.greet() // => 'Salut Vue.js!'
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="example-2" class="demo">
