@@ -1,5 +1,5 @@
 ---
-title: Event Handling
+title: Manipularea Evenimentelor
 type: guide
 order: 9
 ---
