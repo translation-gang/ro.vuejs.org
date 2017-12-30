@@ -419,9 +419,9 @@ Similar cu șablonul `v-if`, puteți folosi și o etichetă `<template>` cu `v-f
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` cu `v-if`
 
-When they exist on the same node, `v-for` has a higher priority than `v-if`. That means the `v-if` will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only _some_ items, like below:
+Când există pe același nod, `v-for` are o prioritate mai mare decât `v-if`. Asta inseamna ca `v-if` va fi rulat pe fiecare iteratie a ciclului separat. Acest lucru poate fi util atunci când doriți să redați noduri doar pentru _unele_ elemente, cum ar fi:
 
 ``` html
 <li v-for="todo in todos" v-if="!todo.isComplete">
@@ -429,9 +429,9 @@ When they exist on the same node, `v-for` has a higher priority than `v-if`. Tha
 </li>
 ```
 
-The above only renders the todos that are not complete.
+Cele de mai sus fac doar todos care nu sunt complete.
 
-If instead, your intent is to conditionally skip execution of the loop, you can place the `v-if` on a wrapper element (or [`<template>`](conditional.html#Conditional-Groups-with-v-if-on-lt-template-gt)). For example:
+Dacă în schimb, intenția dvs. este să ignorați condiția execuției a ciclului, puteți plasa elementul `v-if` pe un element de înfășurare (sau [`<template>`](conditional.html#Conditional-Groups-with-v-if-on-lt-template-gt)). De exemplu:
 
 ``` html
 <ul v-if="todos.length">
@@ -439,7 +439,7 @@ If instead, your intent is to conditionally skip execution of the loop, you can 
     {{ todo }}
   </li>
 </ul>
-<p v-else>No todos left!</p>
+<p v-else>Nu au mai rămas todos!</p>
 ```
 
 ## `v-for` with a Component
