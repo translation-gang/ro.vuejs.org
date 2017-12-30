@@ -160,11 +160,11 @@ methods: {
 }
 ```
 
-## Event Modifiers
+## Modificatorii de Evenimente
 
-It is a very common need to call `event.preventDefault()` or `event.stopPropagation()` inside event handlers. Although we can do this easily inside methods, it would be better if the methods can be purely about data logic rather than having to deal with DOM event details.
+Este o necesitate foarte frecventă de a apela `event.preventDefault()` sau `event.stopPropagation()` în cadrul procesatorilor de evenimente. Deși putem face acest lucru cu ușurință în interiorul metodelor, ar fi mai bine dacă metodele pot fi pur și simplu legate de logica datelor, mai degrabă decât să se ocupe de detaliile evenimentului DOM.
 
-To address this problem, Vue provides **event modifiers** for `v-on`. Recall that modifiers are directive postfixes denoted by a dot.
+Pentru a rezolva această problemă, Vue oferă **modificatorii de evenimente** pentru `v-on`. Amintiți-vă că modificatorii sunt directive postfixe direcționate cu un punct.
 
 - `.stop`
 - `.prevent`
@@ -173,37 +173,37 @@ To address this problem, Vue provides **event modifiers** for `v-on`. Recall tha
 - `.once`
 
 ``` html
-<!-- the click event's propagation will be stopped -->
+<!-- evenimentul de click nu se va mai afișa -->
 <a v-on:click.stop="doThis"></a>
 
-<!-- the submit event will no longer reload the page -->
+<!-- evenimentul submit nu va mai reîncărca pagina -->
 <form v-on:submit.prevent="onSubmit"></form>
 
-<!-- modifiers can be chained -->
+<!-- modificatorii pot fi combinați în lanțuri -->
 <a v-on:click.stop.prevent="doThat"></a>
 
-<!-- just the modifier -->
+<!-- doar modificatorul -->
 <form v-on:submit.prevent></form>
 
-<!-- use capture mode when adding the event listener -->
-<!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+<!-- utilizați modul capture atunci când adăugați ascultătorul de evenimente -->
+<!-- adică un eveniment care vizează un element interior este tratat aici înainte de a fi manipulat de acel element -->
 <div v-on:click.capture="doThis">...</div>
 
-<!-- only trigger handler if event.target is the element itself -->
-<!-- i.e. not from a child element -->
+<!-- numai un manipulant de declanșare dacă event.target este elementul în sine -->
+<!-- adică nu dintr-un element derivat -->
 <div v-on:click.self="doThat">...</div>
 ```
 
-<p class="tip">Order matters when using modifiers because the relevant code is generated in the same order. Therefore using `@click.prevent.self` will prevent **all clicks** while `@click.self.prevent` will only prevent clicks on the element itself.</p>
+<p class="tip">Ordinul contează atunci când se utilizează modificatorii, deoarece codul relevant este generat în aceeași ordine. Prin urmare, folosirea lui `@click.prevent.self` va împiedica **toate click-urile** în timp ce `@click.self.prevent` va împiedica doar click-urile pe elementul în sine..</p>
 
-> New in 2.1.4+
+> Nou în 2.1.4+
 
 ``` html
-<!-- the click event will be triggered at most once -->
+<!--  evenimentul click va fi declanșat cel mult o dată -->
 <a v-on:click.once="doThis"></a>
 ```
 
-Unlike the other modifiers, which are exclusive to native DOM events, the `.once` modifier can also be used on [component events](components.html#Using-v-on-with-Custom-Events). If you haven't read about components yet, don't worry about this for now.
+Spre deosebire de ceilalți modificatori, care sunt exclusivi pentru evenimentele DOM-ului nativ, modificatorul `.once` poate fi de asemenea utilizat în [evenimentele component](components.html#Using-v-on-with-Custom-Events). Dacă nu ați citit încă despre componente, nu vă faceți griji în acest moment.
 
 ## Key Modifiers
 
