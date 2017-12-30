@@ -72,24 +72,24 @@ Un obiect de definire a directivelor poate oferi mai multe hook-uri (toate opți
 
 Vom examina argumentele transmise în aceste hook-uri (și anume `el`, `binding`, `vnode` și `oldVnode`) în secțiunea următoare.
 
-## Directive Hook Arguments
+## Argumentele Hook-urilor
 
-Directive hooks are passed these arguments:
+Următorii parametri sunt transmiși în hook-uri:
 
-- **el**: The element the directive is bound to. This can be used to directly manipulate the DOM.
-- **binding**: An object containing the following properties.
-  - **name**: The name of the directive, without the `v-` prefix.
-  - **value**: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - **oldValue**: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
-  - **expression**: The expression of the binding as a string. For example in `v-my-directive="1 + 1"`, the expression would be `"1 + 1"`.
-  - **arg**: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - **modifiers**: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- **vnode**: The virtual node produced by Vue's compiler. See the [VNode API](../api/#VNode-Interface) for full details.
-- **oldVnode**: The previous virtual node, only available in the `update` and `componentUpdated` hooks.
+- **el**: Elementul de care directiva este legată. Acesta poate fi folosit pentru a manipula direct DOM.
+- **binding**: Un obiect care conține următoarele proprietăți.
+  - **name**: Numele directivei, fără prefixul `v-`.
+  - **value**: Valoarea transmisă directivei. De exemplu, în `v-my-directive="1 + 1"`, valoarea ar fi `2`.
+  - **oldValue**: Valoarea anterioară, disponibilă numai în `update` și `componentUpdated`. Este disponibilă chiar dacă valoarea nu a fost modificată.
+  - **expression**: Expresia legării ca șir de caractere. De exemplu, în `v-my-directive="1 + 1"`, aceasta va fi `"1 + 1"`.
+  - **arg**: Argumentul transmis directivei, dacă există. De exemplu, în `v-my-directive:foo`, arg va fi `"foo"`.
+  - **modifiers**: Un obiect care conține modificatori, dacă există. De exemplu, în `v-my-directive.foo.bar`, obiectul cu modificatori ar fi `{ foo: true, bar: true }`.
+- **vnode**: Nodul virtual produs de compilatorul Vue. Analizați [VNode API](../api/#VNode-Interface) pentru detalii complete.
+- **oldVnode**: Nodul virtual anterior, disponibil numai în hook-urile `update` și `componentUpdated`.
 
-<p class="tip">Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
+<p class="tip">În afară de `el`, ar trebui să tratați aceste argumente ca fiind doar pentru citire și să nu le modificați niciodată. Dacă aveți nevoie să partajați informația între hook-uri, se recomandă să faceți acest lucru prin [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
 
-An example of a custom directive using some of these properties:
+Urmează un exemplu de directivă personalizată care utilizează unele dintre aceste proprietăți:
 
 ``` html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
