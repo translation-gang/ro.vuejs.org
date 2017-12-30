@@ -406,9 +406,9 @@ Rezultat:
 </script>
 {% endraw %}
 
-## `v-for` on a `<template>`
+## `v-for` pe un `<template>`
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+Similar cu șablonul `v-if`, puteți folosi și o etichetă `<template>` cu `v-for` pentru a reda un bloc de elemente multiple. De exemplu:
 
 ``` html
 <ul>
