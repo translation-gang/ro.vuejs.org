@@ -151,9 +151,9 @@ Vue.directive('color-swatch', function (el, binding) {
 })
 ```
 
-## Object Literals
+## Transmiterea Obiectului de Date în Directivă
 
-If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
+Dacă directiva dvs. are nevoie de mai multe valori, puteți transmite și un obiect JavaScript. Rețineți că directivele pot lua orice expresie JavaScript validă.
 
 ``` html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
