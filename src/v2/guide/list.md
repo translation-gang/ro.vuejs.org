@@ -442,19 +442,19 @@ Dacă în schimb, intenția dvs. este să ignorați condiția execuției a ciclu
 <p v-else>Nu au mai rămas todos!</p>
 ```
 
-## `v-for` with a Component
+## `v-for` cu o Componentă
 
-> This section assumes knowledge of [Components](components.html). Feel free to skip it and come back later.
+> Această secțiune presupune cunoașterea [Componentelor](components.html). Simțiți-vă liber să săriți și să reveniți mai târziu.
 
-You can directly use `v-for` on a custom component, like any normal element:
+Puteți folosi direct `v-for` pe o componentă personalizată, ca orice element normal:
 
 ``` html
 <my-component v-for="item in items" :key="item.id"></my-component>
 ```
 
-> In 2.2.0+, when using `v-for` with a component, a [`key`](list.html#key) is now required.
+> În versiunea 2.2.0+, atunci când se folosește `v-for` cu o componentă, este acum necesară o cheie[`key`](list.html#key).
 
-However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
+Cu toate acestea, acest lucru nu va transfera automat niciun fel de date componentei, deoarece componentele au domenii izolate. Pentru a transfera datele iterate pe o componentă, trebuie să utilizați în mod explicit parametrii de intrare:
 
 ``` html
 <my-component
@@ -465,16 +465,16 @@ However, this won't automatically pass any data to the component, because compon
 ></my-component>
 ```
 
-The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
+Motivul pentru care `item`-ul nu este transmis automat componentei se datorează faptului că ar face ca componenta să fie codificată cu logica operației `v-for`. Și dacă sursa de date este specificată explicit, componenta poate fi reutilizată în alte situații.
 
-Here's a complete example of a simple todo list:
+Aici este un exemplu complet a unei liste simple de tip todo:
 
 ``` html
 <div id="todo-list-example">
   <input
     v-model="newTodoText"
     v-on:keyup.enter="addNewTodo"
-    placeholder="Add a todo"
+    placeholder="Adaugă un todo"
   >
   <ul>
     <li
@@ -488,7 +488,7 @@ Here's a complete example of a simple todo list:
 </div>
 ```
 
-<p class="tip">Note the `is="todo-item"` attribute. This is necessary in DOM templates, because only an `<li>` element is valid inside a `<ul>`. It does the same thing as `<todo-item>`, but works around a potential browser parsing error. See [DOM Template Parsing Caveats](components.html#DOM-Template-Parsing-Caveats) to learn more.</p>
+<p class="tip">Rețineți atributul `is="todo-item"`. Acesta este necesar în șabloanele DOM-ului, deoarece numai un element `<li>` este valabil în interiorul unui `<ul>`. El face același lucru cu `<todo-item>`, dar funcționează în jurul unei erori potențiale de parsing a browserului. Consultați [Caracteristicile Parsingului  Șabloanelor ale DOM-ului](components.html#DOM-Template-Parsing-Caveats) pentru a afla mai multe.</p>
 
 ``` js
 Vue.component('todo-item', {
@@ -508,15 +508,15 @@ new Vue({
     todos: [
       {
         id: 1,
-        title: 'Do the dishes',
+        title: 'De spălat vesela',
       },
       {
         id: 2,
-        title: 'Take out the trash',
+        title: 'De aruncat gunoiul',
       },
       {
         id: 3,
-        title: 'Mow the lawn'
+        title: 'De tăiat gazonul'
       }
     ],
     nextTodoId: 4
@@ -538,7 +538,7 @@ new Vue({
   <input
     v-model="newTodoText"
     v-on:keyup.enter="addNewTodo"
-    placeholder="Add a todo"
+    placeholder="Adaugă un todo"
   >
   <ul>
     <li
@@ -568,15 +568,15 @@ new Vue({
     todos: [
       {
         id: 1,
-        title: 'Do the dishes',
+        title: 'De spălat vesela',
       },
       {
         id: 2,
-        title: 'Take out the trash',
+        title: 'De aruncat gunoiul',
       },
       {
         id: 3,
-        title: 'Mow the lawn'
+        title: 'De tăiat gazonul'
       }
     ],
     nextTodoId: 4
