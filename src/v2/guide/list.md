@@ -28,7 +28,7 @@ var example1 = new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <ul id="example-1" class="demo">
@@ -285,9 +285,9 @@ Pentru a face față avertismentului 2, puteți folosi `splice`:
 example1.items.splice(newLength)
 ```
 
-## Object Change Detection Caveats
+## Avertismente de Schimbare a Obiectelor
 
-Again due to limitations of modern JavaScript, **Vue cannot detect property addition or deletion**. For example:
+Din nou datorită limitelor JavaScript-ului modern, **Vue nu poate detecta adăugarea sau ștergerea de proprietăți**. De exemplu:
 
 ``` js
 var vm = new Vue({
@@ -295,13 +295,13 @@ var vm = new Vue({
     a: 1
   }
 })
-// `vm.a` is now reactive
+// `vm.a` este acum reactiv
 
 vm.b = 2
-// `vm.b` is NOT reactive
+// `vm.b` nu este reactiv
 ```
 
-Vue does not allow dynamically adding new root-level reactive properties to an already created instance. However, it's possible to add reactive properties to a nested object using the `Vue.set(object, key, value)` method. For example, given:
+Vue nu permite adăugarea dinamică a unor noi proprietăți reactive la nivel de rădăcină, la o instanță deja creată. Cu toate acestea, este posibil să adăugați proprietăți reactive unui obiect imbricat utilizând metoda `Vue.set(object, key, value)`. De exemplu, fiind:
 
 ``` js
 var vm = new Vue({
@@ -313,19 +313,19 @@ var vm = new Vue({
 })
 ```
 
-You could add a new `age` property to the nested `userProfile` object with:
+Puteți să adăugați o nouă proprietate `age` la obiectul imbricat `userProfile` cu:
 
 ``` js
 Vue.set(vm.userProfile, 'age', 27)
 ```
 
-You can also use the `vm.$set` instance method, which is an alias for the global `Vue.set`:
+De asemenea, puteți utiliza metoda instanței `vm.$set`, care este un alias pentru `Vue.set` global:
 
 ``` js
 this.$set(this.userProfile, 'age', 27)
 ```
 
-Sometimes you may want to assign a number of new properties to an existing object, for example using `Object.assign()` or `_.extend()`. In such cases, you should create a fresh object with properties from both objects. So instead of:
+Uneori este posibil să doriți să atribuiți un număr de proprietăți noi unui obiect existent, de exemplu folosind `Object.assign()` sau `_.extend()`. În astfel de cazuri, ar trebui să creați un obiect proaspăt cu proprietăți din ambele obiecte. Deci, în loc de:
 
 ``` js
 Object.assign(this.userProfile, {
@@ -334,7 +334,7 @@ Object.assign(this.userProfile, {
 })
 ```
 
-You would add new, reactive properties with:
+Puteți adăuga proprietăți reactive noi cu:
 
 ``` js
 this.userProfile = Object.assign({}, this.userProfile, {
