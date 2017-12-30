@@ -92,7 +92,7 @@ var example2 = new Vue({
   },
   methods: {
     greet: function (event) {
-      alert('Hello ' + this.name + '!')
+      alert('Salut ' + this.name + '!')
       if (event) {
         alert(event.target.tagName)
       }
@@ -102,14 +102,14 @@ var example2 = new Vue({
 </script>
 {% endraw %}
 
-## Methods in Inline Handlers
+## Metode și Manipulatoare-Inline
 
-Instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:
+În loc să se lege direct de un nume de metodă, putem folosi și metode într-o instrucțiune JavaScript inline:
 
 ``` html
 <div id="example-3">
-  <button v-on:click="say('hi')">Say hi</button>
-  <button v-on:click="say('what')">Say what</button>
+  <button v-on:click="say('Salut')">Spune Salut</button>
+  <button v-on:click="say('Ce')">Spune Ce</button>
 </div>
 ```
 ``` js
@@ -123,11 +123,11 @@ new Vue({
 })
 ```
 
-Result:
+Rezultat:
 {% raw %}
 <div id="example-3" class="demo">
-  <button v-on:click="say('hi')">Say hi</button>
-  <button v-on:click="say('what')">Say what</button>
+  <button v-on:click="say('Salut')">Spune Salut</button>
+  <button v-on:click="say('Ce')">Spune Ce</button>
 </div>
 <script>
 new Vue({
@@ -141,10 +141,10 @@ new Vue({
 </script>
 {% endraw %}
 
-Sometimes we also need to access the original DOM event in an inline statement handler. You can pass it into a method using the special `$event` variable:
+Uneori trebuie să accesăm evenimentul DOM original într-un manipulant de declarații inline. Puteți să o treceți într-o metodă utilizând variabila specială `$event`:
 
 ``` html
-<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+<button v-on:click="warn('Formularul încă nu poate fi trimis.', $event)">
   Submit
 </button>
 ```
@@ -153,7 +153,7 @@ Sometimes we also need to access the original DOM event in an inline statement h
 // ...
 methods: {
   warn: function (message, event) {
-    // now we have access to the native event
+    // acum avem acces la evenimentul nativ
     if (event) event.preventDefault()
     alert(message)
   }
