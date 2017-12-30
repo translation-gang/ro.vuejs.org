@@ -4,16 +4,16 @@ type: guide
 order: 9
 ---
 
-## Listening to Events
+## Ascultătorii de Evenimente
 
-We can use the `v-on` directive to listen to DOM events and run some JavaScript when they're triggered.
+Noi putem folosi directiva `v-on` pentru a asculta evenimentele DOM-ului și a rula JavaScript atunci când acestea sunt declanșate.
 
-For example:
+De exemplu:
 
 ``` html
 <div id="example-1">
   <button v-on:click="counter += 1">Add 1</button>
-  <p>The button above has been clicked {{ counter }} times.</p>
+  <p> Butonul de mai sus a fost apăsat de {{ counter }} ori.</p>
 </div>
 ```
 ``` js
@@ -25,12 +25,12 @@ var example1 = new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="example-1" class="demo">
   <button v-on:click="counter += 1">Add 1</button>
-  <p>The button above has been clicked {{ counter }} times.</p>
+  <p>Butonul de mai sus a fost apăsat de {{ counter }} ori.</p>
 </div>
 <script>
 var example1 = new Vue({
