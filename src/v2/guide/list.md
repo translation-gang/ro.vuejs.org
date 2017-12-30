@@ -343,11 +343,11 @@ this.userProfile = Object.assign({}, this.userProfile, {
 })
 ```
 
-## Displaying Filtered/Sorted Results
+## Afișarea Rezultatelor Filtrate/Sortate
 
-Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
+Uneori, dorim să afișăm o versiune filtrată sau sortată a unui array, fără a muta sau a reseta datele originale. În acest caz, puteți crea o proprietate computed care returnează array-ul filtrat sau sortat.
 
-For example:
+De exemplu:
 
 ``` html
 <li v-for="n in evenNumbers">{{ n }}</li>
@@ -366,7 +366,7 @@ computed: {
 }
 ```
 
-In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
+În situațiile în care proprietățile computed nu sunt fezabile (de exemplu, în interiorul ciclurilor imbricate `v-for`), puteți utiliza o metodă:
 
 ``` html
 <li v-for="n in even(numbers)">{{ n }}</li>
