@@ -306,12 +306,12 @@ Modificatorul `.exact` trebuie utilizat în combinație cu alți modificatori de
 
 Acești modificatori restricționează manipulatorul la evenimentele declanșate de un anumit buton al mouse-ului.
 
-## Why Listeners in HTML?
+## De ce Ascultătorii în HTML?
 
-You might be concerned that this whole event listening approach violates the good old rules about "separation of concerns". Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that's handling the current view, it won't cause any maintenance difficulty. In fact, there are several benefits in using `v-on`:
+S-ar putea să vă îngrijorați că această abordare a ascultării întregului eveniment încalcă regulile vechi despre "separarea preocupărilor". Asigurați-vă că, din moment ce toate funcțiile și expresiile de manipulare Vue sunt strict legate de ViewModel care manipulează vizualizarea curentă, nu va provoca dificultăți de întreținere. De fapt, există mai multe avantaje în utilizare a `v-on`:
 
-1. It's easier to locate the handler function implementations within your JS code by skimming the HTML template.
+1. Este mai ușor să localizați implementările funcției de manipulare în codul dvs. JS, prin eliminarea șablonului HTML.
 
-2. Since you don't have to manually attach event listeners in JS, your ViewModel code can be pure logic and DOM-free. This makes it easier to test.
+2. Deoarece nu trebuie să atașați manual ascultători de evenimente în JS, codul dvs. ViewModel poate fi logic și fără DOM. Acest lucru face mai ușoară testarea.
 
-3. When a ViewModel is destroyed, all event listeners are automatically removed. You don't need to worry about cleaning it up yourself.
+3. Când un ViewModel este distrus, toți ascultătorii de evenimente sunt eliminați automat. Nu trebuie să vă faceți griji cu privire la curățare.
