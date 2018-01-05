@@ -296,15 +296,15 @@ Modificatorul `.exact` trebuie utilizat în combinație cu alți modificatori de
 <button @click.ctrl.exact="onCtrlClick">A</button>
 ```
 
-### Mouse Button Modifiers
+### Modificatorii Butoanelor ale Mouse-ului
 
-> New in 2.2.0+
+> Nou în 2.2.0+
 
 - `.left`
 - `.right`
 - `.middle`
 
-These modifiers restrict the handler to events triggered by a specific mouse button.
+Acești modificatori restricționează manipulatorul la evenimentele declanșate de un anumit buton al mouse-ului.
 
 ## Why Listeners in HTML?
 
