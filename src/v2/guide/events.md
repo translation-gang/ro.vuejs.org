@@ -257,30 +257,30 @@ De asemenea, puteți folosi direct orice nume cheie expuse prin [`KeyboardEvent.
 
 <p class="tip">Câteva taste (`.esc` și toate tastele săgeată) au valori incoerente `cheie` în IE9, pseudonimele lor construite ar trebui să fie preferate dacă aveți nevoie de suport pentru IE9.</p>
 
-## System Modifier Keys
+## Modificatorii Sistemului
 
-> New in 2.1.0
+> Nou în 2.1.0
 
-You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
+Puteți utiliza următorii modificatori pentru a declanșa ascultătorii de evenimente pentru mouse sau tastatură numai atunci când este apăsată tasta modificatoare corespunzătoare:
 
 - `.ctrl`
 - `.alt`
 - `.shift`
 - `.meta`
 
-> Note: On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+> Notă: Pe tastaturile Macintosh, meta este tasta de comandă (⌘). Pe tastaturile Windows, meta este tasta Windows (⊞). Pe tastaturile Sun Microsystems, meta este marcat ca un diamant solid (◆). Pe anumite tastaturi, în special tastaturile mașinilor MIT și Lisp și succesorii acestora, cum ar fi tastatura Knight, tastatura space-cadet, meta este etichetat "META". Pe tastaturile Symbolics, meta este etichetat ca "META" sau "Meta".
 
-For example:
+De exemplu:
 
 ```html
 <!-- Alt + C -->
 <input @keyup.alt.67="clear">
 
 <!-- Ctrl + Click -->
-<div @click.ctrl="doSomething">Do something</div>
+<div @click.ctrl="doSomething">Fa ceva</div>
 ```
 
-<p class="tip">Note that modifier keys are different from regular keys and when used with `keyup` events, they have to be pressed when the event is emitted. In other words, `keyup.ctrl` will only trigger if you release a key while holding down `ctrl`. It won't trigger if you release the `ctrl` key alone.</p>
+<p class="tip">Rețineți că tastele modificatoare diferă de tastele obișnuite și când sunt utilizate cu evenimentele `keyup`, acestea trebuie să fie apăsate atunci când evenimentul este emis. Cu alte cuvinte, `keyup.ctrl` va declanșa numai dacă eliberați o cheie în timp ce țineți apăsată tasta `ctrl`. Nu va declanșa dacă eliberați tasta `ctrl` singur.</p>
 
 ### `.exact` Modifier
 
