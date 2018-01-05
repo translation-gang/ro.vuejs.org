@@ -205,30 +205,30 @@ Pentru a rezolva această problemă, Vue oferă **modificatorii de evenimente** 
 
 Spre deosebire de ceilalți modificatori, care sunt exclusivi pentru evenimentele DOM-ului nativ, modificatorul `.once` poate fi de asemenea utilizat în [evenimentele component](components.html#Using-v-on-with-Custom-Events). Dacă nu ați citit încă despre componente, nu vă faceți griji în acest moment.
 
-## Key Modifiers
+## Modificatorii de tip Cheie
 
-When listening for keyboard events, we often need to check for common key codes. Vue also allows adding key modifiers for `v-on` when listening for key events:
+Când ascultați evenimentele de la tastatură, trebuie să verificați frecvent codurile cheie comune. Vue permite, de asemenea, adăugarea de modificatori cheie pentru `v-on` atunci când ascultați evenimentele-cheie:
 
 ``` html
-<!-- only call vm.submit() when the keyCode is 13 -->
+<!-- apelați numai vm.submit() când codul cheie este 13 -->
 <input v-on:keyup.13="submit">
 ```
 
-Remembering all the keyCodes is a hassle, so Vue provides aliases for the most commonly used keys:
+Reținerea în memorie a tuturor codurilor cheie este un dificilă, astfel Vue oferă pseudonime pentru cele mai frecvent utilizate chei:
 
 ``` html
-<!-- same as above -->
+<!-- la fel ca mai sus -->
 <input v-on:keyup.enter="submit">
 
-<!-- also works for shorthand -->
+<!-- lucrează și pentru shorthand -->
 <input @keyup.enter="submit">
 ```
 
-Here's the full list of key modifier aliases:
+Iată lista completă a pseudonimelor modificatoare:
 
 - `.enter`
 - `.tab`
-- `.delete` (captures both "Delete" and "Backspace" keys)
+- `.delete` (captează atât cheile "Ștergere", cât și pe cele "Backspace")
 - `.esc`
 - `.space`
 - `.up`
@@ -236,10 +236,10 @@ Here's the full list of key modifier aliases:
 - `.left`
 - `.right`
 
-You can also [define custom key modifier aliases](../api/#keyCodes) via the global `config.keyCodes` object:
+Puteți, de asemenea, să [definiți pseudonime a cheilor modificatoare personalizate](../api/#keyCodes) prin obiectul global `config.keyCodes`:
 
 ``` js
-// enable v-on:keyup.f1
+// activați v-on: keyup.f1
 Vue.config.keyCodes.f1 = 112
 ```
 
