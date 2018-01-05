@@ -282,17 +282,17 @@ De exemplu:
 
 <p class="tip">Rețineți că tastele modificatoare diferă de tastele obișnuite și când sunt utilizate cu evenimentele `keyup`, acestea trebuie să fie apăsate atunci când evenimentul este emis. Cu alte cuvinte, `keyup.ctrl` va declanșa numai dacă eliberați o cheie în timp ce țineți apăsată tasta `ctrl`. Nu va declanșa dacă eliberați tasta `ctrl` singur.</p>
 
-### `.exact` Modifier
+### Modificatorul `.exact` 
 
-> New in 2.5.0
+> Nou în 2.5.0
 
-The `.exact` modifier should be used in combination with other system modifiers to indicate that the exact combination of modifiers must be pressed for the handler to fire.
+Modificatorul `.exact` trebuie utilizat în combinație cu alți modificatori de sistem pentru a indica faptul că trebuie să fie apăsată o combinație exactă de modificatori pentru ca dispozitivul de manipulare să poată declanșa focalizarea.
 
 ``` html
-<!-- this will fire even if Alt or Shift is also pressed -->
+<!-- aceasta se va declanșa chiar dacă Alt sau Shift este de asemenea apăsat -->
 <button @click.ctrl="onClick">A</button>
 
-<!-- this will only fire when only Ctrl is pressed -->
+<!-- aceasta se va declanșa numai când Ctrl este apăsat -->
 <button @click.ctrl.exact="onCtrlClick">A</button>
 ```
 
