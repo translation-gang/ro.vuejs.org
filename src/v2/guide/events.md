@@ -243,19 +243,19 @@ Puteți, de asemenea, să [definiți pseudonime a cheilor modificatoare personal
 Vue.config.keyCodes.f1 = 112
 ```
 
-### Automatic Key Modifers
+### Modificatorii Cheie Automatizați
 
-> New in 2.5.0+
+> Nou în 2.5.0+
 
-You can also directly use any valid key names exposed via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) as modifiers by converting them to kebab-case:
+De asemenea, puteți folosi direct orice nume cheie expuse prin [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) ca modificatori prin conversia lor în kebab-case:
 
 ``` html
 <input @keyup.page-down="onPageDown">
 ```
 
-In the above example, the handler will only be called if `$event.key === 'PageDown'`.
+În exemplul de mai sus, manipulatorul va fi apelat numai dacă `$event.key === 'PageDown'`.
 
-<p class="tip">A few keys (`.esc` and all arrow keys) have inconsistent `key` values in IE9, their built-in aliases should be preferred if you need to support IE9.</p>
+<p class="tip">Câteva taste (`.esc` și toate tastele săgeată) au valori incoerente `cheie` în IE9, pseudonimele lor construite ar trebui să fie preferate dacă aveți nevoie de suport pentru IE9.</p>
 
 ## System Modifier Keys
 
