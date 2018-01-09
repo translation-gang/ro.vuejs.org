@@ -65,7 +65,7 @@ var example2 = new Vue({
   methods: {
     greet: function (event) {
       // `this` din interior metodelor indică instanța Vue
-      alert('Hello ' + this.name + '!')
+      alert('Salut ' + this.name + '!')
       // `event` este evenimentul DOM-ului nativ
       if (event) {
         alert(event.target.tagName)
