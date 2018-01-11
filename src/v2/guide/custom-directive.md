@@ -1,12 +1,12 @@
 ---
-title: Custom Directives
+title: Directive Personalizate
 type: guide
 order: 302
 ---
 
-## Intro
+## Introducere
 
-In addition to the default set of directives shipped in core (`v-model` and `v-show`), Vue also allows you to register your own custom directives. Note that in Vue 2.0, the primary form of code reuse and abstraction is components - however there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
+Pe lângă setul implicit de directive livrate în nucleu (`v-model` și `v-show`), Vue vă permite, de asemenea, să vă înregistrați propriile directive personalizate. Rețineți că în Vue 2.0, forma primară de reutilizare și abstractizare a codului reprezintă componentele - cu toate acestea, pot exista cazuri în care aveți nevoie de a efectua operațiuni la nivel inferior cu DOM, pentru care directivele personalizate pot fi foarte utile. Un exemplu ar fi focalizarea asupra unui element input:
 
 {% raw %}
 <div id="simplest-directive-example" class="demo">
@@ -24,25 +24,25 @@ new Vue({
 </script>
 {% endraw %}
 
-When the page loads, that element gains focus (note: autofocus doesn't work on mobile Safari). In fact, if you haven't clicked on anything else since visiting this page, the input above should be focused now. Now let's build the directive that accomplishes this:
+Când pagina se încarcă, acel element capătă focalizare (rețineți: `autofocus` nu funcționează pe Safari mobil). De fapt, dacă nu ați făcut clic pe altceva de la vizitarea acestei pagini, inputul de mai sus ar trebui să fie focalizat acum. Deci, să construim directiva care realizează acest lucru:
 
 ``` js
-// Register a global custom directive called v-focus
+// Înregistrăm o directivă personalizată globală numită v-focus
 Vue.directive('focus', {
-  // When the bound element is inserted into the DOM...
+  // Când elementul legat este inserat în DOM...
   inserted: function (el) {
-    // Focus the element
+    // Focalizarea elementului
     el.focus()
   }
 })
 ```
 
-If you want to register a directive locally instead, components also accept a `directives` option:
+Dacă doriți să înregistrați o directivă locală, componentele acceptă și opțiunea `directives`:
 
 ``` js
 directives: {
   focus: {
-    // directive definition
+    // definirea directivei
     inserted: function (el) {
       el.focus()
     }
@@ -50,46 +50,46 @@ directives: {
 }
 ```
 
-Then in a template, you can use the new `v-focus` attribute on any element, like this:
+Apoi, într-un șablon, puteți folosi noul atribut `v-focus` pe orice element, cum ar fi acesta:
 
 ``` html
 <input v-focus>
 ```
 
-## Hook Functions
+## Funcții de Declanșare (Hook-uri)
 
-A directive definition object can provide several hook functions (all optional):
+Un obiect de definire a directivelor poate oferi mai multe hook-uri (toate opționale):
 
-- `bind`: called only once, when the directive is first bound to the element. This is where you can do one-time setup work.
+- `bind`: apelată o singură dată, când directiva este prima dată legată de element. Aici puteți efectua o singură operație de configurare.
 
-- `inserted`: called when the bound element has been inserted into its parent node (this only guarantees parent node presence, not necessarily in-document).
+- `inserted`: apelată atunci când elementul legat a fost inserat în nodul părinte (acest lucru garantează doar prezența în nodul părinte, nu neapărat în document).
 
-- `update`: called after the containing component's VNode has updated, __but possibly before its children have updated__. The directive's value may or may not have changed, but you can skip unnecessary updates by comparing the binding's current and old values (see below on hook arguments).
+- `update`: apelată după ce VNode-ul componentei-container este actualizat, __dar eventual înainte ca elementele derivate să fie actualizate__. Valoarea directivei se poate schimba până în acest moment sau poate nu, dar puteți sări peste actualizările inutile prin compararea valorilor curente și vechi ale legăturii (priviți mai jos despre argumentele hook-urilor).
 
-- `componentUpdated`: called after the containing component's VNode __and the VNodes of its children__ have updated.
+- `componentUpdated`: apelată după actualizarea atât a VNodei componentei-container __cât și a VNode-lor derivatelor sale__.
 
-- `unbind`: called only once, when the directive is unbound from the element.
+- `unbind`: apelată o singură dată, când directiva se dezleagă de la element.
 
-We'll explore the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `oldVnode`) in the next section.
+Vom examina argumentele transmise în aceste hook-uri (și anume `el`, `binding`, `vnode` și `oldVnode`) în secțiunea următoare.
 
-## Directive Hook Arguments
+## Argumentele Hook-urilor
 
-Directive hooks are passed these arguments:
+Următorii parametri sunt transmiși în hook-uri:
 
-- **el**: The element the directive is bound to. This can be used to directly manipulate the DOM.
-- **binding**: An object containing the following properties.
-  - **name**: The name of the directive, without the `v-` prefix.
-  - **value**: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - **oldValue**: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
-  - **expression**: The expression of the binding as a string. For example in `v-my-directive="1 + 1"`, the expression would be `"1 + 1"`.
-  - **arg**: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - **modifiers**: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- **vnode**: The virtual node produced by Vue's compiler. See the [VNode API](../api/#VNode-Interface) for full details.
-- **oldVnode**: The previous virtual node, only available in the `update` and `componentUpdated` hooks.
+- **el**: Elementul de care directiva este legată. Acesta poate fi folosit pentru a manipula direct DOM.
+- **binding**: Un obiect care conține următoarele proprietăți.
+  - **name**: Numele directivei, fără prefixul `v-`.
+  - **value**: Valoarea transmisă directivei. De exemplu, în `v-my-directive="1 + 1"`, valoarea ar fi `2`.
+  - **oldValue**: Valoarea anterioară, disponibilă numai în `update` și `componentUpdated`. Este disponibilă chiar dacă valoarea nu a fost modificată.
+  - **expression**: Expresia legării ca șir de caractere. De exemplu, în `v-my-directive="1 + 1"`, aceasta va fi `"1 + 1"`.
+  - **arg**: Argumentul transmis directivei, dacă există. De exemplu, în `v-my-directive:foo`, arg va fi `"foo"`.
+  - **modifiers**: Un obiect care conține modificatori, dacă există. De exemplu, în `v-my-directive.foo.bar`, obiectul cu modificatori ar fi `{ foo: true, bar: true }`.
+- **vnode**: Nodul virtual produs de compilatorul Vue. Analizați [VNode API](../api/#VNode-Interface) pentru detalii complete.
+- **oldVnode**: Nodul virtual anterior, disponibil numai în hook-urile `update` și `componentUpdated`.
 
-<p class="tip">Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
+<p class="tip">În afară de `el`, ar trebui să tratați aceste argumente ca fiind doar pentru citire și să nu le modificați niciodată. Dacă aveți nevoie să partajați informația între hook-uri, se recomandă să faceți acest lucru prin [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
 
-An example of a custom directive using some of these properties:
+Urmează un exemplu de directivă personalizată care utilizează unele dintre aceste proprietăți:
 
 ``` html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
@@ -141,9 +141,9 @@ new Vue({
 </script>
 {% endraw %}
 
-## Function Shorthand
+## Forma Prescurtată
 
-In many cases, you may want the same behavior on `bind` and `update`, but don't care about the other hooks. For example:
+În multe cazuri, este posibil să doriți același comportament penreu `bind` și `update`, dar să nu vă fie importante celelalte hook-uri. De exemplu:
 
 ``` js
 Vue.directive('color-swatch', function (el, binding) {
@@ -151,9 +151,9 @@ Vue.directive('color-swatch', function (el, binding) {
 })
 ```
 
-## Object Literals
+## Transmiterea Obiectului de Date în Directivă
 
-If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
+Dacă directiva dvs. are nevoie de mai multe valori, puteți transmite și un obiect JavaScript. Rețineți că directivele pot lua orice expresie JavaScript validă.
 
 ``` html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
