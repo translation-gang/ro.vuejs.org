@@ -1,12 +1,12 @@
 ---
-title: List Rendering
+title: Randarea Listei
 type: guide
 order: 8
 ---
 
-## Mapping an Array to Elements with `v-for`
+## Afișarea unui Array de elemente cu `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Putem folosi directiva `v-for` pentru a crea o listă de elemente bazate pe un array. Direcția `v-for` necesită o sintaxă specială sub forma unui `item in items`, unde `items` este sursa de date a array-ului și `item` este un **alias** pentru elementul din array fiind repetat pe:
 
 ``` html
 <ul id="example-1">
@@ -28,7 +28,7 @@ var example1 = new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <ul id="example-1" class="demo">
@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
+În interiorul blocurilor `v-for` avem acces deplin la proprietățile domeniului părinte. `v-for` sprijină, de asemenea, un al doilea argument opțional pentru indexul elementului curent.
 
 ``` html
 <ul id="example-2">
@@ -77,7 +77,7 @@ var example2 = new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw%}
 <ul id="example-2" class="demo">
@@ -104,15 +104,15 @@ var example2 = new Vue({
 </script>
 {% endraw %}
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+De asemenea, puteți folosi `of` ca delimitator în loc de `in`, astfel încât să fie mai aproape de sintaxa JavaScript pentru iteratori:
 
 ``` html
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## `v-for` cu un Obiect
 
-You can also use `v-for` to iterate through the properties of an object.
+De asemenea, puteți folosi `v-for` pentru a itera prin proprietățile unui obiect.
 
 ``` html
 <ul id="v-for-object" class="demo">
@@ -135,7 +135,7 @@ new Vue({
 })
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <ul id="v-for-object" class="demo">
@@ -157,7 +157,7 @@ new Vue({
 </script>
 {% endraw %}
 
-You can also provide a second argument for the key:
+De asemenea, puteți oferi un al doilea argument pentru primirea unei chei:
 
 ``` html
 <div v-for="(value, key) in object">
@@ -185,7 +185,7 @@ new Vue({
 </script>
 {% endraw %}
 
-And another for the index:
+Și al treilea pentru index:
 
 ``` html
 <div v-for="(value, key, index) in object">
@@ -213,15 +213,15 @@ new Vue({
 </script>
 {% endraw %}
 
-<p class="tip">When iterating over an object, the order is based on the key enumeration order of `Object.keys()`, which is **not** guaranteed to be consistent across JavaScript engine implementations.</p>
+<p class="tip">Atunci când iterăm peste un obiect, ordinea se bazează pe ordinul de enumerare a cheiei în `Object.keys ()`, care **nu** este garantat a fi consecvent în implementările motorului JavaScript.</p>
 
 ## `key`
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index. This is similar to the behavior of `track-by="$index"` in Vue 1.x.
+Când Vue actualizează o listă de elemente redate cu `v-for`, implicit folosește o strategie "in-place patch". Dacă ordinea elementelor de date s-a schimbat, în loc să mutați elementele DOM pentru a se potrivi cu ordinea articolelor, Vue va face patch pentru fiecare element în loc și va asigura că reflectă ceea ce ar trebui să fie redat la indexul respectiv. Acest lucru este similar cu comportamentul `track-by="$index"` în Vue 1.x.
 
-This default mode is efficient, but only suitable **when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+Acest mod implicit este eficient, dar numai potrivit **când lista de rendare nu se bazează pe starea componentă a elementului derivat sau pe starea DOM temporară (de exemplu, forma de intrare pentru valori)**.
 
-To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item. An ideal value for `key` would be the unique id of each item. This special attribute is a rough equivalent to `track-by` in 1.x, but it works like an attribute, so you need to use `v-bind` to bind it to dynamic values (using shorthand here):
+Pentru a da Vue-ului un indiciu, astfel încât să poată urmări identitatea fiecărui nod, reutilizând și reordonând elementele existente, trebuie să oferiți un atribut unic `key` pentru fiecare element. O valoare ideală pentru `key` ar fi id-ul unic al fiecărui element. Acest atribut special este strict echivalent cu `track-by` în 1.x, dar funcționează ca un atribut, deci trebuie să folosiți `v-bind` pentru a le lega de valorile dinamice (folosind shorthand aici):
 
 ``` html
 <div v-for="item in items" :key="item.id">
@@ -229,15 +229,15 @@ To give Vue a hint so that it can track each node's identity, and thus reuse and
 </div>
 ```
 
-It is recommended to provide a `key` with `v-for` whenever possible, unless the iterated DOM content is simple, or you are intentionally relying on the default behavior for performance gains.
+Se recomandă să furnizați (o cheie)`key` cu `v-for` ori de câte ori este posibil, cu excepția cazului în care conținutul DOM-ului iterabil este simplu sau dacă vă bazați în mod intenționat pe comportamentul implicit pentru câștigurile de performanță.
 
-Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
+Deoarece este un mecanism generic pentru Vue de a identifica nodurile, `key` are și alte utilizări care nu sunt legate în mod specific cu `v-for`, așa cum vom vedea mai târziu în ghid.
 
-## Array Change Detection
+## Array-ul Schimbă Detectarea
 
-### Mutation Methods
+### Metode de Mutație
 
-Vue wraps an observed array's mutation methods so they will also trigger view updates. The wrapped methods are:
+Vue împachetează o metodă de mutație observată a array-ului, astfel încât aceasta va declanșa actualizări de vizualizare. Metodele împachetate sunt:
 
 - `push()`
 - `pop()`
@@ -247,11 +247,11 @@ Vue wraps an observed array's mutation methods so they will also trigger view up
 - `sort()`
 - `reverse()`
 
-You can open the console and play with the previous examples' `items` array by calling their mutation methods. For example: `example1.items.push({ message: 'Baz' })`.
+Puteți deschide consola și puteți juca cu array-ului exemplelor anterioare, prin apelarea metodelor de mutație. De exemplu: `example1.items.push({ message: 'Baz' })`.
 
-### Replacing an Array
+### Înlocuirea unui Array
 
-Mutation methods, as the name suggests, mutate the original array they are called on. In comparison, there are also non-mutating methods, e.g. `filter()`, `concat()` and `slice()`, which do not mutate the original array but **always return a new array**. When working with non-mutating methods, you can replace the old array with the new one:
+Metodele de mutație, după cum sugerează și numele, mută array-ul original ]n cel care este chemat. În comparație, există, de asemenea, metode non-mutație, de ex. `filter()`, `concat()` și `slice()`, care nu modifică array-ul original, dar **întoarce întotdeauna un șir nou**. Când lucrați cu metode non-mutație, puteți înlocui array-ul vechi cu cel nou:
 
 ``` js
 example1.items = example1.items.filter(function (item) {
@@ -259,16 +259,16 @@ example1.items = example1.items.filter(function (item) {
 })
 ```
 
-You might think this will cause Vue to throw away the existing DOM and re-render the entire list - luckily, that is not the case. Vue implements some smart heuristics to maximize DOM element reuse, so replacing an array with another array containing overlapping objects is a very efficient operation.
+S-ar putea crede că acest lucru va face ca Vue să arunce DOM-ul existent și să redea întreaga listă - din fericire, nu este cazul. Vue implementează unele euristici inteligente pentru a maximiliza reutilizarea elementului DOM, înlocuind astfel un array cu un alt array care conține obiecte suprapuse, este o operație foarte eficientă.
 
-### Caveats
+### Avertismente
 
-Due to limitations in JavaScript, Vue **cannot** detect the following changes to an array:
+Datorită limitărilor din JavaScript, Vue **nu poate** detecta următoarele modificări la un arrray:
 
-1. When you directly set an item with the index, e.g. `vm.items[indexOfItem] = newValue`
-2. When you modify the length of the array, e.g. `vm.items.length = newLength`
+1. Când setați direct un element cu indexul, de ex. `vm.items[indexOfItem] = newValue`
+2. Când modificați lungimea array-ului, de ex. `vm.items.length = newLength`
 
-To overcome caveat 1, both of the following will accomplish the same as `vm.items[indexOfItem] = newValue`, but will also trigger state updates in the reactivity system:
+Pentru a depăși avertismentul 1, ambele dintre ele vor realiza aceleași lucruri ca și `vm.items[indexOfItem] = newValue`, dar vor declanșa actualizări de stare în sistemul de reactivitate:
 
 ``` js
 // Vue.set
@@ -279,15 +279,15 @@ Vue.set(example1.items, indexOfItem, newValue)
 example1.items.splice(indexOfItem, 1, newValue)
 ```
 
-To deal with caveat 2, you can use `splice`:
+Pentru a face față avertismentului 2, puteți folosi `splice`:
 
 ``` js
 example1.items.splice(newLength)
 ```
 
-## Object Change Detection Caveats
+## Avertismente de Schimbare a Obiectelor
 
-Again due to limitations of modern JavaScript, **Vue cannot detect property addition or deletion**. For example:
+Din nou datorită limitelor JavaScript-ului modern, **Vue nu poate detecta adăugarea sau ștergerea de proprietăți**. De exemplu:
 
 ``` js
 var vm = new Vue({
@@ -295,13 +295,13 @@ var vm = new Vue({
     a: 1
   }
 })
-// `vm.a` is now reactive
+// `vm.a` este acum reactiv
 
 vm.b = 2
-// `vm.b` is NOT reactive
+// `vm.b` nu este reactiv
 ```
 
-Vue does not allow dynamically adding new root-level reactive properties to an already created instance. However, it's possible to add reactive properties to a nested object using the `Vue.set(object, key, value)` method. For example, given:
+Vue nu permite adăugarea dinamică a unor noi proprietăți reactive la nivel de rădăcină, la o instanță deja creată. Cu toate acestea, este posibil să adăugați proprietăți reactive unui obiect imbricat utilizând metoda `Vue.set(object, key, value)`. De exemplu, fiind:
 
 ``` js
 var vm = new Vue({
@@ -313,19 +313,19 @@ var vm = new Vue({
 })
 ```
 
-You could add a new `age` property to the nested `userProfile` object with:
+Puteți să adăugați o nouă proprietate `age` la obiectul imbricat `userProfile` cu:
 
 ``` js
 Vue.set(vm.userProfile, 'age', 27)
 ```
 
-You can also use the `vm.$set` instance method, which is an alias for the global `Vue.set`:
+De asemenea, puteți utiliza metoda instanței `vm.$set`, care este un alias pentru `Vue.set` global:
 
 ``` js
 this.$set(this.userProfile, 'age', 27)
 ```
 
-Sometimes you may want to assign a number of new properties to an existing object, for example using `Object.assign()` or `_.extend()`. In such cases, you should create a fresh object with properties from both objects. So instead of:
+Uneori este posibil să doriți să atribuiți un număr de proprietăți noi unui obiect existent, de exemplu folosind `Object.assign()` sau `_.extend()`. În astfel de cazuri, ar trebui să creați un obiect proaspăt cu proprietăți din ambele obiecte. Deci, în loc de:
 
 ``` js
 Object.assign(this.userProfile, {
@@ -334,7 +334,7 @@ Object.assign(this.userProfile, {
 })
 ```
 
-You would add new, reactive properties with:
+Puteți adăuga proprietăți reactive noi cu:
 
 ``` js
 this.userProfile = Object.assign({}, this.userProfile, {
@@ -343,11 +343,11 @@ this.userProfile = Object.assign({}, this.userProfile, {
 })
 ```
 
-## Displaying Filtered/Sorted Results
+## Afișarea Rezultatelor Filtrate/Sortate
 
-Sometimes we want to display a filtered or sorted version of an array without actually mutating or resetting the original data. In this case, you can create a computed property that returns the filtered or sorted array.
+Uneori, dorim să afișăm o versiune filtrată sau sortată a unui array, fără a muta sau a reseta datele originale. În acest caz, puteți crea o proprietate computed care returnează array-ul filtrat sau sortat.
 
-For example:
+De exemplu:
 
 ``` html
 <li v-for="n in evenNumbers">{{ n }}</li>
@@ -366,7 +366,7 @@ computed: {
 }
 ```
 
-In situations where computed properties are not feasible (e.g. inside nested `v-for` loops), you can use a method:
+În situațiile în care proprietățile computed nu sunt fezabile (de exemplu, în interiorul ciclurilor imbricate `v-for`), puteți utiliza o metodă:
 
 ``` html
 <li v-for="n in even(numbers)">{{ n }}</li>
@@ -385,9 +385,9 @@ methods: {
 }
 ```
 
-## `v-for` with a Range
+## `v-for` cu un Interval
 
-`v-for` can also take an integer. In this case it will repeat the template that many times.
+`v-for` poate lua de asemenea un număr întreg. În acest caz, se va repeta șablonul de mai multe ori.
 
 ``` html
 <div>
@@ -395,7 +395,7 @@ methods: {
 </div>
 ```
 
-Result:
+Rezultat:
 
 {% raw %}
 <div id="range" class="demo">
@@ -406,9 +406,9 @@ Result:
 </script>
 {% endraw %}
 
-## `v-for` on a `<template>`
+## `v-for` pe un `<template>`
 
-Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to render a block of multiple elements. For example:
+Similar cu șablonul `v-if`, puteți folosi și o etichetă `<template>` cu `v-for` pentru a reda un bloc de elemente multiple. De exemplu:
 
 ``` html
 <ul>
@@ -419,9 +419,9 @@ Similar to template `v-if`, you can also use a `<template>` tag with `v-for` to 
 </ul>
 ```
 
-## `v-for` with `v-if`
+## `v-for` cu `v-if`
 
-When they exist on the same node, `v-for` has a higher priority than `v-if`. That means the `v-if` will be run on each iteration of the loop separately. This can be useful when you want to render nodes for only _some_ items, like below:
+Când există pe același nod, `v-for` are o prioritate mai mare decât `v-if`. Asta inseamna ca `v-if` va fi rulat pe fiecare iteratie a ciclului separat. Acest lucru poate fi util atunci când doriți să redați noduri doar pentru _unele_ elemente, cum ar fi:
 
 ``` html
 <li v-for="todo in todos" v-if="!todo.isComplete">
@@ -429,9 +429,9 @@ When they exist on the same node, `v-for` has a higher priority than `v-if`. Tha
 </li>
 ```
 
-The above only renders the todos that are not complete.
+Cele de mai sus fac doar todos care nu sunt complete.
 
-If instead, your intent is to conditionally skip execution of the loop, you can place the `v-if` on a wrapper element (or [`<template>`](conditional.html#Conditional-Groups-with-v-if-on-lt-template-gt)). For example:
+Dacă în schimb, intenția dvs. este să ignorați condiția execuției a ciclului, puteți plasa elementul `v-if` pe un element de înfășurare (sau [`<template>`](conditional.html#Conditional-Groups-with-v-if-on-lt-template-gt)). De exemplu:
 
 ``` html
 <ul v-if="todos.length">
@@ -439,22 +439,22 @@ If instead, your intent is to conditionally skip execution of the loop, you can 
     {{ todo }}
   </li>
 </ul>
-<p v-else>No todos left!</p>
+<p v-else>Nu au mai rămas todos!</p>
 ```
 
-## `v-for` with a Component
+## `v-for` cu o Componentă
 
-> This section assumes knowledge of [Components](components.html). Feel free to skip it and come back later.
+> Această secțiune presupune cunoașterea [Componentelor](components.html). Simțiți-vă liber să săriți și să reveniți mai târziu.
 
-You can directly use `v-for` on a custom component, like any normal element:
+Puteți folosi direct `v-for` pe o componentă personalizată, ca orice element normal:
 
 ``` html
 <my-component v-for="item in items" :key="item.id"></my-component>
 ```
 
-> In 2.2.0+, when using `v-for` with a component, a [`key`](list.html#key) is now required.
+> În versiunea 2.2.0+, atunci când se folosește `v-for` cu o componentă, este acum necesară o cheie[`key`](list.html#key).
 
-However, this won't automatically pass any data to the component, because components have isolated scopes of their own. In order to pass the iterated data into the component, we should also use props:
+Cu toate acestea, acest lucru nu va transfera automat niciun fel de date componentei, deoarece componentele au domenii izolate. Pentru a transfera datele iterate pe o componentă, trebuie să utilizați în mod explicit parametrii de intrare:
 
 ``` html
 <my-component
@@ -465,16 +465,16 @@ However, this won't automatically pass any data to the component, because compon
 ></my-component>
 ```
 
-The reason for not automatically injecting `item` into the component is because that makes the component tightly coupled to how `v-for` works. Being explicit about where its data comes from makes the component reusable in other situations.
+Motivul pentru care `item`-ul nu este transmis automat componentei se datorează faptului că ar face ca componenta să fie codificată cu logica operației `v-for`. Și dacă sursa de date este specificată explicit, componenta poate fi reutilizată în alte situații.
 
-Here's a complete example of a simple todo list:
+Aici este un exemplu complet a unei liste simple de tip todo:
 
 ``` html
 <div id="todo-list-example">
   <input
     v-model="newTodoText"
     v-on:keyup.enter="addNewTodo"
-    placeholder="Add a todo"
+    placeholder="Adaugă un todo"
   >
   <ul>
     <li
@@ -488,7 +488,7 @@ Here's a complete example of a simple todo list:
 </div>
 ```
 
-<p class="tip">Note the `is="todo-item"` attribute. This is necessary in DOM templates, because only an `<li>` element is valid inside a `<ul>`. It does the same thing as `<todo-item>`, but works around a potential browser parsing error. See [DOM Template Parsing Caveats](components.html#DOM-Template-Parsing-Caveats) to learn more.</p>
+<p class="tip">Rețineți atributul `is="todo-item"`. Acesta este necesar în șabloanele DOM-ului, deoarece numai un element `<li>` este valabil în interiorul unui `<ul>`. El face același lucru cu `<todo-item>`, dar funcționează în jurul unei erori potențiale de parsing a browserului. Consultați [Caracteristicile Parsingului  Șabloanelor ale DOM-ului](components.html#DOM-Template-Parsing-Caveats) pentru a afla mai multe.</p>
 
 ``` js
 Vue.component('todo-item', {
@@ -508,15 +508,15 @@ new Vue({
     todos: [
       {
         id: 1,
-        title: 'Do the dishes',
+        title: 'De spălat vesela',
       },
       {
         id: 2,
-        title: 'Take out the trash',
+        title: 'De aruncat gunoiul',
       },
       {
         id: 3,
-        title: 'Mow the lawn'
+        title: 'De tăiat gazonul'
       }
     ],
     nextTodoId: 4
@@ -538,7 +538,7 @@ new Vue({
   <input
     v-model="newTodoText"
     v-on:keyup.enter="addNewTodo"
-    placeholder="Add a todo"
+    placeholder="Adaugă un todo"
   >
   <ul>
     <li
@@ -568,15 +568,15 @@ new Vue({
     todos: [
       {
         id: 1,
-        title: 'Do the dishes',
+        title: 'De spălat vesela',
       },
       {
         id: 2,
-        title: 'Take out the trash',
+        title: 'De aruncat gunoiul',
       },
       {
         id: 3,
-        title: 'Mow the lawn'
+        title: 'De tăiat gazonul'
       }
     ],
     nextTodoId: 4
